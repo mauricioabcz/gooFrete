@@ -11,6 +11,45 @@
         <maven.compiler.target>19</maven.compiler.target>
         <exec.mainClass>GooFrete</exec.mainClass>
     </properties>
+    <build>
+	<plugins>
+		<plugin>
+			<!-- Build an executable JAR -->
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-jar-plugin</artifactId>
+			<version>3.3.0</version>
+			<configuration>
+				<archive>
+					<manifest>
+						<mainClass>com.gooFrete.View.Janela</mainClass>
+					</manifest>
+				</archive>
+			</configuration>
+		</plugin>
+                <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadoc</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>javadoc</goal>
+                        </goals>
+                        <configuration>
+                            <reportOutputDirectory>${project.build.directory}/classes/</reportOutputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+             </plugin>
+	</plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
+    </build>
     <dependencies>
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
@@ -26,6 +65,13 @@
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
             <version>RELEASE65</version>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.8.2</version>
+            <scope>test</scope>
+            <type>jar</type>
         </dependency>
     </dependencies>
 </project>
