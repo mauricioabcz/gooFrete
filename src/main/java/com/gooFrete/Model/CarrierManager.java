@@ -314,4 +314,60 @@ public class CarrierManager {
         }
     }
     
+    public List<Carrier> getLinkedCarrier(String EquipmentId){
+
+        String carrierName, carrierCNPJCPF, address,district, city, state, country, zipcode, phone;
+        int carrierType;
+        Carrier transportador;      
+        List <Carrier>transportadores = new ArrayList();
+        
+        // Declare the JDBC objects.
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        ResultSet resultSet2 = null;
+        PreparedStatement prepsInsertProduct = null;
+
+        try {
+                connection = DriverManager.getConnection(connectionString);
+
+                // Create and execute a SELECT SQL statement.
+                String selectSql = "select a.carrierName,a.carrierCNPJCPF,a.address,a.district,a.city,a.state,a.country,a.zipcode,a.phone, a.type from [carrier].[Carrier] a " +
+                                   "inner join [carrier].[Equipment] b on b.CarrierId = a.Id where b.Id = '" + EquipmentId + "';";
+                System.out.println(selectSql);
+                statement = connection.createStatement();
+                resultSet = statement.executeQuery(selectSql);
+                
+        
+                // Create results from select statement
+                while (resultSet.next()) {
+                        carrierName = resultSet.getString(1);
+                        carrierCNPJCPF = resultSet.getString(2);
+                        address = resultSet.getString(3);
+                        district = resultSet.getString(4);
+                        city = resultSet.getString(5);
+                        state = resultSet.getString(6);
+                        country = resultSet.getString(7);
+                        zipcode = resultSet.getString(8);
+                        phone = resultSet.getString(9);
+                        carrierType = Integer.parseInt(resultSet.getString(10));
+                        transportador = new Carrier(carrierName, carrierCNPJCPF, address, district, city, state, country, zipcode, phone, carrierType);
+                        transportadores.add(transportador);
+                        }
+        return transportadores;
+        }
+        catch (Exception e) {
+                e.printStackTrace();
+                return null;
+        }
+        finally {
+                // Close the connections after the data has been handled.
+                if (prepsInsertProduct != null) try { prepsInsertProduct.close(); } catch(Exception e) {}
+                if (resultSet != null) try { resultSet.close(); } catch(Exception e) {}
+                if (resultSet2 != null) try { resultSet2.close(); } catch(Exception e) {}
+                if (statement != null) try { statement.close(); } catch(Exception e) {}
+                if (connection != null) try { connection.close(); } catch(Exception e) {}
+        }
+    }
+    
 }

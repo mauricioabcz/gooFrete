@@ -15,11 +15,13 @@ public class CarrierController {
     private Carrier carrier;
     private Equipment equipment;
     private List listaTransportadores;
+    private List listaVeiculosVinculados;
     private CarrierManager carrierManager;
     private EquipmentManager equipmentManager;
     
     public CarrierController() {
         carrierManager = new CarrierManager();
+        equipmentManager = new EquipmentManager();
     }
     
     public boolean carrierPersistence(Carrier transportador){
@@ -55,9 +57,10 @@ public class CarrierController {
         return situacao;
     }
     
-//    public String carrierVinculados(String licensePlate){
-//        String situacao = equipmentManager.equipmentExiste(actualLicensePlate);
-//        return situacao;
-//    }
+    public List<Equipment> equipmentVinculados(String carrierCNPJCPF){
+        String carrierId = carrierManager.carrierExiste(carrierCNPJCPF);
+        this.listaVeiculosVinculados = equipmentManager.getLinkedCarrierEquipment(carrierId);
+        return this.listaVeiculosVinculados;
+    }
     
 }

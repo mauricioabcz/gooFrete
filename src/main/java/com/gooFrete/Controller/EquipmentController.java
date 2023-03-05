@@ -14,10 +14,13 @@ public class EquipmentController {
     
     private Equipment equipment;
     private List listaVeiculos;
+    private List listaCarrierVinculados;
     private EquipmentManager equipmentManager;
+    private CarrierManager carrierManager;
     
     public EquipmentController() {
         equipmentManager = new EquipmentManager();
+        carrierManager = new CarrierManager();
     }
     
     public List<Equipment> equipmentQueryAll(){
@@ -53,11 +56,10 @@ public class EquipmentController {
         return situacao;
     }
     
-//    public String equipmentVinculados(String actualLicensePlate){
-//        boolean status;
-//        String situacao = equipmentExiste(actualLicensePlate);
-//        status = equipmentManager.equipmentUpdate(situacao);
-//        return status;
-//    }
+    public List<Carrier> carrierVinculados(String licensePlate){
+        String equipmentId = equipmentManager.equipmentExiste(licensePlate);
+        this.listaCarrierVinculados = carrierManager.getLinkedCarrier(equipmentId);
+        return this.listaCarrierVinculados;
+    }
     
 }

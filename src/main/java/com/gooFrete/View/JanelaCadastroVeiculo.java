@@ -23,6 +23,7 @@ public class JanelaCadastroVeiculo extends javax.swing.JPanel {
 
     private List<Equipment> listaVeiculos;
     private List<Carrier> listaTransportadores;
+    private List<Carrier> listaTransportadoresVinculados;
     private CarrierController carrierController;
     private EquipmentController equipmentController;
     
@@ -740,13 +741,32 @@ public class JanelaCadastroVeiculo extends javax.swing.JPanel {
         if (status) System.out.println("Veículo atualizado com sucesso.");;
     }
     
-    private void atualizaTransportadoresVinculados(){
+    private void atualizaVinculoComTransportadores(){
         //Pega Placa da tabela
-        //String licensePlate;
-        //licensePlate = (String) tabelaVeiculos.getModel().getValueAt(tabelaVeiculos.getSelectedRow() ,3);
-        //Consulta vínculo
-        //boolean status = equipmentController.equipmentAtualization(novoVeiculo, (String) tabelaVeiculos.getModel().getValueAt(tabelaVeiculos.getSelectedRow() ,3));
-        //if (status) System.out.println("Veículo atualizado com sucesso.");;
+        String licensePlate;
+        licensePlate = (String) tabelaVeiculos.getModel().getValueAt(tabelaVeiculos.getSelectedRow() ,3);
+        //Faz a pesquisa
+        listaTransportadoresVinculados = equipmentController.carrierVinculados(licensePlate);
+        String tipoTransportador, carrierCNPJCPF;
+        
+        //Atualiza tabela
+        ((DefaultTableModel) tabelaTransportadores.getModel()).setRowCount(0);
+        for (int i = 0; i < listaTransportadoresVinculados.size(); i++) {
+            
+            tipoTransportador = (listaTransportadoresVinculados.get(i).getCarrierType() == 0) ? "TAC" : "ETC";
+            carrierCNPJCPF =  listaTransportadoresVinculados.get(i).getCarrierCNPJCPF();
+            if (carrierCNPJCPF.length() == 11) {
+                carrierCNPJCPF = formatarCPF(carrierCNPJCPF);
+            } else {
+                carrierCNPJCPF = formatarCNPJ(carrierCNPJCPF);
+            }
+            
+            ((DefaultTableModel) tabelaTransportadores.getModel()).addRow(new Object[]{
+                listaTransportadoresVinculados.get(i).getCarrierName(),
+                carrierCNPJCPF,
+                tipoTransportador
+            });
+        }
     }
     
     private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
@@ -819,6 +839,7 @@ public class JanelaCadastroVeiculo extends javax.swing.JPanel {
 
     private void tabelaVeiculosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaVeiculosMouseClicked
         selecionarVeiculo();
+        atualizaVinculoComTransportadores();
     }//GEN-LAST:event_tabelaVeiculosMouseClicked
 
     private void bt_AtualizarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AtualizarDadosActionPerformed
@@ -829,6 +850,7 @@ public class JanelaCadastroVeiculo extends javax.swing.JPanel {
 
     private void tabelaVeiculosKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaVeiculosKeyReleased
         selecionarVeiculo();
+        atualizaVinculoComTransportadores();
     }//GEN-LAST:event_tabelaVeiculosKeyReleased
 
     int xx, xy;

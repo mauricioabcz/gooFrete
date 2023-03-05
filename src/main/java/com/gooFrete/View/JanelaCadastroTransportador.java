@@ -1,7 +1,9 @@
 package com.gooFrete.View;
 
 import com.gooFrete.Controller.CarrierController;
+import com.gooFrete.Controller.EquipmentController;
 import com.gooFrete.Model.Carrier;
+import com.gooFrete.Model.Equipment;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.File;
@@ -20,7 +22,9 @@ import javax.swing.table.DefaultTableModel;
 public class JanelaCadastroTransportador extends javax.swing.JPanel {
 
     private List<Carrier> listaTransportadores;
+    private List<Equipment> listaVeiculosVinculados;
     private CarrierController carrierController;
+    private EquipmentController equipmentController;
     
     public JanelaCadastroTransportador() {
         initComponents();
@@ -452,14 +456,14 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Tipo", "Modelo", "Eixos"
+                "Tipo", "Modelo", "Marca", "Placa", "Eixos"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, true, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -802,6 +806,35 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         if (status) System.out.println("Transportador atualizado com sucesso.");;
     }
     
+    private void atualizaVinculosComVeiculos(){
+        //Pega CNPJ da tabela
+        String carrierCNPJCPF;
+        carrierCNPJCPF = removerFormatacao((String) tabelaTransportadores.getModel().getValueAt(tabelaTransportadores.getSelectedRow() ,1));
+        //Faz a pesquisa
+        listaVeiculosVinculados = carrierController.equipmentVinculados(carrierCNPJCPF);
+        String tipoVeiculo, modelo, marca, placa;
+        int eixos;
+        
+        //Atualiza tabela
+        ((DefaultTableModel) tabelaVeiculos.getModel()).setRowCount(0);
+        for (int i = 0; i < listaVeiculosVinculados.size(); i++) {
+            
+            tipoVeiculo = (listaVeiculosVinculados.get(i).getEquipmentType());
+            modelo =  listaVeiculosVinculados.get(i).getModelo();
+            marca = listaVeiculosVinculados.get(i).getMarca();
+            placa = listaVeiculosVinculados.get(i).getLicensePlate();
+            eixos = listaVeiculosVinculados.get(i).getEixos();
+            
+            ((DefaultTableModel) tabelaVeiculos.getModel()).addRow(new Object[]{
+                tipoVeiculo,
+                modelo,
+                marca,
+                placa,
+                eixos
+            });
+        }
+    }
+    
     private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
         // TODO add your handling code here:
         setColor(btn_2);
@@ -872,6 +905,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
 
     private void tabelaTransportadoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaTransportadoresMouseClicked
         selecionarTransportador();
+        atualizaVinculosComVeiculos();
     }//GEN-LAST:event_tabelaTransportadoresMouseClicked
 
     private void bt_AtualizarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AtualizarDadosActionPerformed
@@ -882,6 +916,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
 
     private void tabelaTransportadoresKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaTransportadoresKeyReleased
         selecionarTransportador();
+        atualizaVinculosComVeiculos();
     }//GEN-LAST:event_tabelaTransportadoresKeyReleased
 
     int xx, xy;

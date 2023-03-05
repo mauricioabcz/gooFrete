@@ -349,4 +349,53 @@ public class EquipmentManager {
         }
     }
     
+    public List<Equipment> getLinkedCarrierEquipment(String carrierId){
+
+        String equipmentType, modelo, marca, licensePlate, transportadorVinculado;
+        int eixos;
+        Equipment veiculo;      
+        List <Equipment>veiculos = new ArrayList();
+        
+        // Declare the JDBC objects.
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        ResultSet resultSet2 = null;
+        PreparedStatement prepsInsertProduct = null;
+
+        try {
+                connection = DriverManager.getConnection(connectionString);
+
+                // Create and execute a SELECT SQL statement.
+                String selectSql = "select type, modelo, marca, eixos, licensePlate from [carrier].[Equipment] where carrierId = '" + carrierId + "';";
+                statement = connection.createStatement();
+                resultSet = statement.executeQuery(selectSql);
+        
+                // Create results from select statement
+                while (resultSet.next()) {
+                        equipmentType = resultSet.getString(1);
+                        modelo = resultSet.getString(2);
+                        marca = resultSet.getString(3);
+                        eixos = Integer.parseInt(resultSet.getString(4));
+                        licensePlate = resultSet.getString(5);
+                        transportadorVinculado = null;
+                        veiculo = new Equipment(equipmentType, modelo, marca, licensePlate, eixos, transportadorVinculado);
+                        veiculos.add(veiculo);
+                        }
+        return veiculos;
+        }
+        catch (Exception e) {
+                e.printStackTrace();
+                return null;
+        }
+        finally {
+                // Close the connections after the data has been handled.
+                if (prepsInsertProduct != null) try { prepsInsertProduct.close(); } catch(Exception e) {}
+                if (resultSet != null) try { resultSet.close(); } catch(Exception e) {}
+                if (resultSet2 != null) try { resultSet2.close(); } catch(Exception e) {}
+                if (statement != null) try { statement.close(); } catch(Exception e) {}
+                if (connection != null) try { connection.close(); } catch(Exception e) {}
+        }
+    }
+    
 }
