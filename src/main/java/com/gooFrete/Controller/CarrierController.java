@@ -2,6 +2,8 @@ package com.gooFrete.Controller;
 
 import com.gooFrete.Model.Carrier;
 import com.gooFrete.Model.CarrierManager;
+import com.gooFrete.Model.Equipment;
+import com.gooFrete.Model.EquipmentManager;
 import java.util.List;
 
 /**
@@ -11,8 +13,10 @@ import java.util.List;
 public class CarrierController {
 
     private Carrier carrier;
+    private Equipment equipment;
     private List listaTransportadores;
     private CarrierManager carrierManager;
+    private EquipmentManager equipmentManager;
     
     public CarrierController() {
         carrierManager = new CarrierManager();
@@ -50,4 +54,10 @@ public class CarrierController {
         String situacao = carrierManager.carrierExiste(carrierCNPJCPF);
         return situacao;
     }
+    
+//    public String carrierVinculados(String licensePlate){
+//        String situacao = equipmentManager.equipmentExiste(actualLicensePlate);
+//        return situacao;
+//    }
+    
 }

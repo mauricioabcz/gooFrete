@@ -38,6 +38,15 @@ public class JanelaCadastros extends javax.swing.JPanel {
         janela.setLocationRelativeTo(null);
     }
     
+    public void gotoJanelaCadastroVeiculos(){
+        Janela.p4 = new JanelaCadastroVeiculo();
+        JFrame janela = (JFrame) SwingUtilities.getWindowAncestor(Janela.p2);
+        janela.getContentPane().remove(Janela.p2);
+        janela.add(Janela.p4, BorderLayout.CENTER);
+        janela.pack();
+        janela.setLocationRelativeTo(null);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -60,6 +69,7 @@ public class JanelaCadastros extends javax.swing.JPanel {
         jLabel12 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         btn_JanelaCadastroTransportador = new javax.swing.JLabel();
+        btn_JanelaCadastroVeiculos = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -315,6 +325,16 @@ public class JanelaCadastros extends javax.swing.JPanel {
             }
         });
 
+        btn_JanelaCadastroVeiculos.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btn_JanelaCadastroVeiculos.setIcon(new javax.swing.ImageIcon("C:\\Users\\mauricio.rodrigues\\OneDrive - NDD.Tech\\Documentos\\GitHub\\gooFrete\\src\\main\\resources\\equipmentBtn.png")); // NOI18N
+        btn_JanelaCadastroVeiculos.setText("     Veículos");
+        btn_JanelaCadastroVeiculos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btn_JanelaCadastroVeiculos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btn_JanelaCadastroVeiculosMousePressed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -322,13 +342,17 @@ public class JanelaCadastros extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btn_JanelaCadastroTransportador, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(726, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btn_JanelaCadastroVeiculos, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(496, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btn_JanelaCadastroTransportador)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_JanelaCadastroTransportador)
+                    .addComponent(btn_JanelaCadastroVeiculos))
                 .addContainerGap(436, Short.MAX_VALUE))
         );
 
@@ -460,6 +484,10 @@ public class JanelaCadastros extends javax.swing.JPanel {
         xy = evt.getY();
     }//GEN-LAST:event_jPanel2MousePressed
 
+    private void btn_JanelaCadastroVeiculosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_JanelaCadastroVeiculosMousePressed
+        gotoJanelaCadastroVeiculos();
+    }//GEN-LAST:event_btn_JanelaCadastroVeiculosMousePressed
+
     int xx, xy;
         private void setColor(JPanel pane)
     {
@@ -483,6 +511,7 @@ public class JanelaCadastros extends javax.swing.JPanel {
     private javax.swing.JPanel btn_5;
     private javax.swing.JPanel btn_Home;
     private javax.swing.JLabel btn_JanelaCadastroTransportador;
+    private javax.swing.JLabel btn_JanelaCadastroVeiculos;
     private javax.swing.JPanel btn_JanelaCadastros;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_2;
