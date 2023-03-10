@@ -269,7 +269,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         );
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Emissões");
+        jLabel11.setText("Rotas");
 
         javax.swing.GroupLayout btn_4Layout = new javax.swing.GroupLayout(btn_4);
         btn_4.setLayout(btn_4Layout);
@@ -279,7 +279,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel11)
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(0, 53, Short.MAX_VALUE))
         );
         btn_4Layout.setVerticalGroup(
             btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

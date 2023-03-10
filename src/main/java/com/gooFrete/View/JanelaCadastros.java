@@ -241,7 +241,7 @@ public class JanelaCadastros extends javax.swing.JPanel {
         );
 
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Emissões");
+        jLabel11.setText("Rotas");
 
         javax.swing.GroupLayout btn_4Layout = new javax.swing.GroupLayout(btn_4);
         btn_4.setLayout(btn_4Layout);
@@ -251,7 +251,7 @@ public class JanelaCadastros extends javax.swing.JPanel {
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel11)
-                .addGap(0, 34, Short.MAX_VALUE))
+                .addGap(0, 53, Short.MAX_VALUE))
         );
         btn_4Layout.setVerticalGroup(
             btn_4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -316,7 +316,7 @@ public class JanelaCadastros extends javax.swing.JPanel {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         btn_JanelaCadastroTransportador.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btn_JanelaCadastroTransportador.setIcon(new javax.swing.ImageIcon("C:\\Users\\mauricio.rodrigues\\OneDrive - NDD.Tech\\Documentos\\GitHub\\gooFrete\\src\\main\\resources\\carrierBtn.png")); // NOI18N
+        btn_JanelaCadastroTransportador.setIcon(new ImageIcon(getClass().getResource("/carrierBtn.png")));
         btn_JanelaCadastroTransportador.setText("Transportador");
         btn_JanelaCadastroTransportador.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btn_JanelaCadastroTransportador.addMouseListener(new java.awt.event.MouseAdapter() {
