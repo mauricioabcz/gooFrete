@@ -6,9 +6,13 @@ import com.gooFrete.Model.Carrier;
 import com.gooFrete.Model.Equipment;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.ItemEvent;
 import java.io.File;
 import java.text.NumberFormat;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -29,19 +33,20 @@ public class JanelaRotas extends javax.swing.JPanel {
     
     public JanelaRotas() {
         initComponents();
-        setColor(btn_JanelaCadastros); 
-        ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_Home,btn_4, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
+        setColor(btn_4); 
+        ind_4.setOpaque(true);
+        resetColor(new JPanel[]{btn_2,btn_Home,btn_JanelaCadastros, btn_5}, new JPanel[]{ind_2,ind_1, ind_3, ind_5});
         
         equipmentController = new EquipmentController();
         carrierController = new CarrierController();
-       // atualizaTabela();
+        cb_Veiculos.setEnabled(false);
+        atualizaTabela();
         
     }
     public void gotoJanelaHome(){
         Janela.p1 = new JanelaHome();
-        JFrame janela = (JFrame) SwingUtilities.getWindowAncestor(Janela.p4);
-        janela.getContentPane().remove(Janela.p4);
+        JFrame janela = (JFrame) SwingUtilities.getWindowAncestor(Janela.p5);
+        janela.getContentPane().remove(Janela.p5);
         janela.add(Janela.p1, BorderLayout.CENTER);
         janela.pack();
         janela.setLocationRelativeTo(null);
@@ -404,7 +409,12 @@ public class JanelaRotas extends javax.swing.JPanel {
         bt_Details.setFocusPainted(false);
         bt_Details.setFocusable(false);
 
-        cb_Transportadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins" }));
+        cb_Transportadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+        cb_Transportadores.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_TransportadoresItemStateChanged(evt);
+            }
+        });
 
         bt_Limpar.setBackground(new java.awt.Color(255, 255, 255));
         bt_Limpar.setText("Limpar");
@@ -469,7 +479,7 @@ public class JanelaRotas extends javax.swing.JPanel {
 
         jLabel17.setText("Veículo:");
 
-        cb_Veiculos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins" }));
+        cb_Veiculos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
 
         jLabel5.setText("Adicionar destino:");
 
@@ -520,39 +530,40 @@ public class JanelaRotas extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tf_Destino))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(bt_Limpar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(bt_AtdicionarDestino)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bt_Calcular))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(bt_RemoverDestino)
-                                .addGap(266, 266, 266)
-                                .addComponent(bt_Sobe)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(bt_Desce))
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel5)
+                                .addGap(39, 39, 39)
+                                .addComponent(tf_Destino))
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addComponent(jLabel17)
-                                    .addGap(60, 60, 60)
-                                    .addComponent(cb_Veiculos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel18)
-                                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
-                                .addGroup(jPanel6Layout.createSequentialGroup()
-                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel15)
-                                        .addComponent(jLabel4))
-                                    .addGap(25, 25, 25)
-                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(cb_Transportadores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(cb_TipoPedagio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
+                                    .addComponent(bt_RemoverDestino)
+                                    .addGap(266, 266, 266)
+                                    .addComponent(bt_Sobe)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(bt_Desce))
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel17)
+                                        .addGap(60, 60, 60)
+                                        .addComponent(cb_Veiculos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+                                    .addGroup(jPanel6Layout.createSequentialGroup()
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel15)
+                                            .addComponent(jLabel4))
+                                        .addGap(25, 25, 25)
+                                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cb_Transportadores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(cb_TipoPedagio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(12, 12, 12))
         );
@@ -679,40 +690,27 @@ public class JanelaRotas extends javax.swing.JPanel {
         gotoJanelaHome();
     }//GEN-LAST:event_btn_HomeMousePressed
 
-//    private void atualizaTabela(){
-//        listaVeiculos = equipmentController.equipmentQueryAll();
-//        listaTransportadores = carrierController.carrierQueryAll();
-//        String tipoVeiculo, modelo, marca, placa, carrierName;
-//        int eixos;
-//        
-//        //Atualiza tabela
-//        ((DefaultTableModel) tabelaVeiculos.getModel()).setRowCount(0);
-//        for (int i = 0; i < listaVeiculos.size(); i++) {
-//            
-//            tipoVeiculo = (listaVeiculos.get(i).getEquipmentType());
-//            modelo =  listaVeiculos.get(i).getModelo();
-//            marca = listaVeiculos.get(i).getMarca();
-//            placa = listaVeiculos.get(i).getLicensePlate();
-//            eixos = listaVeiculos.get(i).getEixos();
-//            
-//            ((DefaultTableModel) tabelaVeiculos.getModel()).addRow(new Object[]{
-//                tipoVeiculo,
-//                modelo,
-//                marca,
-//                placa,
-//                eixos
-//            });
-//        }
-//        //Atualiza lista
-//        cb_Transportadores.removeAllItems();
-//        cb_Transportadores.addItem("Selecione");
-//        for (int i = 0; i < listaTransportadores.size(); i++) {
-//            
-//            carrierName = listaTransportadores.get(i).getCarrierName();
-//            cb_Transportadores.addItem(carrierName);
-//        }
-//    }
-//    
+    private void atualizaTabela(){
+        listaVeiculos = equipmentController.equipmentQueryAll();
+        listaTransportadores = carrierController.carrierQueryAll();
+        String carrierName, carrierCNPJCPF, carrierComboBox;
+        
+        //Atualiza lista
+        cb_Transportadores.removeAllItems();
+        cb_Transportadores.addItem("Selecione");
+        for (int i = 0; i < listaTransportadores.size(); i++) {
+            
+            carrierName = listaTransportadores.get(i).getCarrierName();
+            if (listaTransportadores.get(i).getCarrierType() == 0) {
+                carrierCNPJCPF = formatarCPF(listaTransportadores.get(i).getCarrierCNPJCPF());
+            } else {
+                carrierCNPJCPF = formatarCNPJ(listaTransportadores.get(i).getCarrierCNPJCPF());
+            }
+            carrierComboBox = carrierName + " - " + carrierCNPJCPF;
+            cb_Transportadores.addItem(carrierComboBox);
+        }
+    }
+    
 //    private void salvarNovoVeiculo(){
 //        String tipoVeiculo, modelo, marca, placa, transportadorVinculado;
 //        int eixos;
@@ -770,32 +768,32 @@ public class JanelaRotas extends javax.swing.JPanel {
 //        if (status) System.out.println("Veículo atualizado com sucesso.");;
 //    }
     
-    private void atualizaVinculoComTransportadores(){
-        //Pega Placa da tabela
-        String licensePlate;
-        licensePlate = (String) tabelaViagens.getModel().getValueAt(tabelaViagens.getSelectedRow() ,3);
+    private void atualizaVinculosComVeiculos(){
+        //Pega nome selecionado
+        String carrierCNPJCPF;
+        carrierCNPJCPF = cb_Transportadores.getSelectedItem().toString();
+        carrierCNPJCPF = encontraCNPJCPF(carrierCNPJCPF);
+        carrierCNPJCPF = removerFormatacao(carrierCNPJCPF);
+        System.out.println(carrierCNPJCPF);
+        
         //Faz a pesquisa
-        listaTransportadoresVinculados = equipmentController.carrierVinculados(licensePlate);
-        String tipoTransportador, carrierCNPJCPF;
+        listaVeiculos = carrierController.equipmentVinculados(carrierCNPJCPF);
+        String tipoVeiculo, placa, equipmentComboBox;
+        int eixos;
         
         //Atualiza tabela
-        ((DefaultTableModel) tabelaDestinos.getModel()).setRowCount(0);
-        for (int i = 0; i < listaTransportadoresVinculados.size(); i++) {
-            
-            tipoTransportador = (listaTransportadoresVinculados.get(i).getCarrierType() == 0) ? "TAC" : "ETC";
-            carrierCNPJCPF =  listaTransportadoresVinculados.get(i).getCarrierCNPJCPF();
-            if (carrierCNPJCPF.length() == 11) {
-                carrierCNPJCPF = formatarCPF(carrierCNPJCPF);
-            } else {
-                carrierCNPJCPF = formatarCNPJ(carrierCNPJCPF);
-            }
-            
-            ((DefaultTableModel) tabelaDestinos.getModel()).addRow(new Object[]{
-                listaTransportadoresVinculados.get(i).getCarrierName(),
-                carrierCNPJCPF,
-                tipoTransportador
-            });
+        //Atualiza lista
+        cb_Veiculos.removeAllItems();
+        cb_Veiculos.addItem("Selecione");
+        for (int i = 0; i < listaVeiculos.size(); i++) {
+            eixos = listaVeiculos.get(i).getEixos();
+            placa = listaVeiculos.get(i).getLicensePlate();
+            tipoVeiculo = listaVeiculos.get(i).getEquipmentType();
+
+            equipmentComboBox = tipoVeiculo + " - Placa: " + placa + " - Número de Eixos: " + eixos;
+            cb_Veiculos.addItem(equipmentComboBox);
         }
+        cb_Veiculos.setEnabled(true);
     }
     
     private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
@@ -894,6 +892,17 @@ public class JanelaRotas extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_bt_SobeActionPerformed
 
+    private void cb_TransportadoresItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_TransportadoresItemStateChanged
+        if (evt.getStateChange() == ItemEvent.SELECTED) {
+                    if (cb_Transportadores.getSelectedItem().toString().equals("Selecione")) {
+            cb_Veiculos.setEnabled(false);
+            System.out.println("Transportador não selecionado.");
+        } else {
+            atualizaVinculosComVeiculos();
+            }
+        }
+    }//GEN-LAST:event_cb_TransportadoresItemStateChanged
+
     int xx, xy;
         private void setColor(JPanel pane)
     {
@@ -953,6 +962,19 @@ public class JanelaRotas extends javax.swing.JPanel {
     
     private String removerFormatacao(String s) {
         return s.replaceAll("[^0-9]+", "");
+    }
+    
+    private String encontraCNPJCPF(String texto){
+
+    Pattern padrao = Pattern.compile("\\b(\\d{3}\\.\\d{3}\\.\\d{3}-\\d{2}|\\d{2}\\.\\d{3}\\.\\d{3}/\\d{4}-\\d{2})\\b");
+    Matcher matcher = padrao.matcher(texto);
+
+    ArrayList<String> numeros = new ArrayList();
+
+    while (matcher.find()) {
+      numeros.add(matcher.group());
+    }
+    return numeros.get(0);
     }
     
     private void limparCampos(){

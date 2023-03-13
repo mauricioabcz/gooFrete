@@ -14,17 +14,11 @@ import java.util.List;
  */
 public class EquipmentManager {
  
-    private String connectionString =
-                       "jdbc:sqlserver://localhost;"
-                       + "database=gooFrete;"
-                       + "user=sa;"
-                       + "password=P@ssw0rd!;"
-                       + "encrypt=true;"
-                       + "trustServerCertificate=true;"
-                       + "hostNameInCertificate=*.database.windows.net;"
-                       + "loginTimeout=30;";
+    private String connectionString;
     
     public EquipmentManager() {
+        DatabaseConfig databaseConfig = new DatabaseConfig();
+        this.connectionString = databaseConfig.getConnectionString();
     }
     
     public boolean equipmentInsert(Equipment veiculo){

@@ -14,17 +14,11 @@ import java.util.List;
  */
 public class CarrierManager {
 
-    private String connectionString =
-                       "jdbc:sqlserver://localhost;"
-                       + "database=gooFrete;"
-                       + "user=sa;"
-                       + "password=P@ssw0rd!;"
-                       + "encrypt=true;"
-                       + "trustServerCertificate=true;"
-                       + "hostNameInCertificate=*.database.windows.net;"
-                       + "loginTimeout=30;";
+    private String connectionString;
     
     public CarrierManager() {
+        DatabaseConfig databaseConfig = new DatabaseConfig();
+        this.connectionString = databaseConfig.getConnectionString();
     }
     
     public boolean carrierInsert(Carrier transportador){
@@ -239,7 +233,6 @@ public class CarrierManager {
                                    ");";
                 statement = connection.createStatement();
                 resultSet = statement.executeQuery(selectSql);
-                
                 
                 // 6. Verificar se o registro existe
                 if (resultSet.next()) {

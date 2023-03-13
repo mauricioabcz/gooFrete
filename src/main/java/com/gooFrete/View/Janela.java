@@ -15,6 +15,7 @@ public class Janela extends javax.swing.JFrame {
     static JanelaCadastros p2;
     static JanelaCadastroTransportador p3;
     static JanelaCadastroVeiculo p4;
+    static JanelaRotas p5;
     
     public Janela() {
         initComponents();

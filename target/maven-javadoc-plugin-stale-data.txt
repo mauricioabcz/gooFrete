@@ -1,7 +1,7 @@
 @options
 @packages
 -classpath
-'C:/Users/mauricio.rodrigues/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/12.2.0.jre11/mssql-jdbc-12.2.0.jre11.jar;C:/Users/mauricio.rodrigues/.m2/repository/junit/junit/4.11/junit-4.11.jar;C:/Users/mauricio.rodrigues/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;C:/Users/mauricio.rodrigues/.m2/repository/org/netbeans/external/AbsoluteLayout/RELEASE65/AbsoluteLayout-RELEASE65.jar'
+'C:/Users/mauricio.rodrigues/.m2/repository/com/microsoft/sqlserver/mssql-jdbc/12.2.0.jre11/mssql-jdbc-12.2.0.jre11.jar;C:/Users/mauricio.rodrigues/.m2/repository/junit/junit/4.11/junit-4.11.jar;C:/Users/mauricio.rodrigues/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar;C:/Users/mauricio.rodrigues/.m2/repository/org/netbeans/external/AbsoluteLayout/RELEASE65/AbsoluteLayout-RELEASE65.jar;C:/Users/mauricio.rodrigues/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.0/jackson-databind-2.13.0.jar;C:/Users/mauricio.rodrigues/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.0/jackson-annotations-2.13.0.jar;C:/Users/mauricio.rodrigues/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.0/jackson-core-2.13.0.jar'
 -encoding
 'UTF-8'
 -protected
@@ -31,25 +31,28 @@ C:\Users\mauricio.rodrigues\.m2\repository\com\microsoft\sqlserver\mssql-jdbc\12
 C:\Users\mauricio.rodrigues\.m2\repository\junit\junit\4.11\junit-4.11.jar = 1677192089943
 C:\Users\mauricio.rodrigues\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar = 1677106986609
 C:\Users\mauricio.rodrigues\.m2\repository\org\netbeans\external\AbsoluteLayout\RELEASE65\AbsoluteLayout-RELEASE65.jar = 1677862590000
+C:\Users\mauricio.rodrigues\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.13.0\jackson-databind-2.13.0.jar = 1678659583409
+C:\Users\mauricio.rodrigues\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.0\jackson-annotations-2.13.0.jar = 1678659582187
+C:\Users\mauricio.rodrigues\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.13.0\jackson-core-2.13.0.jar = 1678659581782
 C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\src\main\java = 1677933794903
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\allclasses-index.html = 1678457012816
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\allpackages-index.html = 1678457012824
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\copy.svg = 1678457012908
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\element-list = 1678457012490
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\help-doc.html = 1678457012897
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\index-all.html = 1678457012876
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\index.html = 1678457012780
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\jquery-ui.overrides.css = 1678457012933
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\member-search-index.js = 1678457012840
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\module-search-index.js = 1678457012827
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\overview-summary.html = 1678457012886
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\overview-tree.html = 1678457012772
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\package-search-index.js = 1678457012832
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\script.js = 1678457012906
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\search-page.js = 1678457012916
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\search.html = 1678457012882
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\search.js = 1678457012912
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\serialized-form.html = 1678457012648
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\stylesheet.css = 1678457012902
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\tag-search-index.js = 1678457012843
-C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\type-search-index.js = 1678457012835
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\allclasses-index.html = 1678661778324
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\allpackages-index.html = 1678661778329
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\copy.svg = 1678661778391
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\element-list = 1678661778035
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\help-doc.html = 1678661778382
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\index-all.html = 1678661778367
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\index.html = 1678661778297
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\jquery-ui.overrides.css = 1678661778416
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\member-search-index.js = 1678661778338
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\module-search-index.js = 1678661778332
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\overview-summary.html = 1678661778377
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\overview-tree.html = 1678661778291
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\package-search-index.js = 1678661778334
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\script.js = 1678661778388
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\search-page.js = 1678661778398
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\search.html = 1678661778373
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\search.js = 1678661778394
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\serialized-form.html = 1678661778183
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\stylesheet.css = 1678661778386
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\tag-search-index.js = 1678661778340
+C:\Users\mauricio.rodrigues\OneDrive - NDD.Tech\Documentos\GitHub\gooFrete\target\classes\apidocs\type-search-index.js = 1678661778336
