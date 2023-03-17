@@ -17,6 +17,7 @@ com\gooFrete\View\JanelaCadastros$7.class
 com\gooFrete\Model\Carrier.class
 com\gooFrete\View\JanelaCadastroVeiculo.class
 com\gooFrete\View\JanelaCadastroTransportador$3.class
+com\gooFrete\View\JanelaRotas$21.class
 com\gooFrete\View\JanelaCadastroVeiculo$14.class
 com\gooFrete\View\JanelaCadastroVeiculo$17.class
 com\gooFrete\View\JanelaHome$9.class
@@ -37,6 +38,7 @@ com\gooFrete\View\JanelaCadastroTransportador$5.class
 com\gooFrete\View\JanelaRotas$7.class
 com\gooFrete\View\JanelaCadastros$9.class
 com\gooFrete\View\JanelaHome$8.class
+com\gooFrete\Model\Viagem.class
 com\gooFrete\View\JanelaCadastroVeiculo$16.class
 com\gooFrete\View\JanelaCadastroTransportador$15.class
 com\gooFrete\View\JanelaHome$1.class

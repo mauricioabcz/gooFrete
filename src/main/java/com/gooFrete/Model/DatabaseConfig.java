@@ -18,8 +18,16 @@ public class DatabaseConfig {
     
     public String getConnectionString(){
         String server, database, user, password;
-        File arquivo = new File(".\\src\\main\\java\\com\\gooFrete\\Config\\databaseConfig.json");
-
+        
+        System.out.println("Diretório atual: " + System.getProperty("user.dir"));
+        
+        //Netbeans:
+        //File arquivo = new File(".\\src\\main\\java\\com\\gooFrete\\Config\\databaseConfig.json");
+        //Fat .Jar:
+        //File arquivo = new File(".\\classes\\databaseConfig.json");
+        //VIa pasta raiz:
+        File arquivo = new File(".\\Config\\databaseConfig.json");
+        
         ObjectMapper objectMapper = new ObjectMapper();
         try {
             JsonNode rootNode = objectMapper.readTree(arquivo);
