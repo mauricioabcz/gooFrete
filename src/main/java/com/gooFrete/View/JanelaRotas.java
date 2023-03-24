@@ -52,6 +52,15 @@ public class JanelaRotas extends javax.swing.JPanel {
         janela.setLocationRelativeTo(null);
     }
     
+    public void gotoJanelaCadastros(){
+        Janela.p2 = new JanelaCadastros();
+        JFrame janela = (JFrame) SwingUtilities.getWindowAncestor(Janela.p5);
+        janela.getContentPane().remove(Janela.p5);
+        janela.add(Janela.p2, BorderLayout.CENTER);
+        janela.pack();
+        janela.setLocationRelativeTo(null);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -711,6 +720,27 @@ public class JanelaRotas extends javax.swing.JPanel {
         }
     }
     
+    public void removeDestino(){
+        int selectedRowIndex = tabelaDestinos.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) tabelaDestinos.getModel();
+        model.removeRow(selectedRowIndex);
+
+        // Atualizar o número da coluna índice após a remoção
+        for (int i = 0; i < model.getRowCount(); i++) {
+            model.setValueAt(i+1, i, 0); 
+        }
+        
+        tabelaDestinos.repaint();
+    }
+    
+    public void sobeDestino(){
+        
+    }
+    
+    public void desdeDestino(){
+        
+    }
+    
 //    private void salvarNovoVeiculo(){
 //        String tipoVeiculo, modelo, marca, placa, transportadorVinculado;
 //        int eixos;
@@ -821,6 +851,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         setColor(btn_JanelaCadastros);
         ind_3.setOpaque(true);
         resetColor(new JPanel[]{btn_2,btn_Home,btn_4, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
+        gotoJanelaCadastros();
     }//GEN-LAST:event_btn_JanelaCadastrosMousePressed
 
     private void btn_4MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_4MousePressed
@@ -893,15 +924,15 @@ public class JanelaRotas extends javax.swing.JPanel {
     }//GEN-LAST:event_tabelaViagensKeyReleased
 
     private void bt_RemoverDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_RemoverDestinoActionPerformed
-        // TODO add your handling code here:
+        removeDestino();
     }//GEN-LAST:event_bt_RemoverDestinoActionPerformed
 
     private void bt_DesceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_DesceActionPerformed
-        // TODO add your handling code here:
+        desdeDestino();
     }//GEN-LAST:event_bt_DesceActionPerformed
 
     private void bt_SobeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_SobeActionPerformed
-        // TODO add your handling code here:
+        sobeDestino();
     }//GEN-LAST:event_bt_SobeActionPerformed
 
     private void cb_TransportadoresItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_TransportadoresItemStateChanged
