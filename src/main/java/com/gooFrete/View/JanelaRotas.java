@@ -4,10 +4,13 @@ import com.gooFrete.Controller.CarrierController;
 import com.gooFrete.Controller.EquipmentController;
 import com.gooFrete.Model.Carrier;
 import com.gooFrete.Model.Equipment;
+import com.gooFrete.Model.Viagem;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.io.File;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -454,7 +457,7 @@ public class JanelaRotas extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Ordem", "CEP/Código IBGE"
+                "Ordem", "Cidade/CEP/Código IBGE"
             }
         ) {
             Class[] types = new Class [] {
@@ -734,69 +737,53 @@ public class JanelaRotas extends javax.swing.JPanel {
     }
     
     public void sobeDestino(){
-        
+        int selectedRowIndex = tabelaDestinos.getSelectedRow();
+        // Verificar se a linha selecionada não é a primeira linha
+        if (selectedRowIndex > 0) {
+            DefaultTableModel model = (DefaultTableModel) tabelaDestinos.getModel();
+
+            // Obter os dados da linha selecionada
+            Object[] rowData = new Object[tabelaDestinos.getColumnCount()];
+            for (int i = 0; i < tabelaDestinos.getColumnCount(); i++) {
+                rowData[i] = tabelaDestinos.getValueAt(selectedRowIndex, i);
+            }
+
+            // Remover a linha selecionada
+            model.removeRow(selectedRowIndex);
+
+            // Inserir a linha armazenada na posição anterior à linha selecionada
+            model.insertRow(selectedRowIndex - 1, rowData);
+
+            // Atualizar as posições das linhas restantes
+            for (int i = 0; i < model.getRowCount(); i++) {
+                model.setValueAt(i + 1, i, 0);
+            }
+        }
     }
     
     public void desdeDestino(){
-        
+        int selectedRowIndex = tabelaDestinos.getSelectedRow();
+        // Verificar se a linha selecionada não é a última linha
+        if (selectedRowIndex < tabelaDestinos.getRowCount() - 1) {
+            DefaultTableModel model = (DefaultTableModel) tabelaDestinos.getModel();
+            // Obter os dados da linha selecionada
+            Object[] rowData = new Object[tabelaDestinos.getColumnCount()];
+            for (int i = 0; i < tabelaDestinos.getColumnCount(); i++) {
+                rowData[i] = tabelaDestinos.getValueAt(selectedRowIndex, i);
+            }
+
+            // Remover a linha selecionada
+            model.removeRow(selectedRowIndex);
+
+            // Inserir a linha armazenada na posição posterior à linha selecionada
+            model.insertRow(selectedRowIndex + 1, rowData);
+
+            // Atualizar as posições das linhas restantes
+            for (int i = 0; i < model.getRowCount(); i++) {
+                model.setValueAt(i + 1, i, 0);
+            }
+        }
     }
-    
-//    private void salvarNovoVeiculo(){
-//        String tipoVeiculo, modelo, marca, placa, transportadorVinculado;
-//        int eixos;
-//        Equipment novoVeiculo;
-//        
-//        tipoVeiculo = cb_EquipmentType.getSelectedItem().toString();
-//        modelo = tf_Modelo.getText();
-//        marca = tf_Marca.getText();
-//        placa = tf_Placa.getText();
-//        eixos = (int) sp_Eixos.getValue();
-//        transportadorVinculado = cb_Transportadores.getSelectedItem().toString();
-//        novoVeiculo = new Equipment(tipoVeiculo, modelo, marca, placa, eixos, transportadorVinculado);
-//        boolean status = equipmentController.equipmentPersistence(novoVeiculo);
-//        if (status) System.out.println("Veículo cadastrado com sucesso.");;
-//    }
-//    
-//    private void removerVeiculo(){
-//        //Pega Placa da tabela
-//        String licensePlate;
-//        licensePlate = (String) tabelaVeiculos.getModel().getValueAt(tabelaVeiculos.getSelectedRow() ,3);
-//        //Faz remoção
-//        boolean status = equipmentController.equipmentDelete(licensePlate);
-//        if (status) System.out.println("Veículo removido com sucesso.");;
-//    }
-//    
-//    private void selecionarVeiculo(){
-//        //Pega Placa da tabela
-//        String licensePlate;
-//        licensePlate = (String) tabelaVeiculos.getModel().getValueAt(tabelaVeiculos.getSelectedRow() ,3);
-//        //Faz a pesquisa
-//        Equipment veiculo = equipmentController.equipmentQueryOneEquipment(licensePlate);
-//        System.out.println(veiculo.toString());
-//        //Preenche campos
-//        tf_Marca.setText(veiculo.getMarca());
-//        tf_Modelo.setText(veiculo.getModelo());
-//        tf_Placa.setText(veiculo.getLicensePlate());
-//        cb_Transportadores.setSelectedItem(veiculo.getTransportadorVinculado());
-//        cb_EquipmentType.setSelectedItem(veiculo.getEquipmentType());
-//        sp_Eixos.setValue(veiculo.getEixos());
-//    }
-//    
-//    private void atualizarTransportador(){
-//        String tipoVeiculo, modelo, marca, placa, transportadorVinculado;
-//        int eixos;
-//        Equipment novoVeiculo;
-//        
-//        tipoVeiculo = cb_EquipmentType.getSelectedItem().toString();
-//        modelo = tf_Modelo.getText();
-//        marca = tf_Marca.getText();
-//        placa = tf_Placa.getText();
-//        eixos = (int) sp_Eixos.getValue();
-//        transportadorVinculado = cb_Transportadores.getSelectedItem().toString();
-//        novoVeiculo = new Equipment(tipoVeiculo, modelo, marca, placa, eixos, transportadorVinculado);
-//        boolean status = equipmentController.equipmentAtualization(novoVeiculo, (String) tabelaVeiculos.getModel().getValueAt(tabelaVeiculos.getSelectedRow() ,3));
-//        if (status) System.out.println("Veículo atualizado com sucesso.");;
-//    }
     
     private void atualizaVinculosComVeiculos(){
         //Pega nome selecionado
@@ -837,6 +824,49 @@ public class JanelaRotas extends javax.swing.JPanel {
                 numeroLinhas + 1,
                 destino
             });
+    }
+    
+    public void realizaCalculo(){
+        String transportadorCNPJCPF, tipoVeiculo, tipoPedagio; 
+        int numEixos, tipoPagamento = -1; 
+        String paradas = "";
+
+        //Extrai tipoVeiculo
+        // Separar a string em um array de strings
+        String[] parts = cb_Veiculos.getSelectedItem().toString().split(" - ");
+        // Obter o primeiro elemento do array, que corresponde ao tipo de veículo
+        tipoVeiculo = parts[0];
+        
+        //Extrai numEixos
+        numEixos =  Integer.parseInt(removerFormatacao(parts[2]));
+         
+        for (int i = 0; i < tabelaDestinos.getRowCount(); i++) {
+            Object cellValue = tabelaDestinos.getValueAt(i, 1);
+                if (i == 0) {
+                    paradas = cidadeEncode(cellValue.toString());
+                } else {
+                    paradas = paradas + ";" + cidadeEncode(cellValue.toString());
+                }
+        }
+        
+        //Extrai tipoPagamento
+        tipoPedagio = cb_TipoPedagio.getSelectedItem().toString();
+        if (tipoPedagio.equals("Cartão")) {
+            tipoPagamento = 0;
+        }
+        if (tipoPedagio.equals("Tag")) {
+            tipoPagamento = 1;
+        }
+        
+        //Extrai tipoVeiculo
+        // Separar a string em um array de strings
+        parts = cb_Transportadores.getSelectedItem().toString().split(" - ");
+        // Obter o primeiro elemento do array, que corresponde ao tipo de veículo
+        transportadorCNPJCPF = removerFormatacao(parts[1]);
+        
+        //Solicita cálculo
+        Viagem calcula = new Viagem(transportadorCNPJCPF, tipoVeiculo, numEixos, tipoPagamento,paradas);
+        System.out.println(calcula.toString());
     }
     
     private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
@@ -903,7 +933,7 @@ public class JanelaRotas extends javax.swing.JPanel {
     }//GEN-LAST:event_bt_LimparActionPerformed
 
     private void bt_CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CalcularActionPerformed
-//        salvarNovoVeiculo();
+        realizaCalculo();
 //        limparCampos();
 //        atualizaTabela();
     }//GEN-LAST:event_bt_CalcularActionPerformed
@@ -915,7 +945,7 @@ public class JanelaRotas extends javax.swing.JPanel {
 
     private void bt_AtdicionarDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AtdicionarDestinoActionPerformed
         adicionarDestino();
-        limparCampos();
+        limparDestino();
     }//GEN-LAST:event_bt_AtdicionarDestinoActionPerformed
 
     private void tabelaViagensKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaViagensKeyReleased
@@ -987,16 +1017,9 @@ public class JanelaRotas extends javax.swing.JPanel {
         }
     }
     
-    private String formatPhoneNumber(String number) {
-        if (number.length() == 11) {  // celular
-            return String.format("(%s) %s %s-%s", number.substring(0, 2), number.substring(2, 3),
-                    number.substring(3, 7), number.substring(7));
-        } else if (number.length() == 10) {  // telefone fixo
-            return String.format("(%s) %s-%s", number.substring(0, 2), number.substring(2, 6),
-                    number.substring(6));
-        } else {
-            return "Número inválido";
-        }
+    public String cidadeEncode(String cidade){
+        String cidadeEncoded = URLEncoder.encode(cidade, StandardCharsets.UTF_8);
+        return cidadeEncoded;
     }
     
     private String formatCEP(String cep) {
@@ -1018,6 +1041,10 @@ public class JanelaRotas extends javax.swing.JPanel {
       numeros.add(matcher.group());
     }
     return numeros.get(0);
+    }
+    
+    private void limparDestino(){
+        tf_Destino.setText("");
     }
     
     private void limparCampos(){

@@ -25,7 +25,7 @@ public class DatabaseConfig {
         //File arquivo = new File(".\\src\\main\\java\\com\\gooFrete\\Config\\databaseConfig.json");
         //Fat .Jar:
         //File arquivo = new File(".\\classes\\databaseConfig.json");
-        //VIa pasta raiz:
+        //Via pasta raiz:
         File arquivo = new File(".\\Config\\databaseConfig.json");
         
         ObjectMapper objectMapper = new ObjectMapper();
