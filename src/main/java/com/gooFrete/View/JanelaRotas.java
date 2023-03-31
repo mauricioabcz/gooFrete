@@ -631,7 +631,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         });
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mauricio.rodrigues\\OneDrive - NDD.Tech\\Documentos\\GitHub\\gooFrete\\src\\main\\resources\\icons8_Exit_25px.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(".\\images\\iconExit.png"));
         jLabel1.setText("Logout");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -665,7 +665,7 @@ public class JanelaRotas extends javax.swing.JPanel {
                         .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addComponent(jLabel1))))
                 .addGap(0, 0, Short.MAX_VALUE))
@@ -878,7 +878,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         //source to drag
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-xx,y-xy);
+        Janela.j.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_jPanel2MouseDragged
 
     private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed

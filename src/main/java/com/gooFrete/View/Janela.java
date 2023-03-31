@@ -11,6 +11,7 @@ import javax.swing.SwingUtilities;
  */
 public class Janela extends javax.swing.JFrame {
 
+    static Janela j;
     static JanelaHome p1;
     static JanelaCadastros p2;
     static JanelaCadastroTransportador p3;
@@ -81,7 +82,7 @@ public class Janela extends javax.swing.JFrame {
         
         /* Create and display the form */
         
-        Janela j = new Janela();
+        j = new Janela();
         j.setLocationRelativeTo(null);
         j.setVisible(true);
         

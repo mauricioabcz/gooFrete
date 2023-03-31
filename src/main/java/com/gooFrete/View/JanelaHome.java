@@ -307,7 +307,7 @@ public class JanelaHome extends javax.swing.JPanel {
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\mauricio.rodrigues\\OneDrive - NDD.Tech\\Documentos\\GitHub\\gooFrete\\src\\main\\resources\\carrierBtn.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(".\\images\\carrierBtn.png"));
         jLabel2.setText("Teste");
         jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -346,7 +346,7 @@ public class JanelaHome extends javax.swing.JPanel {
         });
 
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\mauricio.rodrigues\\OneDrive - NDD.Tech\\Documentos\\GitHub\\gooFrete\\src\\main\\resources\\icons8_Exit_25px.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(".\\images\\iconExit.png"));
         jLabel1.setText("Logout");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -459,7 +459,7 @@ public class JanelaHome extends javax.swing.JPanel {
         //source to drag
         int x = evt.getXOnScreen();
         int y = evt.getYOnScreen();
-        this.setLocation(x-xx,y-xy);
+        Janela.j.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_jPanel2MouseDragged
 
     int xx, xy;
