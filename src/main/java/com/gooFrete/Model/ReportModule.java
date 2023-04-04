@@ -1,6 +1,8 @@
 package com.gooFrete.Model;
 
 import com.itextpdf.io.font.constants.StandardFonts;
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
@@ -8,6 +10,7 @@ import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Paragraph;
@@ -15,6 +18,7 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
+import java.awt.Image;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -73,13 +77,26 @@ public class ReportModule {
             documento.add(new Paragraph(titleText).setHorizontalAlignment(HorizontalAlignment.CENTER));
 
             // Subtitle
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss");
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             String formattedDate = LocalDateTime.now().format(formatter);
             Text subtitleText = new Text("Extração em " + formattedDate)
                     .setFont(subtitleFont)
                     .setFontSize(FONT_SIZE_SUBTITLE);
             documento.add(new Paragraph(subtitleText).setHorizontalAlignment(HorizontalAlignment.CENTER));
 
+            // Insere Selo Bino de Qualidade
+            //criando objeto imagem para adicionar no relatorio
+            System.out.println("Diretório atual: " + System.getProperty("user.dir"));
+            ImageData data = ImageDataFactory.create("./images/seloBino.jpg");
+            com.itextpdf.layout.element.Image img = new com.itextpdf.layout.element.Image(data);
+            // Definindo a posição da imagem no canto superior direito da folha A3
+            float scale = 0.95f; // reduzir para 95% do tamanho original
+            float newWidth = img.getImageScaledWidth() * scale;
+            float newHeight = img.getImageScaledHeight() * scale;
+            float x = pageSize.getWidth() - newWidth;
+            float y = pageSize.getHeight() - newHeight;
+            img.scaleToFit(newWidth, newHeight).setFixedPosition(x, y);
+            documento.add(img);
             
             // criacao da tabela
             float [] pointColumnWidths = {150f, 150f, 150f, 150f, 150f, 150f, 150f, 150f, 150f}; //2 colunas com a largura variavel de cada
