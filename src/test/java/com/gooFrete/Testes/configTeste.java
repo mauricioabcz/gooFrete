@@ -7,10 +7,6 @@ import java.util.regex.Pattern;
 import org.junit.Assert;
 import org.junit.Test;
 
-/**
- *
- * @author mauricio.rodrigues
- */
 public class configTeste {
 
     @Test

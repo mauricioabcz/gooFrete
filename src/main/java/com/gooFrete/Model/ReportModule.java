@@ -15,10 +15,14 @@ import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Text;
 import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.TextAlignment;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -46,7 +50,7 @@ public class ReportModule {
     
     public void carrierReport(List<Carrier> listaTransportadores) throws IOException{
         PdfWriter writer = null;
-        //this.destinoArquivo = "./Relatório de Transportadores - " + getGLog() + ".pdf";
+        //this.destinoArquivo = verificaPasta();
         this.destinoArquivo = "./teste.pdf";
         try {
             PdfFont titleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
@@ -57,7 +61,7 @@ public class ReportModule {
             Document documento = new Document(pdf);
             
             // Definindo a orientação da página como paisagem
-            PageSize pageSize = PageSize.A4.rotate();
+            PageSize pageSize = PageSize.A3.rotate();
             Rectangle pageMargins = new Rectangle(50, 50, 50, 50);
             pdf.setDefaultPageSize(pageSize);
             //documento.setMargins(pageMargins.getLeft(), pageMargins.getRight(), pageMargins.getTop(), pageMargins.getBottom());
@@ -69,8 +73,8 @@ public class ReportModule {
             documento.add(new Paragraph(titleText).setHorizontalAlignment(HorizontalAlignment.CENTER));
 
             // Subtitle
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-            String formattedDate = LocalDate.now().format(formatter);
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm:ss");
+            String formattedDate = LocalDateTime.now().format(formatter);
             Text subtitleText = new Text("Extração em " + formattedDate)
                     .setFont(subtitleFont)
                     .setFontSize(FONT_SIZE_SUBTITLE);
@@ -85,7 +89,7 @@ public class ReportModule {
             //a primeira linha sera o cabecalho (celula1 e 2)
             Cell celula1 = new Cell();
             celula1.add(new Paragraph("Transportador"));
-            celula1.setWidth(40000);
+            celula1.setWidth(100);
             celula1.setTextAlignment(TextAlignment.CENTER);
             celula1.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula1);
@@ -98,13 +102,13 @@ public class ReportModule {
             
             Cell celula3 = new Cell();
             celula3.add(new Paragraph("Endereço"));
-            celula3.setWidth(560000);
+            celula3.setWidth(450);
             celula3.setTextAlignment(TextAlignment.CENTER);
             celula3.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula3);
             
             Cell celula4 = new Cell();
-            celula4.setWidth(500);
+            celula4.setWidth(200);
             celula4.add(new Paragraph("Bairro"));
             celula4.setTextAlignment(TextAlignment.CENTER);
             celula4.setBackgroundColor(ColorConstants.GRAY);
@@ -112,7 +116,7 @@ public class ReportModule {
             
             Cell celula5 = new Cell();
             celula5.add(new Paragraph("Cidade"));
-            celula5.setWidth(40000);
+            celula5.setWidth(200);
             celula5.setTextAlignment(TextAlignment.CENTER);
             celula5.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula5);
@@ -152,14 +156,14 @@ public class ReportModule {
             int quantidadeColunas = 10;
             for(int i = 0; i < listaTransportadores.size(); i++){
                 tabela.addCell(new Cell().add(new Paragraph(listaTransportadores.get(i).getCarrierName())));
-                tabela.addCell(new Cell().add(new Paragraph(listaTransportadores.get(i).getCarrierCNPJCPF())));
+                tabela.addCell(new Cell().add(new Paragraph(verificaCPNPJCPF(listaTransportadores.get(i).getCarrierCNPJCPF()))));
                 tabela.addCell(new Cell().add(new Paragraph(listaTransportadores.get(i).getAddress())));
                 tabela.addCell(new Cell().add(new Paragraph(listaTransportadores.get(i).getDistrict())));
                 tabela.addCell(new Cell().add(new Paragraph(listaTransportadores.get(i).getCity())));
                 tabela.addCell(new Cell().add(new Paragraph(listaTransportadores.get(i).getState())));
                 tabela.addCell(new Cell().add(new Paragraph(listaTransportadores.get(i).getCountry())));
-                tabela.addCell(new Cell().add(new Paragraph(listaTransportadores.get(i).getZipcode())));
-                tabela.addCell(new Cell().add(new Paragraph(listaTransportadores.get(i).getTelefone())));
+                tabela.addCell(new Cell().add(new Paragraph(formatCEP(listaTransportadores.get(i).getZipcode()))));
+                tabela.addCell(new Cell().add(new Paragraph(formatPhoneNumber(listaTransportadores.get(i).getTelefone()))));
 //                tabela.addCell(new Cell().add(new Paragraph("N/A")));
             }
           
@@ -177,4 +181,70 @@ public class ReportModule {
             }
         } 
     }
+    
+    private String verificaPasta(){
+        File pasta = new File("./reports");
+
+        // Verifica se a pasta já existe
+        if (!pasta.exists()) {
+            // Cria a pasta
+            boolean criado = pasta.mkdirs();
+            if (!criado) {
+                // Se a pasta não pôde ser criada, lança uma exceção ou realiza outra ação
+            }
+        }
+
+        // Retorna caminho
+        return this.destinoArquivo = "./reports/Relatório de Transportadores - " + getGLog() + ".pdf";
+    }
+    
+    private String verificaCPNPJCPF(String numero){
+        if (numero.length() == 11) {
+            numero = formatarCPF(numero);
+        } else {
+            numero = formatarCNPJ(numero);
+        }
+        return numero;
+    }
+    
+    private String formatarCNPJ(String cnpj) {
+        try {
+            NumberFormat formatter = NumberFormat.getInstance();
+            formatter.setMinimumIntegerDigits(14);
+            formatter.setGroupingUsed(false);
+            String cnpjFormatado = formatter.format(Long.parseLong(cnpj));
+            return cnpjFormatado.substring(0, 2) + "." + cnpjFormatado.substring(2, 5) + "." + cnpjFormatado.substring(5, 8) + "/" + cnpjFormatado.substring(8, 12) + "-" + cnpjFormatado.substring(12, 14);
+        } catch (Exception e) {
+            return cnpj;
+        }
+    }
+    
+    private String formatarCPF(String cpf) {
+        try {
+            NumberFormat formatter = NumberFormat.getInstance();
+            formatter.setMinimumIntegerDigits(11);
+            formatter.setGroupingUsed(false);
+            String cpfFormatado = formatter.format(Long.parseLong(cpf));
+            return cpfFormatado.substring(0, 3) + "." + cpfFormatado.substring(3, 6) + "." + cpfFormatado.substring(6, 9) + "-" + cpfFormatado.substring(9, 11);
+        } catch (Exception e) {
+            return cpf;
+        }
+    }
+    
+    private String formatCEP(String cep) {
+        return cep.substring(0, 5) + "-" + cep.substring(5);
+    }
+    
+    private String formatPhoneNumber(String number) {
+        if (number.length() == 11) {  // celular
+            return String.format("(%s) %s %s-%s", number.substring(0, 2), number.substring(2, 3),
+                    number.substring(3, 7), number.substring(7));
+        } else if (number.length() == 10) {  // telefone fixo
+            return String.format("(%s) %s-%s", number.substring(0, 2), number.substring(2, 6),
+                    number.substring(6));
+        } else {
+            return "Número inválido";
+        }
+    }
+    
 }
