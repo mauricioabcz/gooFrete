@@ -48,6 +48,7 @@ com\gooFrete\View\JanelaCadastros$5.class
 com\gooFrete\Model\CarrierManager.class
 com\gooFrete\View\JanelaRotas$13.class
 com\gooFrete\View\JanelaCadastroTransportador$13.class
+com\gooFrete\Model\ReportModule.class
 com\gooFrete\View\JanelaCadastroTransportador$16.class
 com\gooFrete\View\JanelaRotas$6.class
 com\gooFrete\View\JanelaCadastroVeiculo$12.class

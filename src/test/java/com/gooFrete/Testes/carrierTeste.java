@@ -2,25 +2,15 @@ package com.gooFrete.Testes;
 
 import com.gooFrete.Controller.CarrierController;
 import com.gooFrete.Model.Carrier;
-import com.gooFrete.Model.CarrierManager;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 
 /**
  *
  * @author mauricio.rodrigues
  */
 public class carrierTeste {
-    
-    private CarrierController carrierControl;
-    
-    @BeforeAll
-    public void setUp(){
-        carrierControl = new CarrierController();
-    }
     
     @Test
     public void testeCriacaoDeTransportador(){
