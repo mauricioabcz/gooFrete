@@ -1,5 +1,6 @@
 package com.gooFrete.Model;
 
+import com.gooFrete.Controller.CarrierController;
 import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -51,7 +52,7 @@ public class ReportModule {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmss");
         return currentDateTime.format(formatter);
     }
-    
+        
     public void carrierReport(List<Carrier> listaTransportadores) throws IOException{
         PdfWriter writer = null;
         //this.destinoArquivo = verificaPasta();
@@ -86,7 +87,6 @@ public class ReportModule {
 
             // Insere Selo Bino de Qualidade
             //criando objeto imagem para adicionar no relatorio
-            System.out.println("Diretório atual: " + System.getProperty("user.dir"));
             ImageData data = ImageDataFactory.create("./images/seloBino.jpg");
             com.itextpdf.layout.element.Image img = new com.itextpdf.layout.element.Image(data);
             // Definindo a posição da imagem no canto superior direito da folha A3
@@ -99,14 +99,13 @@ public class ReportModule {
             documento.add(img);
             
             // criacao da tabela
-            float [] pointColumnWidths = {150f, 150f, 150f, 150f, 150f, 150f, 150f, 150f, 150f}; //2 colunas com a largura variavel de cada
+            float [] pointColumnWidths = {200f, 150f, 400f, 200f, 200f, 150f, 100f, 100f, 150f, 60f}; //10 colunas com a largura variavel de cada
             Table tabela = new Table(pointColumnWidths);
             tabela.setAutoLayout();
             
             //a primeira linha sera o cabecalho (celula1 e 2)
             Cell celula1 = new Cell();
             celula1.add(new Paragraph("Transportador"));
-            celula1.setWidth(100);
             celula1.setTextAlignment(TextAlignment.CENTER);
             celula1.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula1);
@@ -119,13 +118,11 @@ public class ReportModule {
             
             Cell celula3 = new Cell();
             celula3.add(new Paragraph("Endereço"));
-            celula3.setWidth(450);
             celula3.setTextAlignment(TextAlignment.CENTER);
             celula3.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula3);
             
             Cell celula4 = new Cell();
-            celula4.setWidth(200);
             celula4.add(new Paragraph("Bairro"));
             celula4.setTextAlignment(TextAlignment.CENTER);
             celula4.setBackgroundColor(ColorConstants.GRAY);
@@ -133,7 +130,6 @@ public class ReportModule {
             
             Cell celula5 = new Cell();
             celula5.add(new Paragraph("Cidade"));
-            celula5.setWidth(200);
             celula5.setTextAlignment(TextAlignment.CENTER);
             celula5.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula5);
@@ -162,15 +158,13 @@ public class ReportModule {
             celula9.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula9);
             
-//            Cell celula10 = new Cell();
-//            celula10.add(new Paragraph("Tipo"));
-//            celula10.setTextAlignment(TextAlignment.CENTER);
-//            celula10.setBackgroundColor(ColorConstants.GRAY);
-//            tabela.addCell(celula10);
+            Cell celula10 = new Cell();
+            celula10.add(new Paragraph("Tipo"));
+            celula10.setTextAlignment(TextAlignment.CENTER);
+            celula10.setBackgroundColor(ColorConstants.GRAY);
+            tabela.addCell(celula10);
             
             //populando linhas da tabela
-            int quantidadeLinhas = 6;
-            int quantidadeColunas = 10;
             for(int i = 0; i < listaTransportadores.size(); i++){
                 tabela.addCell(new Cell().add(new Paragraph(listaTransportadores.get(i).getCarrierName())));
                 tabela.addCell(new Cell().add(new Paragraph(verificaCPNPJCPF(listaTransportadores.get(i).getCarrierCNPJCPF()))));
@@ -181,7 +175,7 @@ public class ReportModule {
                 tabela.addCell(new Cell().add(new Paragraph(listaTransportadores.get(i).getCountry())));
                 tabela.addCell(new Cell().add(new Paragraph(formatCEP(listaTransportadores.get(i).getZipcode()))));
                 tabela.addCell(new Cell().add(new Paragraph(formatPhoneNumber(listaTransportadores.get(i).getTelefone()))));
-//                tabela.addCell(new Cell().add(new Paragraph("N/A")));
+                tabela.addCell(new Cell().add(new Paragraph(insereTipo(listaTransportadores.get(i).getCarrierType()))).setTextAlignment(TextAlignment.CENTER));
             }
           
             //adiciona tabela no documento e gera PDF:
@@ -213,6 +207,11 @@ public class ReportModule {
 
         // Retorna caminho
         return this.destinoArquivo = "./reports/Relatório de Transportadores - " + getGLog() + ".pdf";
+    }
+    
+    private String insereTipo(int tipoTransportador){
+        if(tipoTransportador == 0) return "TAC";
+        else return "ETC";
     }
     
     private String verificaCPNPJCPF(String numero){

@@ -18,7 +18,7 @@ public class JanelaHome extends javax.swing.JPanel {
         initComponents();
         setColor(btn_1); 
         ind_1.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_JanelaCadastros,btn_JanelaRotas}, new JPanel[]{ind_2,ind_3, ind_4});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_JanelaRotas}, new JPanel[]{ind_2,ind_3, ind_4});
     }
 
     public void gotoJanelaCadastros(){
@@ -39,6 +39,15 @@ public class JanelaHome extends javax.swing.JPanel {
         janela.setLocationRelativeTo(null);
     }
     
+    public void gotoJanelaRelatorios(){
+        Janela.p6 = new JanelaRelatorios();
+        JFrame janela = (JFrame) SwingUtilities.getWindowAncestor(Janela.p1);
+        janela.getContentPane().remove(Janela.p1);
+        janela.add(Janela.p6, BorderLayout.CENTER);
+        janela.pack();
+        janela.setLocationRelativeTo(null);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -47,7 +56,7 @@ public class JanelaHome extends javax.swing.JPanel {
         btn_1 = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        btn_2 = new javax.swing.JPanel();
+        btn_JanelaRelatorios = new javax.swing.JPanel();
         ind_2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btn_JanelaCadastros = new javax.swing.JPanel();
@@ -116,10 +125,10 @@ public class JanelaHome extends javax.swing.JPanel {
 
         side_pane.add(btn_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 120, -1));
 
-        btn_2.setBackground(new java.awt.Color(23, 35, 51));
-        btn_2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_JanelaRelatorios.setBackground(new java.awt.Color(23, 35, 51));
+        btn_JanelaRelatorios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_2MouseReleased(evt);
+                btn_JanelaRelatoriosMouseReleased(evt);
             }
         });
 
@@ -140,28 +149,28 @@ public class JanelaHome extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Relatórios");
 
-        javax.swing.GroupLayout btn_2Layout = new javax.swing.GroupLayout(btn_2);
-        btn_2.setLayout(btn_2Layout);
-        btn_2Layout.setHorizontalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_JanelaRelatoriosLayout = new javax.swing.GroupLayout(btn_JanelaRelatorios);
+        btn_JanelaRelatorios.setLayout(btn_JanelaRelatoriosLayout);
+        btn_JanelaRelatoriosLayout.setHorizontalGroup(
+            btn_JanelaRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel9)
                 .addGap(0, 30, Short.MAX_VALUE))
         );
-        btn_2Layout.setVerticalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        btn_JanelaRelatoriosLayout.setVerticalGroup(
+            btn_JanelaRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_2Layout.createSequentialGroup()
+            .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 120, -1));
+        side_pane.add(btn_JanelaRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 120, -1));
 
         btn_JanelaCadastros.setBackground(new java.awt.Color(23, 35, 51));
         btn_JanelaCadastros.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -420,21 +429,22 @@ public class JanelaHome extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_1);
         ind_1.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_JanelaCadastros,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_3, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_3, ind_4, ind_5});
     }//GEN-LAST:event_btn_1MousePressed
 
-    private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
+    private void btn_JanelaRelatoriosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_JanelaRelatoriosMouseReleased
         // TODO add your handling code here:
-        setColor(btn_2);
+        setColor(btn_JanelaRelatorios);
         ind_2.setOpaque(true);
         resetColor(new JPanel[]{btn_1,btn_JanelaCadastros,btn_JanelaRotas, btn_5}, new JPanel[]{ind_1,ind_3, ind_4, ind_5});
-    }//GEN-LAST:event_btn_2MouseReleased
+        gotoJanelaRelatorios();
+    }//GEN-LAST:event_btn_JanelaRelatoriosMouseReleased
 
     private void btn_JanelaCadastrosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_JanelaCadastrosMousePressed
         // TODO add your handling code here:
         setColor(btn_JanelaCadastros);
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_1,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_1,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
         gotoJanelaCadastros();
     }//GEN-LAST:event_btn_JanelaCadastrosMousePressed
 
@@ -442,7 +452,7 @@ public class JanelaHome extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_JanelaRotas);
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_JanelaCadastros,btn_1, btn_5}, new JPanel[]{ind_2,ind_3, ind_1, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_1, btn_5}, new JPanel[]{ind_2,ind_3, ind_1, ind_5});
         gotoJanelaRotas();
     }//GEN-LAST:event_btn_JanelaRotasMousePressed
 
@@ -450,7 +460,7 @@ public class JanelaHome extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_5);
         ind_5.setOpaque(true);
-        resetColor(new JPanel[]{btn_1,btn_JanelaCadastros,btn_JanelaRotas, btn_2}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
+        resetColor(new JPanel[]{btn_1,btn_JanelaCadastros,btn_JanelaRotas, btn_JanelaRelatorios}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
         System.exit(0);
     }//GEN-LAST:event_btn_5MouseReleased
 
@@ -497,9 +507,9 @@ public class JanelaHome extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel btn_1;
-    private javax.swing.JPanel btn_2;
     private javax.swing.JPanel btn_5;
     private javax.swing.JPanel btn_JanelaCadastros;
+    private javax.swing.JPanel btn_JanelaRelatorios;
     private javax.swing.JPanel btn_JanelaRotas;
     private javax.swing.JPanel ind_1;
     private javax.swing.JPanel ind_2;
