@@ -8,15 +8,17 @@ import java.util.List;
  */
 public class Viagem {
     
-    private String transportadorCNPJCPF, tipoVeiculo;
+    private String nomeTransportador, transportadorCNPJCPF, tipoVeiculo, placa;
     private int numEixos, tipoPagamento, qtdePracas;
     private String paradas, valor, distancia, duracao;
     private List<String> listaPracas;
 
 
-    public Viagem(String transportadorCNPJCPF, String tipoVeiculo, int numEixos, int tipoPagamento, String paradas) {
+    public Viagem(String nomeTransportador, String transportadorCNPJCPF, String tipoVeiculo, String placa, int numEixos, int tipoPagamento, String paradas) {
+        this.nomeTransportador = nomeTransportador;
         this.transportadorCNPJCPF = transportadorCNPJCPF;
         this.tipoVeiculo = tipoVeiculo;
+        this.placa = placa;
         this.numEixos = numEixos;
         this.tipoPagamento = tipoPagamento;
         this.paradas = paradas;
@@ -102,9 +104,33 @@ public class Viagem {
         this.listaPracas = listaPracas;
     }
 
+    public String getNomeTransportador() {
+        return nomeTransportador;
+    }
+
+    public void setNomeTransportador(String nomeTransportador) {
+        this.nomeTransportador = nomeTransportador;
+    }
+
+    public String getTransportadorCNPJCPF() {
+        return transportadorCNPJCPF;
+    }
+
+    public void setTransportadorCNPJCPF(String transportadorCNPJCPF) {
+        this.transportadorCNPJCPF = transportadorCNPJCPF;
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
     @Override
     public String toString() {
-        return "Viagem{" + ", transportador=" + transportadorCNPJCPF + ", tipoVeiculo=" + tipoVeiculo + ", numEixos=" + numEixos + ", tipoPagamento=" + tipoPagamento + ", qtdePracas=" + qtdePracas + ", paradas=" + paradas + ", valor=" + valor + ", distancia=" + distancia + ", duracao=" + duracao + ", listaPracas=" + listaPracas + '}';
+        return "Viagem{" + "nomeTransportador=" + nomeTransportador + ", transportadorCNPJCPF=" + transportadorCNPJCPF + ", tipoVeiculo=" + tipoVeiculo + ", placa=" + placa + ", numEixos=" + numEixos + ", tipoPagamento=" + tipoPagamento + ", qtdePracas=" + qtdePracas + ", paradas=" + paradas + ", valor=" + valor + ", distancia=" + distancia + ", duracao=" + duracao + ", listaPracas=" + listaPracas + '}';
     }
 
 }

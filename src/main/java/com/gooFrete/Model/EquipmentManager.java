@@ -233,6 +233,7 @@ public class EquipmentManager {
                                    where licensePlate in (
                                    '""" + keyLicensePlate + "'" +
                                    ");";
+                System.out.println(selectSql);
                 statement = connection.createStatement();
                 resultSet = statement.executeQuery(selectSql);
                 

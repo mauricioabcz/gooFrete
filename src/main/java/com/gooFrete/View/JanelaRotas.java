@@ -827,15 +827,16 @@ public class JanelaRotas extends javax.swing.JPanel {
     }
     
     public void realizaCalculo(){
-        String transportadorCNPJCPF, tipoVeiculo, tipoPedagio; 
+        String nomeTransportador, transportadorCNPJCPF, tipoVeiculo, tipoPedagio, placa; 
         int numEixos, tipoPagamento = -1; 
         String paradas = "";
 
         //Extrai tipoVeiculo
         // Separar a string em um array de strings
         String[] parts = cb_Veiculos.getSelectedItem().toString().split(" - ");
-        // Obter o primeiro elemento do array, que corresponde ao tipo de veículo
+        // Obter os elementos do array, que corresponde ao tipo de veículo e placa
         tipoVeiculo = parts[0];
+        placa = parts[1];
         
         //Extrai numEixos
         numEixos =  Integer.parseInt(removerFormatacao(parts[2]));
@@ -861,11 +862,12 @@ public class JanelaRotas extends javax.swing.JPanel {
         //Extrai tipoVeiculo
         // Separar a string em um array de strings
         parts = cb_Transportadores.getSelectedItem().toString().split(" - ");
-        // Obter o primeiro elemento do array, que corresponde ao tipo de veículo
+        // Obter os elementos do array, que corresponde ao nome e CNPJ do transportador
         transportadorCNPJCPF = removerFormatacao(parts[1]);
+        nomeTransportador = parts[0];
         
         //Solicita cálculo
-        Viagem calcula = new Viagem(transportadorCNPJCPF, tipoVeiculo, numEixos, tipoPagamento,paradas);
+        Viagem calcula = new Viagem(nomeTransportador, transportadorCNPJCPF, tipoVeiculo, placa, numEixos, tipoPagamento,paradas);
         System.out.println(calcula.toString());
     }
     
