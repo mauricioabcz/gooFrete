@@ -120,14 +120,14 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="btn_2">
+        <Container class="javax.swing.JPanel" name="btn_JanelaRelatorios">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="23" red="17" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_2MouseReleased"/>
+            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btn_JanelaRelatoriosMouseReleased"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -547,12 +547,13 @@
             <Component class="javax.swing.JTable" name="tabelaViagens">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="6" rowCount="0">
+                  <Table columnCount="7" rowCount="0">
                     <Column editable="false" title="Tipo" type="java.lang.String"/>
+                    <Column editable="false" title="Viagem" type="java.lang.String"/>
                     <Column editable="false" title="CNPJ/CPF" type="java.lang.String"/>
                     <Column editable="false" title="Transportador" type="java.lang.String"/>
-                    <Column editable="false" title="Origem" type="java.lang.String"/>
-                    <Column editable="false" title="Destino" type="java.lang.String"/>
+                    <Column editable="false" title="Dist&#xe2;ncia" type="java.lang.Double"/>
+                    <Column editable="false" title="Dura&#xe7;&#xe3;o" type="java.lang.String"/>
                     <Column editable="false" title="Valor" type="java.lang.Double"/>
                   </Table>
                 </Property>

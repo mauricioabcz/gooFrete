@@ -1,5 +1,6 @@
 package com.gooFrete.Model;
 
+import java.io.Serializable;
 import java.util.UUID;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,10 +42,10 @@ public class Travel {
     private double distancia;
     
     @Column(name = "Duracao", nullable = false)
-    private double duracao;
+    private String duracao;
     
-    @Column(name = "qtdePracas", nullable = false)
-    private int qtdePracas;
+    @Column(name = "tipoPagamento", nullable = false)
+    private int tipoPagamento;
     
     @Column(name = "EquipmentId")
     @Type(type = "org.hibernate.type.UUIDCharType")
@@ -113,20 +114,20 @@ public class Travel {
         this.distancia = distancia;
     }
 
-    public double getDuracao() {
+    public String getDuracao() {
         return duracao;
     }
 
-    public void setDuracao(double duracao) {
+    public void setDuracao(String duracao) {
         this.duracao = duracao;
     }
 
-    public int getQtdePracas() {
-        return qtdePracas;
+    public int tipoPagamento() {
+        return tipoPagamento;
     }
 
-    public void setQtdePracas(int qtdePracas) {
-        this.qtdePracas = qtdePracas;
+    public void tipoPagamento(int qtdePracas) {
+        this.tipoPagamento = qtdePracas;
     }
 
     public UUID getEquipmentId() {
@@ -145,11 +146,17 @@ public class Travel {
         this.insertDate = insertDate;
     }
 
-    
+    public int getTipoPagamento() {
+        return tipoPagamento;
+    }
+
+    public void setTipoPagamento(int tipoPagamento) {
+        this.tipoPagamento = tipoPagamento;
+    }
     
     @Override
     public String toString() {
-        return "Travel{" + "id=" + id + ", identification=" + identification + ", carrierId=" + carrierId + ", carrierName=" + carrierName + ", carrierCNPJCPF=" + carrierCNPJCPF + ", valor=" + valor + ", distancia=" + distancia + ", duracao=" + duracao + ", qtdePracas=" + qtdePracas + ", equipmentId=" + equipmentId + ", insertDate=" + insertDate + '}';
+        return "Travel{" + "id=" + id + ", identification=" + identification + ", carrierId=" + carrierId + ", carrierName=" + carrierName + ", carrierCNPJCPF=" + carrierCNPJCPF + ", valor=" + valor + ", distancia=" + distancia + ", duracao=" + duracao + ", tipoPagamento=" + tipoPagamento + ", equipmentId=" + equipmentId + ", insertDate=" + insertDate + '}';
     }
 
 }

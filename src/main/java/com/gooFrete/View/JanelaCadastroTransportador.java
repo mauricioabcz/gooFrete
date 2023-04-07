@@ -30,10 +30,10 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         initComponents();
         setColor(btn_JanelaCadastros); 
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_Home,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
         
         carrierController = new CarrierController();
-        //atualizaTabela();
+        atualizaTabela();
         
     }
     public void gotoJanelaHome(){
@@ -63,6 +63,15 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         janela.setLocationRelativeTo(null);
     }
     
+    public void gotoJanelaRelatorios(){
+        Janela.p6 = new JanelaRelatorios();
+        JFrame janela = (JFrame) SwingUtilities.getWindowAncestor(Janela.p3);
+        janela.getContentPane().remove(Janela.p3);
+        janela.add(Janela.p6, BorderLayout.CENTER);
+        janela.pack();
+        janela.setLocationRelativeTo(null);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -71,7 +80,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         btn_Home = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        btn_2 = new javax.swing.JPanel();
+        btn_JanelaRelatorios = new javax.swing.JPanel();
         ind_2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btn_JanelaCadastros = new javax.swing.JPanel();
@@ -171,10 +180,10 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
 
         side_pane.add(btn_Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 120, -1));
 
-        btn_2.setBackground(new java.awt.Color(23, 35, 51));
-        btn_2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_JanelaRelatorios.setBackground(new java.awt.Color(23, 35, 51));
+        btn_JanelaRelatorios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_2MouseReleased(evt);
+                btn_JanelaRelatoriosMouseReleased(evt);
             }
         });
 
@@ -195,28 +204,28 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Relatórios");
 
-        javax.swing.GroupLayout btn_2Layout = new javax.swing.GroupLayout(btn_2);
-        btn_2.setLayout(btn_2Layout);
-        btn_2Layout.setHorizontalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_JanelaRelatoriosLayout = new javax.swing.GroupLayout(btn_JanelaRelatorios);
+        btn_JanelaRelatorios.setLayout(btn_JanelaRelatoriosLayout);
+        btn_JanelaRelatoriosLayout.setHorizontalGroup(
+            btn_JanelaRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel9)
                 .addGap(0, 30, Short.MAX_VALUE))
         );
-        btn_2Layout.setVerticalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        btn_JanelaRelatoriosLayout.setVerticalGroup(
+            btn_JanelaRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_2Layout.createSequentialGroup()
+            .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 120, -1));
+        side_pane.add(btn_JanelaRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 120, -1));
 
         btn_JanelaCadastros.setBackground(new java.awt.Color(23, 35, 51));
         btn_JanelaCadastros.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -418,7 +427,6 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Novo Transportador");
 
         jLabel4.setText("Razão Social:");
@@ -467,7 +475,6 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         });
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Veículos Vinculados");
 
         tabelaVeiculos.setModel(new javax.swing.table.DefaultTableModel(
@@ -722,7 +729,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_Home);
         ind_1.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_JanelaCadastros,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_3, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_3, ind_4, ind_5});
         gotoJanelaHome();
     }//GEN-LAST:event_btn_HomeMousePressed
 
@@ -863,18 +870,19 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         }
     }
     
-    private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
+    private void btn_JanelaRelatoriosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_JanelaRelatoriosMouseReleased
         // TODO add your handling code here:
-        setColor(btn_2);
+        setColor(btn_JanelaRelatorios);
         ind_2.setOpaque(true);
         resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_JanelaRotas, btn_5}, new JPanel[]{ind_1,ind_3, ind_4, ind_5});
-    }//GEN-LAST:event_btn_2MouseReleased
+        gotoJanelaRelatorios();
+    }//GEN-LAST:event_btn_JanelaRelatoriosMouseReleased
 
     private void btn_JanelaCadastrosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_JanelaCadastrosMousePressed
         // TODO add your handling code here:
         setColor(btn_JanelaCadastros);
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_Home,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
         gotoJanelaCadastros();
     }//GEN-LAST:event_btn_JanelaCadastrosMousePressed
 
@@ -882,7 +890,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_JanelaRotas);
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_JanelaCadastros,btn_Home, btn_5}, new JPanel[]{ind_2,ind_3, ind_1, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_Home, btn_5}, new JPanel[]{ind_2,ind_3, ind_1, ind_5});
         gotoJanelaRotas();
     }//GEN-LAST:event_btn_JanelaRotasMousePressed
 
@@ -890,7 +898,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_5);
         ind_5.setOpaque(true);
-        resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_JanelaRotas, btn_2}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
+        resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_JanelaRotas, btn_JanelaRelatorios}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
     }//GEN-LAST:event_btn_5MouseReleased
 
     private void bt_AttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AttActionPerformed
@@ -1030,10 +1038,10 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
     private javax.swing.JButton bt_Limpar;
     private javax.swing.JButton bt_Remover;
     private javax.swing.JButton bt_Salvar;
-    private javax.swing.JPanel btn_2;
     private javax.swing.JPanel btn_5;
     private javax.swing.JPanel btn_Home;
     private javax.swing.JPanel btn_JanelaCadastros;
+    private javax.swing.JPanel btn_JanelaRelatorios;
     private javax.swing.JPanel btn_JanelaRotas;
     private javax.swing.JComboBox<String> cb_Estado;
     private javax.swing.JComboBox<String> cb_Pais;

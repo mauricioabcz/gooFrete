@@ -2,18 +2,23 @@ package com.gooFrete.View;
 
 import com.gooFrete.Controller.CarrierController;
 import com.gooFrete.Controller.EquipmentController;
+import com.gooFrete.Controller.ViagemController;
 import com.gooFrete.Model.Carrier;
 import com.gooFrete.Model.Equipment;
+import com.gooFrete.Model.Travel;
 import com.gooFrete.Model.Viagem;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.io.File;
+import java.io.IOException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.ImageIcon;
@@ -21,6 +26,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.table.DefaultTableModel;
+import java.text.Normalizer;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -31,19 +38,22 @@ public class JanelaRotas extends javax.swing.JPanel {
     private List<Equipment> listaVeiculos;
     private List<Carrier> listaTransportadores;
     private List<Carrier> listaTransportadoresVinculados;
+    private List<Travel> listaViagens;
     private CarrierController carrierController;
     private EquipmentController equipmentController;
+    private ViagemController viagemController;
     
     public JanelaRotas() {
         initComponents();
         setColor(btn_4); 
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_Home,btn_JanelaCadastros, btn_5}, new JPanel[]{ind_2,ind_1, ind_3, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaCadastros, btn_5}, new JPanel[]{ind_2,ind_1, ind_3, ind_5});
         
         equipmentController = new EquipmentController();
         carrierController = new CarrierController();
+        viagemController = new ViagemController();
         cb_Veiculos.setEnabled(false);
-        //atualizaTabela();
+        atualizaTabela();
         
     }
     public void gotoJanelaHome(){
@@ -64,6 +74,15 @@ public class JanelaRotas extends javax.swing.JPanel {
         janela.setLocationRelativeTo(null);
     }
     
+    public void gotoJanelaRelatorios(){
+        Janela.p6 = new JanelaRelatorios();
+        JFrame janela = (JFrame) SwingUtilities.getWindowAncestor(Janela.p5);
+        janela.getContentPane().remove(Janela.p5);
+        janela.add(Janela.p6, BorderLayout.CENTER);
+        janela.pack();
+        janela.setLocationRelativeTo(null);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -72,7 +91,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         btn_Home = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        btn_2 = new javax.swing.JPanel();
+        btn_JanelaRelatorios = new javax.swing.JPanel();
         ind_2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         btn_JanelaCadastros = new javax.swing.JPanel();
@@ -163,10 +182,10 @@ public class JanelaRotas extends javax.swing.JPanel {
 
         side_pane.add(btn_Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 120, -1));
 
-        btn_2.setBackground(new java.awt.Color(23, 35, 51));
-        btn_2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_JanelaRelatorios.setBackground(new java.awt.Color(23, 35, 51));
+        btn_JanelaRelatorios.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_2MouseReleased(evt);
+                btn_JanelaRelatoriosMouseReleased(evt);
             }
         });
 
@@ -187,28 +206,28 @@ public class JanelaRotas extends javax.swing.JPanel {
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Relatórios");
 
-        javax.swing.GroupLayout btn_2Layout = new javax.swing.GroupLayout(btn_2);
-        btn_2.setLayout(btn_2Layout);
-        btn_2Layout.setHorizontalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_JanelaRelatoriosLayout = new javax.swing.GroupLayout(btn_JanelaRelatorios);
+        btn_JanelaRelatorios.setLayout(btn_JanelaRelatoriosLayout);
+        btn_JanelaRelatoriosLayout.setHorizontalGroup(
+            btn_JanelaRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel9)
                 .addGap(0, 30, Short.MAX_VALUE))
         );
-        btn_2Layout.setVerticalGroup(
-            btn_2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_2Layout.createSequentialGroup()
+        btn_JanelaRelatoriosLayout.setVerticalGroup(
+            btn_JanelaRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_2Layout.createSequentialGroup()
+            .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 120, -1));
+        side_pane.add(btn_JanelaRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 120, -1));
 
         btn_JanelaCadastros.setBackground(new java.awt.Color(23, 35, 51));
         btn_JanelaCadastros.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -358,14 +377,14 @@ public class JanelaRotas extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Tipo", "CNPJ/CPF", "Transportador", "Origem", "Destino", "Valor"
+                "Tipo", "Viagem", "CNPJ/CPF", "Transportador", "Distância", "Duração", "Valor"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.String.class, java.lang.Double.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -409,7 +428,6 @@ public class JanelaRotas extends javax.swing.JPanel {
         });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Novo Veículo");
 
         jLabel4.setText("Tipo Pedágio:");
@@ -449,7 +467,6 @@ public class JanelaRotas extends javax.swing.JPanel {
         });
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(0, 0, 0));
         jLabel18.setText("Destinos Selecionados");
 
         tabelaDestinos.setModel(new javax.swing.table.DefaultTableModel(
@@ -698,7 +715,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_Home);
         ind_1.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_JanelaCadastros,btn_4, btn_5}, new JPanel[]{ind_2,ind_3, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_4, btn_5}, new JPanel[]{ind_2,ind_3, ind_4, ind_5});
         gotoJanelaHome();
     }//GEN-LAST:event_btn_HomeMousePressed
 
@@ -721,6 +738,33 @@ public class JanelaRotas extends javax.swing.JPanel {
             carrierComboBox = carrierName + " - " + carrierCNPJCPF;
             cb_Transportadores.addItem(carrierComboBox);
         }
+        
+        //Atualiza tabela
+        listaViagens = viagemController.travelQueryAll();
+        String tipoPagamento, carrierCNPJCPFTable;
+        
+        ((DefaultTableModel) tabelaViagens.getModel()).setRowCount(0);
+        for (int i = 0; i < listaViagens.size(); i++) {
+            
+            tipoPagamento = (listaViagens.get(i).getTipoPagamento() == 0) ? "Cartão" : "Tag";
+            carrierCNPJCPFTable =  listaViagens.get(i).getCarrierCNPJCPF();
+            if (carrierCNPJCPFTable.length() == 11) {
+                carrierCNPJCPFTable = formatarCPF(carrierCNPJCPFTable);
+            } else {
+                carrierCNPJCPFTable = formatarCNPJ(carrierCNPJCPFTable);
+            }
+            
+            ((DefaultTableModel) tabelaViagens.getModel()).addRow(new Object[]{
+                tipoPagamento,
+                listaViagens.get(i).getIdentification(),
+                carrierCNPJCPFTable,
+                listaViagens.get(i).getCarrierName(),
+                listaViagens.get(i).getDistancia(),
+                listaViagens.get(i).getDuracao(),
+                listaViagens.get(i).getValor()
+            });
+        }
+        
     }
     
     public void removeDestino(){
@@ -826,7 +870,7 @@ public class JanelaRotas extends javax.swing.JPanel {
             });
     }
     
-    public void realizaCalculo(){
+    public void processaViagem() throws IOException{
         String nomeTransportador, transportadorCNPJCPF, tipoVeiculo, tipoPedagio, placa; 
         int numEixos, tipoPagamento = -1; 
         String paradas = "";
@@ -835,8 +879,8 @@ public class JanelaRotas extends javax.swing.JPanel {
         // Separar a string em um array de strings
         String[] parts = cb_Veiculos.getSelectedItem().toString().split(" - ");
         // Obter os elementos do array, que corresponde ao tipo de veículo e placa
-        tipoVeiculo = parts[0];
-        placa = parts[1];
+        tipoVeiculo = removerAcentos(parts[0]);
+        placa = extrairPlaca(parts[1]);
         
         //Extrai numEixos
         numEixos =  Integer.parseInt(removerFormatacao(parts[2]));
@@ -844,9 +888,9 @@ public class JanelaRotas extends javax.swing.JPanel {
         for (int i = 0; i < tabelaDestinos.getRowCount(); i++) {
             Object cellValue = tabelaDestinos.getValueAt(i, 1);
                 if (i == 0) {
-                    paradas = cidadeEncode(cellValue.toString());
+                    paradas = removerAcentos(cellValue.toString());
                 } else {
-                    paradas = paradas + ";" + cidadeEncode(cellValue.toString());
+                    paradas = paradas + ";" + removerAcentos(cellValue.toString());
                 }
         }
         
@@ -867,22 +911,31 @@ public class JanelaRotas extends javax.swing.JPanel {
         nomeTransportador = parts[0];
         
         //Solicita cálculo
-        Viagem calcula = new Viagem(nomeTransportador, transportadorCNPJCPF, tipoVeiculo, placa, numEixos, tipoPagamento,paradas);
-        System.out.println(calcula.toString());
+        Viagem viagem = new Viagem(nomeTransportador, transportadorCNPJCPF, tipoVeiculo, placa, numEixos, tipoPagamento,paradas);
+        System.out.println(viagem.toString());
+        boolean status = viagemController.processaViagem(viagem);
+        if (status) System.out.println("Viagem processada com sucesso.");
     }
     
-    private void btn_2MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_2MouseReleased
+    public void removerViagem(){
+        String viagemIdentification = (String) tabelaViagens.getModel().getValueAt(tabelaViagens.getSelectedRow() ,2);
+        boolean status = viagemController.removerViagem(viagemIdentification);
+        if (status) System.out.println("Viagem removida com sucesso.");;
+    }
+    
+    private void btn_JanelaRelatoriosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_JanelaRelatoriosMouseReleased
         // TODO add your handling code here:
-        setColor(btn_2);
+        setColor(btn_JanelaRelatorios);
         ind_2.setOpaque(true);
         resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_4, btn_5}, new JPanel[]{ind_1,ind_3, ind_4, ind_5});
-    }//GEN-LAST:event_btn_2MouseReleased
+        gotoJanelaRelatorios();
+    }//GEN-LAST:event_btn_JanelaRelatoriosMouseReleased
 
     private void btn_JanelaCadastrosMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_JanelaCadastrosMousePressed
         // TODO add your handling code here:
         setColor(btn_JanelaCadastros);
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_Home,btn_4, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_4, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
         gotoJanelaCadastros();
     }//GEN-LAST:event_btn_JanelaCadastrosMousePressed
 
@@ -890,14 +943,14 @@ public class JanelaRotas extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_4);
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_2,btn_JanelaCadastros,btn_Home, btn_5}, new JPanel[]{ind_2,ind_3, ind_1, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_Home, btn_5}, new JPanel[]{ind_2,ind_3, ind_1, ind_5});
     }//GEN-LAST:event_btn_4MousePressed
 
     private void btn_5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_5MouseReleased
         // TODO add your handling code here:
         setColor(btn_5);
         ind_5.setOpaque(true);
-        resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_4, btn_2}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
+        resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_4, btn_JanelaRelatorios}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
     }//GEN-LAST:event_btn_5MouseReleased
 
     private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
@@ -921,13 +974,12 @@ public class JanelaRotas extends javax.swing.JPanel {
     }//GEN-LAST:event_jPanel2MousePressed
 
     private void bt_AttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AttActionPerformed
-       // atualizaTabela();
+       atualizaTabela();
     }//GEN-LAST:event_bt_AttActionPerformed
 
     private void bt_RemoverViagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_RemoverViagemActionPerformed
-//        removerVeiculo();
-//        limparCampos();
-//        atualizaTabela();
+        removerViagem();
+        atualizaTabela();
     }//GEN-LAST:event_bt_RemoverViagemActionPerformed
 
     private void bt_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_LimparActionPerformed
@@ -935,9 +987,13 @@ public class JanelaRotas extends javax.swing.JPanel {
     }//GEN-LAST:event_bt_LimparActionPerformed
 
     private void bt_CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CalcularActionPerformed
-        realizaCalculo();
-//        limparCampos();
-//        atualizaTabela();
+        try {
+            processaViagem();
+            limparCampos();
+            atualizaTabela();
+        } catch (IOException ex) {
+            Logger.getLogger(JanelaRotas.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_bt_CalcularActionPerformed
 
     private void tabelaViagensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaViagensMouseClicked
@@ -1019,11 +1075,11 @@ public class JanelaRotas extends javax.swing.JPanel {
         }
     }
     
-    public String cidadeEncode(String cidade){
-        String cidadeEncoded = URLEncoder.encode(cidade, StandardCharsets.UTF_8);
-        return cidadeEncoded;
+    public static String extrairPlaca(String texto) {
+        String placa = texto.replace("Placa: ", "");
+        return placa;
     }
-    
+
     private String formatCEP(String cep) {
         return cep.substring(0, 5) + "-" + cep.substring(5);
     }
@@ -1049,6 +1105,28 @@ public class JanelaRotas extends javax.swing.JPanel {
         tf_Destino.setText("");
     }
     
+    public String removerAcentos(String texto) {
+        String textoSemAcentos = Normalizer.normalize(texto, Normalizer.Form.NFD);
+        Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+        return pattern.matcher(textoSemAcentos).replaceAll("")
+                .replaceAll("[ÂÀÁÄÃ]", "A")
+                .replaceAll("[âãàáä]", "a")
+                .replaceAll("[ÊÈÉË]", "E")
+                .replaceAll("[êèéë]", "e")
+                .replaceAll("[ÎÍÌÏ]", "I")
+                .replaceAll("[îíìï]", "i")
+                .replaceAll("[ÔÕÒÓÖ]", "O")
+                .replaceAll("[ôõòóö]", "o")
+                .replaceAll("[ÛÙÚÜ]", "U")
+                .replaceAll("[ûúùü]", "u")
+                .replaceAll("Ç", "C")
+                .replaceAll("ç", "c")
+                .replaceAll("[ýÿ]", "y")
+                .replaceAll("Ý", "Y")
+                .replaceAll("ñ", "n")
+                .replaceAll("Ñ", "N");
+    }
+    
     private void limparCampos(){
         cb_TipoPedagio.setSelectedIndex(0);
         cb_Transportadores.setSelectedIndex(0);
@@ -1066,11 +1144,11 @@ public class JanelaRotas extends javax.swing.JPanel {
     private javax.swing.JButton bt_RemoverDestino;
     private javax.swing.JButton bt_RemoverViagem;
     private javax.swing.JButton bt_Sobe;
-    private javax.swing.JPanel btn_2;
     private javax.swing.JPanel btn_4;
     private javax.swing.JPanel btn_5;
     private javax.swing.JPanel btn_Home;
     private javax.swing.JPanel btn_JanelaCadastros;
+    private javax.swing.JPanel btn_JanelaRelatorios;
     private javax.swing.JComboBox<String> cb_TipoPedagio;
     private javax.swing.JComboBox<String> cb_Transportadores;
     private javax.swing.JComboBox<String> cb_Veiculos;
