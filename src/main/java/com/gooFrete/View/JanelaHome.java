@@ -487,7 +487,7 @@ public class JanelaHome extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel1MousePressed
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
+        System.exit(0);
     }//GEN-LAST:event_jLabel2MousePressed
 
         private void setColor(JPanel pane)
