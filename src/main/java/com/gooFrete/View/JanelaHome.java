@@ -1,5 +1,6 @@
 package com.gooFrete.View;
 
+import com.gooFrete.Model.ReturnMessagePane;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.File;
@@ -461,7 +462,7 @@ public class JanelaHome extends javax.swing.JPanel {
         setColor(btn_5);
         ind_5.setOpaque(true);
         resetColor(new JPanel[]{btn_1,btn_JanelaCadastros,btn_JanelaRotas, btn_JanelaRelatorios}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
-        System.exit(0);
+        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
     }//GEN-LAST:event_btn_5MouseReleased
 
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
@@ -486,7 +487,7 @@ public class JanelaHome extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel1MousePressed
 
     private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        System.exit(0);
+        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
     }//GEN-LAST:event_jLabel2MousePressed
 
         private void setColor(JPanel pane)

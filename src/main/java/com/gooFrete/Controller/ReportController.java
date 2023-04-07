@@ -37,4 +37,14 @@ public class ReportController {
         }
     }
     
+    public boolean equipmentReportGenerator(){
+        try {
+         //Gera relatório
+         report.reportEquipmentQuery();
+         return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
 }

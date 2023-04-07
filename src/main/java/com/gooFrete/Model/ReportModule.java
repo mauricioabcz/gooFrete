@@ -27,6 +27,12 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.text.DateFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -34,6 +40,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -47,6 +54,7 @@ import org.hibernate.Session;
 public class ReportModule {
 
     private String destinoArquivo;
+    private String connectionString;
     private float FONT_SIZE_TITLE = 24f;
     private float FONT_SIZE_SUBTITLE = 18f;
     
@@ -62,8 +70,8 @@ public class ReportModule {
         
     public void carrierReport(List<Carrier> listaTransportadores) throws IOException{
         PdfWriter writer = null;
-        //this.destinoArquivo = salvaRelatorio("Relatório de Transportadores");
-        this.destinoArquivo = "./teste.pdf";
+        this.destinoArquivo = salvaRelatorio("Relatório de Transportadores");
+        //this.destinoArquivo = "./teste.pdf";
         try {
             PdfFont titleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
             PdfFont subtitleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA);
@@ -202,8 +210,8 @@ public class ReportModule {
     
     public void travelReport(List<Travel> listaViagens) throws IOException, ParseException{
         PdfWriter writer = null;
-        //this.destinoArquivo = salvaRelatorio("Relatório de Viagens");
-        this.destinoArquivo = "./teste2.pdf";
+        this.destinoArquivo = salvaRelatorio("Relatório de Viagens");
+        //this.destinoArquivo = "./teste2.pdf";
         try {
             PdfFont titleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
             PdfFont subtitleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA);
@@ -326,16 +334,146 @@ public class ReportModule {
         } 
     }
     
-    public List<Object> reportTravelQuery(){
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myPU");
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-        Query query = entityManager.createQuery("select a.CarrierName, a.CarrierCNPJCPF, b.Type, b.Modelo, b.Marca, b.Eixos, b.LicensePlate, a.Type from carrier.Carrier a inner join carrier.Equipment b on a.Id = b.CarrierId");
-        List results = query.getResultList();
-        System.out.println(query.getResultList());
-        entityManager.close();
-        entityManagerFactory.close();
-        return results;
+    public void reportEquipmentQuery() throws SQLException, IOException{
+        DatabaseConfig databaseConfig = new DatabaseConfig();
+        this.connectionString = databaseConfig.getConnectionString();
+        
+        PdfWriter writer = null;
+        this.destinoArquivo = salvaRelatorio("Relatório de Veículos");
+        //this.destinoArquivo = "./teste3.pdf";
+        try {
+            PdfFont titleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
+            PdfFont subtitleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA);
+        
+            writer = new PdfWriter(this.destinoArquivo);
+            PdfDocument pdf = new PdfDocument(writer);
+            Document documento = new Document(pdf);
+            
+            // Definindo a orientação da página como paisagem
+            PageSize pageSize = PageSize.A3.rotate();
+            Rectangle pageMargins = new Rectangle(50, 50, 50, 50);
+            pdf.setDefaultPageSize(pageSize);
+            //documento.setMargins(pageMargins.getLeft(), pageMargins.getRight(), pageMargins.getTop(), pageMargins.getBottom());
 
+            // Title
+            Text titleText = new Text("Relatório de Veículos")
+                    .setFont(titleFont)
+                    .setFontSize(FONT_SIZE_TITLE);
+            documento.add(new Paragraph(titleText).setHorizontalAlignment(HorizontalAlignment.CENTER));
+
+            // Subtitle
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+            String formattedDate = LocalDateTime.now().format(formatter);
+            Text subtitleText = new Text("Extração em " + formattedDate)
+                    .setFont(subtitleFont)
+                    .setFontSize(FONT_SIZE_SUBTITLE);
+            documento.add(new Paragraph(subtitleText).setHorizontalAlignment(HorizontalAlignment.CENTER));
+
+            // Insere Selo Bino de Qualidade
+            //criando objeto imagem para adicionar no relatorio
+            ImageData data = ImageDataFactory.create("./images/seloBino.jpg");
+            com.itextpdf.layout.element.Image img = new com.itextpdf.layout.element.Image(data);
+            // Definindo a posição da imagem no canto superior direito da folha A3
+            float scale = 0.95f; // reduzir para 95% do tamanho original
+            float newWidth = img.getImageScaledWidth() * scale;
+            float newHeight = img.getImageScaledHeight() * scale;
+            float x = pageSize.getWidth() - newWidth;
+            float y = pageSize.getHeight() - newHeight;
+            img.scaleToFit(newWidth, newHeight).setFixedPosition(x, y);
+            documento.add(img);
+            
+            // criacao da tabela
+            float [] pointColumnWidths = {400f, 150f, 150f, 150f, 150f, 100f, 150f, 100f}; //8 colunas com a largura variavel de cada
+            Table tabela = new Table(pointColumnWidths);
+            tabela.setAutoLayout();
+            
+            //a primeira linha sera o cabecalho (celula1 e 2)
+            Cell celula1 = new Cell();
+            celula1.add(new Paragraph("Transportador"));
+            celula1.setTextAlignment(TextAlignment.CENTER);
+            celula1.setBackgroundColor(ColorConstants.GRAY);
+            tabela.addCell(celula1);
+            
+            Cell celula2 = new Cell();
+            celula2.add(new Paragraph("CNPJ/CPF"));
+            celula2.setTextAlignment(TextAlignment.CENTER);
+            celula2.setBackgroundColor(ColorConstants.GRAY);
+            tabela.addCell(celula2);
+            
+            Cell celula3 = new Cell();
+            celula3.add(new Paragraph("Tipo"));
+            celula3.setTextAlignment(TextAlignment.CENTER);
+            celula3.setBackgroundColor(ColorConstants.GRAY);
+            tabela.addCell(celula3);
+            
+            Cell celula4 = new Cell();
+            celula4.add(new Paragraph("Modelo"));
+            celula4.setTextAlignment(TextAlignment.CENTER);
+            celula4.setBackgroundColor(ColorConstants.GRAY);
+            tabela.addCell(celula4);
+            
+            Cell celula5 = new Cell();
+            celula5.add(new Paragraph("Marca"));
+            celula5.setTextAlignment(TextAlignment.CENTER);
+            celula5.setBackgroundColor(ColorConstants.GRAY);
+            tabela.addCell(celula5);
+            
+            Cell celula6 = new Cell();
+            celula6.add(new Paragraph("Eixos"));
+            celula6.setTextAlignment(TextAlignment.CENTER);
+            celula6.setBackgroundColor(ColorConstants.GRAY);
+            tabela.addCell(celula6);
+            
+            Cell celula7 = new Cell();
+            celula7.add(new Paragraph("Placa"));
+            celula7.setTextAlignment(TextAlignment.CENTER);
+            celula7.setBackgroundColor(ColorConstants.GRAY);
+            tabela.addCell(celula7);
+            
+            Cell celula8 = new Cell();
+            celula8.add(new Paragraph("Tipo"));
+            celula8.setTextAlignment(TextAlignment.CENTER);
+            celula8.setBackgroundColor(ColorConstants.GRAY);
+            tabela.addCell(celula8);
+            
+            //Busca dados
+            // Declare the JDBC objects.
+            Connection connection = null;
+            Statement statement = null;
+            ResultSet resultSet = null;
+            
+            connection = DriverManager.getConnection(connectionString);
+
+            // Create and execute a SELECT SQL statement.
+            String selectSql = "select a.CarrierName, a.CarrierCNPJCPF, b.Type, b.Modelo, b.Marca, b.Eixos, b.LicensePlate, a.Type from carrier.Carrier a inner join carrier.Equipment b on a.Id = b.CarrierId";
+            statement = connection.createStatement();
+            resultSet = statement.executeQuery(selectSql);
+
+            // Create results from select statement
+            while (resultSet.next()) {
+                tabela.addCell(new Cell().add(new Paragraph(resultSet.getString(1))));
+                tabela.addCell(new Cell().add(new Paragraph(verificaCPNPJCPF(resultSet.getString(2)))));
+                tabela.addCell(new Cell().add(new Paragraph(resultSet.getString(3))));
+                tabela.addCell(new Cell().add(new Paragraph(resultSet.getString(4))));
+                tabela.addCell(new Cell().add(new Paragraph(resultSet.getString(5))));
+                tabela.addCell(new Cell().add(new Paragraph(resultSet.getString(6))).setTextAlignment(TextAlignment.CENTER));
+                tabela.addCell(new Cell().add(new Paragraph(resultSet.getString(7))));
+                tabela.addCell(new Cell().add(new Paragraph(insereTipo(Integer.parseInt(resultSet.getString(8))))).setTextAlignment(TextAlignment.CENTER));
+            }
+            
+            //adiciona tabela no documento e gera PDF:
+            documento.add(tabela);
+            documento.close();
+
+        } catch (FileNotFoundException | MalformedURLException ex) {
+            Logger.getLogger(ReportModule.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                writer.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ReportModule.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } 
     }
     
     private String salvaRelatorio(String reportName){

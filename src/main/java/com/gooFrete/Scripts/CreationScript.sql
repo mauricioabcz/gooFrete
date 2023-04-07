@@ -111,6 +111,7 @@ GO
 USE [gooFrete]
 GO
 
+-- Desenvolvimento da opção de paradas da viagem:
 /****** Object:  Table [emit].[TravelStop]    Script Date: 06/04/2023 09:35:40 ******/
 SET ANSI_NULLS ON
 GO

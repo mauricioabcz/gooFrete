@@ -5,6 +5,7 @@ import com.gooFrete.Controller.EquipmentController;
 import com.gooFrete.Controller.ViagemController;
 import com.gooFrete.Model.Carrier;
 import com.gooFrete.Model.Equipment;
+import com.gooFrete.Model.ReturnMessagePane;
 import com.gooFrete.Model.Travel;
 import com.gooFrete.Model.Viagem;
 import java.awt.BorderLayout;
@@ -47,7 +48,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         initComponents();
         setColor(btn_4); 
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaCadastros, btn_5}, new JPanel[]{ind_2,ind_1, ind_3, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaCadastros, btn_JanelaSettings}, new JPanel[]{ind_2,ind_1, ind_3, ind_5});
         
         equipmentController = new EquipmentController();
         carrierController = new CarrierController();
@@ -100,7 +101,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         btn_4 = new javax.swing.JPanel();
         ind_4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        btn_5 = new javax.swing.JPanel();
+        btn_JanelaSettings = new javax.swing.JPanel();
         ind_5 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -323,10 +324,10 @@ public class JanelaRotas extends javax.swing.JPanel {
 
         side_pane.add(btn_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 120, -1));
 
-        btn_5.setBackground(new java.awt.Color(23, 35, 51));
-        btn_5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_JanelaSettings.setBackground(new java.awt.Color(23, 35, 51));
+        btn_JanelaSettings.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_5MouseReleased(evt);
+                btn_JanelaSettingsMouseReleased(evt);
             }
         });
 
@@ -347,28 +348,28 @@ public class JanelaRotas extends javax.swing.JPanel {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Settings");
 
-        javax.swing.GroupLayout btn_5Layout = new javax.swing.GroupLayout(btn_5);
-        btn_5.setLayout(btn_5Layout);
-        btn_5Layout.setHorizontalGroup(
-            btn_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_5Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_JanelaSettingsLayout = new javax.swing.GroupLayout(btn_JanelaSettings);
+        btn_JanelaSettings.setLayout(btn_JanelaSettingsLayout);
+        btn_JanelaSettingsLayout.setHorizontalGroup(
+            btn_JanelaSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_JanelaSettingsLayout.createSequentialGroup()
                 .addComponent(ind_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel12)
                 .addGap(0, 40, Short.MAX_VALUE))
         );
-        btn_5Layout.setVerticalGroup(
-            btn_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_5Layout.createSequentialGroup()
+        btn_JanelaSettingsLayout.setVerticalGroup(
+            btn_JanelaSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_JanelaSettingsLayout.createSequentialGroup()
                 .addComponent(ind_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_5Layout.createSequentialGroup()
+            .addGroup(btn_JanelaSettingsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 120, -1));
+        side_pane.add(btn_JanelaSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 120, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -438,6 +439,11 @@ public class JanelaRotas extends javax.swing.JPanel {
         bt_Details.setText("Detalhes");
         bt_Details.setFocusPainted(false);
         bt_Details.setFocusable(false);
+        bt_Details.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_DetailsMouseClicked(evt);
+            }
+        });
 
         cb_Transportadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
         cb_Transportadores.addItemListener(new java.awt.event.ItemListener() {
@@ -566,20 +572,12 @@ public class JanelaRotas extends javax.swing.JPanel {
                         .addComponent(bt_Calcular))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel5)
-                                .addGap(39, 39, 39)
-                                .addComponent(tf_Destino))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                                 .addComponent(bt_RemoverDestino)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(bt_Sobe)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(bt_Desce))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel17)
-                                .addGap(60, 60, 60)
-                                .addComponent(cb_Veiculos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel2)
                             .addComponent(jLabel18)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
@@ -590,7 +588,15 @@ public class JanelaRotas extends javax.swing.JPanel {
                                 .addGap(25, 25, 25)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cb_Transportadores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cb_TipoPedagio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(cb_TipoPedagio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel5))
+                                .addGap(12, 12, 12)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_Destino)
+                                    .addComponent(cb_Veiculos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(12, 12, 12))
         );
@@ -715,7 +721,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_Home);
         ind_1.setOpaque(true);
-        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_4, btn_5}, new JPanel[]{ind_2,ind_3, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_4, btn_JanelaSettings}, new JPanel[]{ind_2,ind_3, ind_4, ind_5});
         gotoJanelaHome();
     }//GEN-LAST:event_btn_HomeMousePressed
 
@@ -927,7 +933,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_JanelaRelatorios);
         ind_2.setOpaque(true);
-        resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_4, btn_5}, new JPanel[]{ind_1,ind_3, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_4, btn_JanelaSettings}, new JPanel[]{ind_1,ind_3, ind_4, ind_5});
         gotoJanelaRelatorios();
     }//GEN-LAST:event_btn_JanelaRelatoriosMouseReleased
 
@@ -935,7 +941,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_JanelaCadastros);
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_4, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_4, btn_JanelaSettings}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
         gotoJanelaCadastros();
     }//GEN-LAST:event_btn_JanelaCadastrosMousePressed
 
@@ -943,15 +949,16 @@ public class JanelaRotas extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_4);
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_Home, btn_5}, new JPanel[]{ind_2,ind_3, ind_1, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_Home, btn_JanelaSettings}, new JPanel[]{ind_2,ind_3, ind_1, ind_5});
     }//GEN-LAST:event_btn_4MousePressed
 
-    private void btn_5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_5MouseReleased
+    private void btn_JanelaSettingsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_JanelaSettingsMouseReleased
         // TODO add your handling code here:
-        setColor(btn_5);
+        setColor(btn_JanelaSettings);
         ind_5.setOpaque(true);
         resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_4, btn_JanelaRelatorios}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
-    }//GEN-LAST:event_btn_5MouseReleased
+        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
+    }//GEN-LAST:event_btn_JanelaSettingsMouseReleased
 
     private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
         System.exit(0);
@@ -973,18 +980,22 @@ public class JanelaRotas extends javax.swing.JPanel {
         xy = evt.getY();
     }//GEN-LAST:event_jPanel2MousePressed
 
-    private void bt_AttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AttActionPerformed
-       atualizaTabela();
-    }//GEN-LAST:event_bt_AttActionPerformed
+    private void bt_SobeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_SobeActionPerformed
+        sobeDestino();
+    }//GEN-LAST:event_bt_SobeActionPerformed
 
-    private void bt_RemoverViagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_RemoverViagemActionPerformed
-        removerViagem();
-        atualizaTabela();
-    }//GEN-LAST:event_bt_RemoverViagemActionPerformed
+    private void bt_DesceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_DesceActionPerformed
+        desdeDestino();
+    }//GEN-LAST:event_bt_DesceActionPerformed
 
-    private void bt_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_LimparActionPerformed
-        limparCampos();
-    }//GEN-LAST:event_bt_LimparActionPerformed
+    private void bt_RemoverDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_RemoverDestinoActionPerformed
+        removeDestino();
+    }//GEN-LAST:event_bt_RemoverDestinoActionPerformed
+
+    private void bt_AtdicionarDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AtdicionarDestinoActionPerformed
+        adicionarDestino();
+        limparDestino();
+    }//GEN-LAST:event_bt_AtdicionarDestinoActionPerformed
 
     private void bt_CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_CalcularActionPerformed
         try {
@@ -996,43 +1007,43 @@ public class JanelaRotas extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_bt_CalcularActionPerformed
 
-    private void tabelaViagensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaViagensMouseClicked
-//        selecionarVeiculo();
-//        atualizaVinculoComTransportadores();
-    }//GEN-LAST:event_tabelaViagensMouseClicked
-
-    private void bt_AtdicionarDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AtdicionarDestinoActionPerformed
-        adicionarDestino();
-        limparDestino();
-    }//GEN-LAST:event_bt_AtdicionarDestinoActionPerformed
-
-    private void tabelaViagensKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaViagensKeyReleased
-//        selecionarVeiculo();
-//        atualizaVinculoComTransportadores();
-    }//GEN-LAST:event_tabelaViagensKeyReleased
-
-    private void bt_RemoverDestinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_RemoverDestinoActionPerformed
-        removeDestino();
-    }//GEN-LAST:event_bt_RemoverDestinoActionPerformed
-
-    private void bt_DesceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_DesceActionPerformed
-        desdeDestino();
-    }//GEN-LAST:event_bt_DesceActionPerformed
-
-    private void bt_SobeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_SobeActionPerformed
-        sobeDestino();
-    }//GEN-LAST:event_bt_SobeActionPerformed
+    private void bt_LimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_LimparActionPerformed
+        limparCampos();
+    }//GEN-LAST:event_bt_LimparActionPerformed
 
     private void cb_TransportadoresItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_TransportadoresItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
-                    if (cb_Transportadores.getSelectedItem().toString().equals("Selecione")) {
-            cb_Veiculos.setEnabled(false);
-            System.out.println("Transportador não selecionado.");
-        } else {
-            atualizaVinculosComVeiculos();
+            if (cb_Transportadores.getSelectedItem().toString().equals("Selecione")) {
+                cb_Veiculos.setEnabled(false);
+                System.out.println("Transportador não selecionado.");
+            } else {
+                atualizaVinculosComVeiculos();
             }
         }
     }//GEN-LAST:event_cb_TransportadoresItemStateChanged
+
+    private void bt_RemoverViagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_RemoverViagemActionPerformed
+        removerViagem();
+        atualizaTabela();
+    }//GEN-LAST:event_bt_RemoverViagemActionPerformed
+
+    private void bt_AttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AttActionPerformed
+        atualizaTabela();
+    }//GEN-LAST:event_bt_AttActionPerformed
+
+    private void tabelaViagensKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaViagensKeyReleased
+        //        selecionarVeiculo();
+        //        atualizaVinculoComTransportadores();
+    }//GEN-LAST:event_tabelaViagensKeyReleased
+
+    private void tabelaViagensMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaViagensMouseClicked
+        //        selecionarVeiculo();
+        //        atualizaVinculoComTransportadores();
+    }//GEN-LAST:event_tabelaViagensMouseClicked
+
+    private void bt_DetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_DetailsMouseClicked
+        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
+    }//GEN-LAST:event_bt_DetailsMouseClicked
 
     int xx, xy;
         private void setColor(JPanel pane)
@@ -1145,10 +1156,10 @@ public class JanelaRotas extends javax.swing.JPanel {
     private javax.swing.JButton bt_RemoverViagem;
     private javax.swing.JButton bt_Sobe;
     private javax.swing.JPanel btn_4;
-    private javax.swing.JPanel btn_5;
     private javax.swing.JPanel btn_Home;
     private javax.swing.JPanel btn_JanelaCadastros;
     private javax.swing.JPanel btn_JanelaRelatorios;
+    private javax.swing.JPanel btn_JanelaSettings;
     private javax.swing.JComboBox<String> cb_TipoPedagio;
     private javax.swing.JComboBox<String> cb_Transportadores;
     private javax.swing.JComboBox<String> cb_Veiculos;

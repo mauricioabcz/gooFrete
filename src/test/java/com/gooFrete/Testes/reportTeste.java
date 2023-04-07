@@ -23,10 +23,20 @@ public class reportTeste {
      }
      
      @Test
-     public void testeEquipmentReport() throws IOException {
+     public void testeTravelReport() throws IOException {
          //Gera relatório
          ReportController relatorios = new ReportController();
          boolean teste = relatorios.travelReportGenerator();
          System.out.println(teste);
      }
+     
+     @Test
+     public void testeEquipmentReport(){
+        //Gera relatório
+         ReportController relatorios = new ReportController();
+         boolean teste = relatorios.equipmentReportGenerator();
+         System.out.println(teste);
+         
+     }
+     
 }

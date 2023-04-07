@@ -28,3 +28,17 @@ b.CarrierName
 from [carrier].[Equipment] a
 inner join [carrier].[Carrier] b on b.Id = a.CarrierId
 where a.Id = 'CarrierId';
+
+-- Gera relatório de veículos
+select 
+a.CarrierName, 
+a.CarrierCNPJCPF, 
+b.Type, 
+b.Modelo, 
+b.Marca, 
+b.Eixos, 
+b.LicensePlate, 
+a.Type 
+from carrier.Carrier a 
+inner join carrier.Equipment b on a.Id = b.CarrierId
+

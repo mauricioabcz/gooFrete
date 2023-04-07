@@ -4,6 +4,7 @@ import com.gooFrete.Controller.CarrierController;
 import com.gooFrete.Controller.EquipmentController;
 import com.gooFrete.Model.Carrier;
 import com.gooFrete.Model.Equipment;
+import com.gooFrete.Model.ReturnMessagePane;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.io.File;
@@ -30,7 +31,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         initComponents();
         setColor(btn_JanelaCadastros); 
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaRotas, btn_JanelaSettings}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
         
         carrierController = new CarrierController();
         atualizaTabela();
@@ -89,7 +90,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         btn_JanelaRotas = new javax.swing.JPanel();
         ind_4 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        btn_5 = new javax.swing.JPanel();
+        btn_JanelaSettings = new javax.swing.JPanel();
         ind_5 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
@@ -321,10 +322,10 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
 
         side_pane.add(btn_JanelaRotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 120, -1));
 
-        btn_5.setBackground(new java.awt.Color(23, 35, 51));
-        btn_5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btn_JanelaSettings.setBackground(new java.awt.Color(23, 35, 51));
+        btn_JanelaSettings.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                btn_5MouseReleased(evt);
+                btn_JanelaSettingsMouseReleased(evt);
             }
         });
 
@@ -345,28 +346,28 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Settings");
 
-        javax.swing.GroupLayout btn_5Layout = new javax.swing.GroupLayout(btn_5);
-        btn_5.setLayout(btn_5Layout);
-        btn_5Layout.setHorizontalGroup(
-            btn_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_5Layout.createSequentialGroup()
+        javax.swing.GroupLayout btn_JanelaSettingsLayout = new javax.swing.GroupLayout(btn_JanelaSettings);
+        btn_JanelaSettings.setLayout(btn_JanelaSettingsLayout);
+        btn_JanelaSettingsLayout.setHorizontalGroup(
+            btn_JanelaSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_JanelaSettingsLayout.createSequentialGroup()
                 .addComponent(ind_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(jLabel12)
                 .addGap(0, 40, Short.MAX_VALUE))
         );
-        btn_5Layout.setVerticalGroup(
-            btn_5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(btn_5Layout.createSequentialGroup()
+        btn_JanelaSettingsLayout.setVerticalGroup(
+            btn_JanelaSettingsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(btn_JanelaSettingsLayout.createSequentialGroup()
                 .addComponent(ind_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(btn_5Layout.createSequentialGroup()
+            .addGroup(btn_JanelaSettingsLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        side_pane.add(btn_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 120, -1));
+        side_pane.add(btn_JanelaSettings, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 120, -1));
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
         jPanel6.setPreferredSize(new java.awt.Dimension(1054, 540));
@@ -449,6 +450,11 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         bt_Details.setText("Detalhes");
         bt_Details.setFocusPainted(false);
         bt_Details.setFocusable(false);
+        bt_Details.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_DetailsMouseClicked(evt);
+            }
+        });
 
         cb_Tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Empresa Transportadora de Cargas - ETC", "Transportador Autonômo de Cargas - TAC" }));
 
@@ -729,7 +735,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_Home);
         ind_1.setOpaque(true);
-        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_3, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_JanelaRotas, btn_JanelaSettings}, new JPanel[]{ind_2,ind_3, ind_4, ind_5});
         gotoJanelaHome();
     }//GEN-LAST:event_btn_HomeMousePressed
 
@@ -874,7 +880,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_JanelaRelatorios);
         ind_2.setOpaque(true);
-        resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_JanelaRotas, btn_5}, new JPanel[]{ind_1,ind_3, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_JanelaRotas, btn_JanelaSettings}, new JPanel[]{ind_1,ind_3, ind_4, ind_5});
         gotoJanelaRelatorios();
     }//GEN-LAST:event_btn_JanelaRelatoriosMouseReleased
 
@@ -882,7 +888,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_JanelaCadastros);
         ind_3.setOpaque(true);
-        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaRotas, btn_JanelaSettings}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
         gotoJanelaCadastros();
     }//GEN-LAST:event_btn_JanelaCadastrosMousePressed
 
@@ -890,16 +896,17 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         // TODO add your handling code here:
         setColor(btn_JanelaRotas);
         ind_4.setOpaque(true);
-        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_Home, btn_5}, new JPanel[]{ind_2,ind_3, ind_1, ind_5});
+        resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_Home, btn_JanelaSettings}, new JPanel[]{ind_2,ind_3, ind_1, ind_5});
         gotoJanelaRotas();
     }//GEN-LAST:event_btn_JanelaRotasMousePressed
 
-    private void btn_5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_5MouseReleased
+    private void btn_JanelaSettingsMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_JanelaSettingsMouseReleased
         // TODO add your handling code here:
-        setColor(btn_5);
+        setColor(btn_JanelaSettings);
         ind_5.setOpaque(true);
         resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_JanelaRotas, btn_JanelaRelatorios}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
-    }//GEN-LAST:event_btn_5MouseReleased
+        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
+    }//GEN-LAST:event_btn_JanelaSettingsMouseReleased
 
     private void bt_AttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AttActionPerformed
         atualizaTabela();
@@ -956,6 +963,10 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
     private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
         System.exit(0);
     }//GEN-LAST:event_jLabel1MousePressed
+
+    private void bt_DetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_DetailsMouseClicked
+        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
+    }//GEN-LAST:event_bt_DetailsMouseClicked
 
     int xx, xy;
         private void setColor(JPanel pane)
@@ -1038,11 +1049,11 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
     private javax.swing.JButton bt_Limpar;
     private javax.swing.JButton bt_Remover;
     private javax.swing.JButton bt_Salvar;
-    private javax.swing.JPanel btn_5;
     private javax.swing.JPanel btn_Home;
     private javax.swing.JPanel btn_JanelaCadastros;
     private javax.swing.JPanel btn_JanelaRelatorios;
     private javax.swing.JPanel btn_JanelaRotas;
+    private javax.swing.JPanel btn_JanelaSettings;
     private javax.swing.JComboBox<String> cb_Estado;
     private javax.swing.JComboBox<String> cb_Pais;
     private javax.swing.JComboBox<String> cb_Tipo;
