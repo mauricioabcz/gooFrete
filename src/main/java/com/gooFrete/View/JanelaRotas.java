@@ -43,7 +43,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         equipmentController = new EquipmentController();
         carrierController = new CarrierController();
         cb_Veiculos.setEnabled(false);
-        atualizaTabela();
+        //atualizaTabela();
         
     }
     public void gotoJanelaHome(){

@@ -35,7 +35,7 @@ public class JanelaCadastroVeiculo extends javax.swing.JPanel {
         
         equipmentController = new EquipmentController();
         carrierController = new CarrierController();
-        atualizaTabela();
+        //atualizaTabela();
         
     }
     public void gotoJanelaHome(){

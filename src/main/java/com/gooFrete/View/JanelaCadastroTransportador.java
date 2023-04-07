@@ -33,7 +33,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         resetColor(new JPanel[]{btn_2,btn_Home,btn_JanelaRotas, btn_5}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
         
         carrierController = new CarrierController();
-        atualizaTabela();
+        //atualizaTabela();
         
     }
     public void gotoJanelaHome(){
