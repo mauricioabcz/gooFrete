@@ -1,6 +1,7 @@
 package com.gooFrete.Testes;
 
 import com.gooFrete.Controller.CarrierController;
+import com.gooFrete.Controller.ReportController;
 import com.gooFrete.Model.ReportModule;
 import java.io.IOException;
 import java.util.List;
@@ -19,5 +20,13 @@ public class reportTeste {
          //Gera relatório
          ReportModule relatorios = new ReportModule();
          relatorios.carrierReport(listaTransportadores);
+     }
+     
+     @Test
+     public void testeEquipmentReport() throws IOException {
+         //Gera relatório
+         ReportController relatorios = new ReportController();
+         boolean teste = relatorios.travelReportGenerator();
+         System.out.println(teste);
      }
 }

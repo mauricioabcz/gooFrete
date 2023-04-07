@@ -24,4 +24,17 @@ public class ReportController {
         }
     }
     
+    public boolean travelReportGenerator(){
+        try {
+         //Pega listagem
+         ViagemController controller = new ViagemController();
+         List listaViagens = controller.travelQueryAll();
+         //Gera relatório
+         report.travelReport(listaViagens);
+         return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    
 }
