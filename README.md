@@ -21,7 +21,7 @@ Para gerar os relatórios é necessário acessar o menu “Relatórios”, neste
 ## Funcionalidades
 - Cadastros:
 Cadastrar os transportadores, os veículos e realizar as viagens;
-obs: Não há como realizar uma viagem sem a informação de veículo e transportador;
+- Obs: Não há como realizar uma viagem sem a informação de veículo e transportador;
 - Cálculo de pedágio;
 - Relatórios:
 Exportação do relatório em PDF dos transportadores, veículos e viagens.
