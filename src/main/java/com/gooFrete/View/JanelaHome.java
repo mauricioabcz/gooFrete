@@ -70,7 +70,14 @@ public class JanelaHome extends javax.swing.JPanel {
         ind_5 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        lb_PT = new javax.swing.JLabel();
+        lb_US = new javax.swing.JLabel();
+        lb_ES = new javax.swing.JLabel();
+        lb_JP = new javax.swing.JLabel();
+        lb_LT = new javax.swing.JLabel();
+        lb_IT = new javax.swing.JLabel();
+        lb_FR = new javax.swing.JLabel();
+        lb_GE = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -316,13 +323,83 @@ public class JanelaHome extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(".\\images\\carrierBtn.png"));
-        jLabel2.setText("Teste");
-        jLabel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        lb_PT.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_PT.setIcon(new javax.swing.ImageIcon(".\\images\\brasil.png"));
+        lb_PT.setText("Português");
+        lb_PT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lb_PT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel2MousePressed(evt);
+                lb_PTMousePressed(evt);
+            }
+        });
+
+        lb_US.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_US.setIcon(new javax.swing.ImageIcon(".\\images\\eua.png"));
+        lb_US.setText("Inglês");
+        lb_US.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lb_US.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lb_USMousePressed(evt);
+            }
+        });
+
+        lb_ES.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_ES.setIcon(new javax.swing.ImageIcon(".\\images\\espanha.png"));
+        lb_ES.setText("Espanhol");
+        lb_ES.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lb_ES.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lb_ESMousePressed(evt);
+            }
+        });
+
+        lb_JP.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_JP.setIcon(new javax.swing.ImageIcon(".\\images\\japao.png"));
+        lb_JP.setText("Japonês");
+        lb_JP.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lb_JP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lb_JPMousePressed(evt);
+            }
+        });
+
+        lb_LT.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_LT.setIcon(new javax.swing.ImageIcon(".\\images\\vaticano.png"));
+        lb_LT.setText("Latim");
+        lb_LT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lb_LT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lb_LTMousePressed(evt);
+            }
+        });
+
+        lb_IT.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_IT.setIcon(new javax.swing.ImageIcon(".\\images\\italia.png"));
+        lb_IT.setText("Italiano");
+        lb_IT.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lb_IT.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lb_ITMousePressed(evt);
+            }
+        });
+
+        lb_FR.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_FR.setIcon(new javax.swing.ImageIcon(".\\images\\franca.png"));
+        lb_FR.setText("Francês");
+        lb_FR.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lb_FR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lb_FRMousePressed(evt);
+            }
+        });
+
+        lb_GE.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lb_GE.setIcon(new javax.swing.ImageIcon(".\\images\\alemanha.png"));
+        lb_GE.setText("Alemão");
+        lb_GE.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        lb_GE.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lb_GEMousePressed(evt);
             }
         });
 
@@ -332,15 +409,41 @@ public class JanelaHome extends javax.swing.JPanel {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(726, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(lb_PT, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lb_US, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lb_ES, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lb_JP, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(lb_LT, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lb_IT, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lb_FR, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lb_GE, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(54, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(436, Short.MAX_VALUE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_PT)
+                    .addComponent(lb_US)
+                    .addComponent(lb_ES)
+                    .addComponent(lb_JP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lb_LT)
+                    .addComponent(lb_IT)
+                    .addComponent(lb_FR)
+                    .addComponent(lb_GE))
+                .addGap(320, 320, 320))
         );
 
         jPanel2.setBackground(new java.awt.Color(71, 120, 197));
@@ -486,9 +589,37 @@ public class JanelaHome extends javax.swing.JPanel {
         System.exit(0);
     }//GEN-LAST:event_jLabel1MousePressed
 
-    private void jLabel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MousePressed
-        System.exit(0);
-    }//GEN-LAST:event_jLabel2MousePressed
+    private void lb_PTMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_PTMousePressed
+        //System.exit(0);
+    }//GEN-LAST:event_lb_PTMousePressed
+
+    private void lb_USMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_USMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_USMousePressed
+
+    private void lb_ESMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_ESMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_ESMousePressed
+
+    private void lb_JPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_JPMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_JPMousePressed
+
+    private void lb_LTMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_LTMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_LTMousePressed
+
+    private void lb_ITMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_ITMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_ITMousePressed
+
+    private void lb_FRMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_FRMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_FRMousePressed
+
+    private void lb_GEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_GEMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lb_GEMousePressed
 
         private void setColor(JPanel pane)
     {
@@ -521,13 +652,20 @@ public class JanelaHome extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JLabel lb_ES;
+    private javax.swing.JLabel lb_FR;
+    private javax.swing.JLabel lb_GE;
+    private javax.swing.JLabel lb_IT;
+    private javax.swing.JLabel lb_JP;
+    private javax.swing.JLabel lb_LT;
+    private javax.swing.JLabel lb_PT;
+    private javax.swing.JLabel lb_US;
     private javax.swing.JPanel side_pane;
     // End of variables declaration//GEN-END:variables
 }
