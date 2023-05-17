@@ -1,8 +1,10 @@
 package com.gooFrete.View;
 
+import com.gooFrete.Translate.Internationalization;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
+import java.util.ResourceBundle;
 import javax.swing.SwingUtilities;
 
 /**
@@ -18,6 +20,7 @@ public class Janela extends javax.swing.JFrame {
     static JanelaCadastroVeiculo p4;
     static JanelaRotas p5;
     static JanelaRelatorios p6;
+    static ResourceBundle traducao;
     
     public Janela() {
         initComponents();
@@ -30,6 +33,11 @@ public class Janela extends javax.swing.JFrame {
         this.pack();
     }
 
+    public static void loadLanguage(String targetLanguage, String targetCountry){
+        Internationalization traduzir = new Internationalization();
+        Janela.traducao = traduzir.internacionaliza(targetLanguage, targetCountry);
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -82,6 +90,8 @@ public class Janela extends javax.swing.JFrame {
         //</editor-fold>
         
         /* Create and display the form */
+        
+        Janela.loadLanguage("pt", "BR");
         
         j = new Janela();
         j.setLocationRelativeTo(null);

@@ -29,14 +29,43 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
     
     public JanelaCadastroTransportador() {
         initComponents();
+        traduzir();
+        
         setColor(btn_JanelaCadastros); 
         ind_3.setOpaque(true);
         resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaRotas, btn_JanelaSettings}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
         
         carrierController = new CarrierController();
         atualizaTabela();
-        
     }
+    
+    public void traduzir(){
+        this.lb_TelaTransportadorTitle.setText(Janela.traducao.getString("lb_TelaTransportadorTitle"));
+        this.lb_Home.setText(Janela.traducao.getString("lb_Home"));
+        this.lb_Cadastros.setText(Janela.traducao.getString("lb_Cadastros"));
+        this.lb_Rotas.setText(Janela.traducao.getString("lb_Rotas"));
+        this.lb_Relatorios.setText(Janela.traducao.getString("lb_Relatorios"));
+        this.lb_Settings.setText(Janela.traducao.getString("lb_Settings"));
+        this.lb_Logout.setText(Janela.traducao.getString("lb_Logout"));
+        this.lb_NovoTransportador.setText(Janela.traducao.getString("lb_NovoTransportador"));
+        this.lb_RazaoSocial.setText(Janela.traducao.getString("lb_RazaoSocial"));
+        this.lb_CNPJCPF.setText(Janela.traducao.getString("lb_CNPJCPF"));
+        this.lb_Endereco.setText(Janela.traducao.getString("lb_Endereco"));
+        this.lb_Bairro.setText(Janela.traducao.getString("lb_Bairro"));
+        this.lb_Cidade.setText(Janela.traducao.getString("lb_Cidade"));
+        this.lb_Estado.setText(Janela.traducao.getString("lb_Estado"));
+        this.lb_CEP.setText(Janela.traducao.getString("lb_CEP"));
+        this.lb_Pais.setText(Janela.traducao.getString("lb_Pais"));
+        this.lb_Tipo.setText(Janela.traducao.getString("lb_Tipo"));
+        this.lb_Telefone.setText(Janela.traducao.getString("lb_Telefone"));
+        this.bt_AtualizarDados.setText(Janela.traducao.getString("bt_AtualizarCadastro"));
+        this.bt_Salvar.setText(Janela.traducao.getString("bt_Novo"));
+        this.bt_Limpar.setText(Janela.traducao.getString("bt_Limpar"));
+        this.bt_Att.setText(Janela.traducao.getString("bt_Atualizar"));
+        this.bt_Remover.setText(Janela.traducao.getString("bt_Remover"));
+        this.bt_Details.setText(Janela.traducao.getString("bt_Detalhes"));
+    }
+    
     public void gotoJanelaHome(){
         Janela.p1 = new JanelaHome();
         JFrame janela = (JFrame) SwingUtilities.getWindowAncestor(Janela.p3);
@@ -80,33 +109,33 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         side_pane = new javax.swing.JPanel();
         btn_Home = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        lb_Home = new javax.swing.JLabel();
         btn_JanelaRelatorios = new javax.swing.JPanel();
         ind_2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        lb_Relatorios = new javax.swing.JLabel();
         btn_JanelaCadastros = new javax.swing.JPanel();
         ind_3 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        lb_Cadastros = new javax.swing.JLabel();
         btn_JanelaRotas = new javax.swing.JPanel();
         ind_4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        lb_Rotas = new javax.swing.JLabel();
         btn_JanelaSettings = new javax.swing.JPanel();
         ind_5 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        lb_Settings = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabelaTransportadores = new javax.swing.JTable();
         bt_Att = new javax.swing.JButton();
         bt_Remover = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
+        lb_NovoTransportador = new javax.swing.JLabel();
+        lb_RazaoSocial = new javax.swing.JLabel();
+        lb_CNPJCPF = new javax.swing.JLabel();
+        lb_Endereco = new javax.swing.JLabel();
+        lb_Bairro = new javax.swing.JLabel();
+        lb_Cidade = new javax.swing.JLabel();
+        lb_Estado = new javax.swing.JLabel();
+        lb_CEP = new javax.swing.JLabel();
+        lb_Tipo = new javax.swing.JLabel();
         bt_Details = new javax.swing.JButton();
         tf_Nome = new javax.swing.JTextField();
         tf_CNPJCPF = new javax.swing.JTextField();
@@ -118,18 +147,18 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         cb_Estado = new javax.swing.JComboBox<>();
         bt_Limpar = new javax.swing.JButton();
         bt_Salvar = new javax.swing.JButton();
-        jLabel18 = new javax.swing.JLabel();
+        lb_VeiculosVinculados = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaVeiculos = new javax.swing.JTable();
-        jLabel19 = new javax.swing.JLabel();
+        lb_Telefone = new javax.swing.JLabel();
         tf_Telefone = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
+        lb_Pais = new javax.swing.JLabel();
         cb_Pais = new javax.swing.JComboBox<>();
         bt_AtualizarDados = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lb_Logout = new javax.swing.JLabel();
+        lb_TelaTransportadorTitle = new javax.swing.JLabel();
 
         side_pane.setBackground(new java.awt.Color(23, 35, 51));
         side_pane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -155,8 +184,8 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Home");
+        lb_Home.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Home.setText("Home");
 
         javax.swing.GroupLayout btn_HomeLayout = new javax.swing.GroupLayout(btn_Home);
         btn_Home.setLayout(btn_HomeLayout);
@@ -165,7 +194,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             .addGroup(btn_HomeLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel8)
+                .addComponent(lb_Home)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         btn_HomeLayout.setVerticalGroup(
@@ -175,7 +204,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(btn_HomeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -202,8 +231,8 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Relatórios");
+        lb_Relatorios.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Relatorios.setText("Relatórios");
 
         javax.swing.GroupLayout btn_JanelaRelatoriosLayout = new javax.swing.GroupLayout(btn_JanelaRelatorios);
         btn_JanelaRelatorios.setLayout(btn_JanelaRelatoriosLayout);
@@ -212,7 +241,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel9)
+                .addComponent(lb_Relatorios)
                 .addGap(0, 30, Short.MAX_VALUE))
         );
         btn_JanelaRelatoriosLayout.setVerticalGroup(
@@ -222,7 +251,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_Relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -249,8 +278,8 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Cadastros");
+        lb_Cadastros.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Cadastros.setText("Cadastros");
 
         javax.swing.GroupLayout btn_JanelaCadastrosLayout = new javax.swing.GroupLayout(btn_JanelaCadastros);
         btn_JanelaCadastros.setLayout(btn_JanelaCadastrosLayout);
@@ -259,7 +288,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             .addGroup(btn_JanelaCadastrosLayout.createSequentialGroup()
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel10)
+                .addComponent(lb_Cadastros)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         btn_JanelaCadastrosLayout.setVerticalGroup(
@@ -269,7 +298,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(btn_JanelaCadastrosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_Cadastros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -296,8 +325,8 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Rotas");
+        lb_Rotas.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Rotas.setText("Rotas");
 
         javax.swing.GroupLayout btn_JanelaRotasLayout = new javax.swing.GroupLayout(btn_JanelaRotas);
         btn_JanelaRotas.setLayout(btn_JanelaRotasLayout);
@@ -306,7 +335,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             .addGroup(btn_JanelaRotasLayout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel11)
+                .addComponent(lb_Rotas)
                 .addGap(0, 53, Short.MAX_VALUE))
         );
         btn_JanelaRotasLayout.setVerticalGroup(
@@ -316,7 +345,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(btn_JanelaRotasLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_Rotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -343,8 +372,8 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Settings");
+        lb_Settings.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Settings.setText("Settings");
 
         javax.swing.GroupLayout btn_JanelaSettingsLayout = new javax.swing.GroupLayout(btn_JanelaSettings);
         btn_JanelaSettings.setLayout(btn_JanelaSettingsLayout);
@@ -353,7 +382,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             .addGroup(btn_JanelaSettingsLayout.createSequentialGroup()
                 .addComponent(ind_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel12)
+                .addComponent(lb_Settings)
                 .addGap(0, 40, Short.MAX_VALUE))
         );
         btn_JanelaSettingsLayout.setVerticalGroup(
@@ -363,7 +392,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(btn_JanelaSettingsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_Settings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -427,24 +456,24 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Novo Transportador");
+        lb_NovoTransportador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lb_NovoTransportador.setText("Novo Transportador");
 
-        jLabel4.setText("Razão Social:");
+        lb_RazaoSocial.setText("Razão Social:");
 
-        jLabel5.setText("CNPJ/CPF:");
+        lb_CNPJCPF.setText("CNPJ/CPF:");
 
-        jLabel6.setText("Endereço:");
+        lb_Endereco.setText("Endereço:");
 
-        jLabel13.setText("Bairro:");
+        lb_Bairro.setText("Bairro:");
 
-        jLabel14.setText("Cidade:");
+        lb_Cidade.setText("Cidade:");
 
-        jLabel15.setText("Estado:");
+        lb_Estado.setText("Estado:");
 
-        jLabel16.setText("CEP:");
+        lb_CEP.setText("CEP:");
 
-        jLabel17.setText("Tipo:");
+        lb_Tipo.setText("Tipo:");
 
         bt_Details.setBackground(new java.awt.Color(255, 255, 255));
         bt_Details.setText("Detalhes");
@@ -480,8 +509,8 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             }
         });
 
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel18.setText("Veículos Vinculados");
+        lb_VeiculosVinculados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lb_VeiculosVinculados.setText("Veículos Vinculados");
 
         tabelaVeiculos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -508,9 +537,9 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tabelaVeiculos);
 
-        jLabel19.setText("Telefone:");
+        lb_Telefone.setText("Telefone:");
 
-        jLabel20.setText("País:");
+        lb_Pais.setText("País:");
 
         cb_Pais.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Brasil" }));
 
@@ -550,12 +579,12 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel13)
-                                    .addComponent(jLabel14)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel16))
+                                    .addComponent(lb_CNPJCPF)
+                                    .addComponent(lb_Endereco)
+                                    .addComponent(lb_Bairro)
+                                    .addComponent(lb_Cidade)
+                                    .addComponent(lb_Estado)
+                                    .addComponent(lb_CEP))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tf_CNPJCPF, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -565,18 +594,22 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
                                     .addComponent(tf_CEP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cb_Estado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lb_RazaoSocial)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(tf_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel18)
+                            .addComponent(lb_NovoTransportador)
+                            .addComponent(lb_VeiculosVinculados)
                             .addComponent(jScrollPane2))
                         .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel17)
-                                .addComponent(jLabel20)
-                                .addComponent(jLabel19))
-                            .addGap(32, 32, 32)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addComponent(lb_Telefone)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
+                                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(lb_Pais, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lb_Tipo, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(tf_Telefone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(cb_Pais, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 417, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -590,60 +623,60 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(lb_NovoTransportador)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
+                            .addComponent(lb_RazaoSocial)
                             .addComponent(tf_Nome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
+                            .addComponent(lb_CNPJCPF)
                             .addComponent(tf_CNPJCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
+                            .addComponent(lb_Endereco)
                             .addComponent(tf_Endereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13)
+                            .addComponent(lb_Bairro)
                             .addComponent(tf_Bairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel14)
+                            .addComponent(lb_Cidade)
                             .addComponent(tf_Cidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
+                            .addComponent(lb_Estado)
                             .addComponent(cb_Estado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel16)
+                            .addComponent(lb_CEP)
                             .addComponent(tf_CEP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                                .addComponent(jLabel20)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel19)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(bt_Limpar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel18)
+                                .addComponent(lb_VeiculosVinculados)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cb_Pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cb_Pais, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lb_Pais))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cb_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(cb_Tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lb_Tipo))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(tf_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(tf_Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lb_Telefone))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(bt_Salvar)
                                     .addComponent(bt_AtualizarDados))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)))
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -668,19 +701,19 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(".\\images\\iconExit.png"));
-        jLabel1.setText("Logout");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lb_Logout.setBackground(new java.awt.Color(255, 255, 255));
+        lb_Logout.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Logout.setIcon(new javax.swing.ImageIcon(".\\images\\iconExit.png"));
+        lb_Logout.setText("Logout");
+        lb_Logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel1MousePressed(evt);
+                lb_LogoutMousePressed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Cadastros > Transportador");
+        lb_TelaTransportadorTitle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lb_TelaTransportadorTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lb_TelaTransportadorTitle.setText("Cadastros > Transportador");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -688,11 +721,11 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(lb_TelaTransportadorTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(65, 65, 65)
-                .addComponent(jLabel1)
+                .addComponent(lb_Logout)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -705,8 +738,8 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel3))))
+                            .addComponent(lb_Logout)
+                            .addComponent(lb_TelaTransportadorTitle))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -960,9 +993,9 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         Janela.j.setLocation(x-xx,y-xy);
     }//GEN-LAST:event_jPanel2MouseDragged
 
-    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+    private void lb_LogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_LogoutMousePressed
         System.exit(0);
-    }//GEN-LAST:event_jLabel1MousePressed
+    }//GEN-LAST:event_lb_LogoutMousePressed
 
     private void bt_DetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_DetailsMouseClicked
         ReturnMessagePane.informationPainel("Função em desenvolvimento.");
@@ -1062,30 +1095,30 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lb_Bairro;
+    private javax.swing.JLabel lb_CEP;
+    private javax.swing.JLabel lb_CNPJCPF;
+    private javax.swing.JLabel lb_Cadastros;
+    private javax.swing.JLabel lb_Cidade;
+    private javax.swing.JLabel lb_Endereco;
+    private javax.swing.JLabel lb_Estado;
+    private javax.swing.JLabel lb_Home;
+    private javax.swing.JLabel lb_Logout;
+    private javax.swing.JLabel lb_NovoTransportador;
+    private javax.swing.JLabel lb_Pais;
+    private javax.swing.JLabel lb_RazaoSocial;
+    private javax.swing.JLabel lb_Relatorios;
+    private javax.swing.JLabel lb_Rotas;
+    private javax.swing.JLabel lb_Settings;
+    private javax.swing.JLabel lb_TelaTransportadorTitle;
+    private javax.swing.JLabel lb_Telefone;
+    private javax.swing.JLabel lb_Tipo;
+    private javax.swing.JLabel lb_VeiculosVinculados;
     private javax.swing.JPanel side_pane;
     private javax.swing.JTable tabelaTransportadores;
     private javax.swing.JTable tabelaVeiculos;
