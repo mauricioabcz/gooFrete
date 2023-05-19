@@ -519,7 +519,7 @@ public class JanelaCadastroVeiculo extends javax.swing.JPanel {
             }
         });
 
-        cb_Transportadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins" }));
+        cb_Transportadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { Janela.traducao.getString("cb_Selecione"), "Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espírito Santo", "Goiás", "Maranhão", "Mato Grosso", "Mato Grosso do Sul", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins" }));
 
         bt_Limpar.setBackground(new java.awt.Color(255, 255, 255));
         bt_Limpar.setText("Limpar");
@@ -579,7 +579,7 @@ public class JanelaCadastroVeiculo extends javax.swing.JPanel {
             }
         });
 
-        cb_EquipmentType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Carro", "Caminhão", "Ônibus", "Moto" }));
+        cb_EquipmentType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { Janela.traducao.getString("cb_Selecione"), "Carro", "Caminhão", "Ônibus", "Moto" }));
 
         sp_Eixos.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
 
@@ -784,7 +784,7 @@ public class JanelaCadastroVeiculo extends javax.swing.JPanel {
         }
         //Atualiza lista
         cb_Transportadores.removeAllItems();
-        cb_Transportadores.addItem("Selecione");
+        cb_Transportadores.addItem(Janela.traducao.getString("cb_Selecione"));
         for (int i = 0; i < listaTransportadores.size(); i++) {
             
             carrierName = listaTransportadores.get(i).getCarrierName();

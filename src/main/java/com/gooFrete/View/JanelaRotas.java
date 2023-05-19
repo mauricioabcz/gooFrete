@@ -521,7 +521,7 @@ public class JanelaRotas extends javax.swing.JPanel {
             }
         });
 
-        cb_Transportadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+        cb_Transportadores.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
         cb_Transportadores.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cb_TransportadoresItemStateChanged(evt);
@@ -586,11 +586,11 @@ public class JanelaRotas extends javax.swing.JPanel {
             }
         });
 
-        cb_TipoPedagio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Cartão", "Tag" }));
+        cb_TipoPedagio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { Janela.traducao.getString("cb_Selecione"), "Cartão", "Tag" }));
 
         lb_Veiculo.setText("Veículo:");
 
-        cb_Veiculos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
+        cb_Veiculos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { Janela.traducao.getString("cb_Selecione") }));
 
         lb_AdicionarDestino.setText("Adicionar destino:");
 
@@ -808,7 +808,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         
         //Atualiza lista
         cb_Transportadores.removeAllItems();
-        cb_Transportadores.addItem("Selecione");
+        cb_Transportadores.addItem(Janela.traducao.getString("cb_Selecione"));
         for (int i = 0; i < listaTransportadores.size(); i++) {
             
             carrierName = listaTransportadores.get(i).getCarrierName();
@@ -927,7 +927,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         //Atualiza tabela
         //Atualiza lista
         cb_Veiculos.removeAllItems();
-        cb_Veiculos.addItem("Selecione");
+        cb_Veiculos.addItem(Janela.traducao.getString("cb_Selecione"));
         for (int i = 0; i < listaVeiculos.size(); i++) {
             eixos = listaVeiculos.get(i).getEixos();
             placa = listaVeiculos.get(i).getLicensePlate();
@@ -1089,7 +1089,7 @@ public class JanelaRotas extends javax.swing.JPanel {
 
     private void cb_TransportadoresItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_TransportadoresItemStateChanged
         if (evt.getStateChange() == ItemEvent.SELECTED) {
-            if (cb_Transportadores.getSelectedItem().toString().equals("Selecione")) {
+            if (cb_Transportadores.getSelectedItem().toString().equals(Janela.traducao.getString("cb_Selecione"))) {
                 cb_Veiculos.setEnabled(false);
                 System.out.println("Transportador não selecionado.");
             } else {

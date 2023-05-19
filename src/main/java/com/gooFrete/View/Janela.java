@@ -4,6 +4,7 @@ import com.gooFrete.Translate.Internationalization;
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javax.swing.SwingUtilities;
 
@@ -93,7 +94,31 @@ public class Janela extends javax.swing.JFrame {
         
         /* Create and display the form */
         
-        Janela.loadLanguage("pt", "BR");
+        String targetLanguage, targetCountry;
+        if(args.length != 2){ //Execução sem parâmetros
+            targetLanguage = System.getProperty("user.language");
+            targetCountry = System.getProperty("user.country");
+        } else { //Execução com parâmetros
+            targetLanguage = args[0];
+            targetCountry = args[1];
+        }
+        
+        //Avaliando traduções disponíveis
+        ArrayList<String> traducoesDisponiveis = new ArrayList();
+        traducoesDisponiveis.add("pt");
+        traducoesDisponiveis.add("en");
+        traducoesDisponiveis.add("es");
+        traducoesDisponiveis.add("la");
+        traducoesDisponiveis.add("fr");
+        traducoesDisponiveis.add("it");
+        traducoesDisponiveis.add("ja");
+        traducoesDisponiveis.add("de");
+        if (!traducoesDisponiveis.contains(targetLanguage)) {
+            targetLanguage = "pt";
+            targetCountry = "BR";
+        }
+        //Gerando tradução
+        Janela.loadLanguage(targetLanguage, targetCountry);
         
         j = new Janela();
         j.setLocationRelativeTo(null);

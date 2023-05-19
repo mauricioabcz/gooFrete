@@ -721,7 +721,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
-                <StringItem index="0" value="Selecione"/>
+                <StringItem index="0" value=" "/>
                 <StringItem index="1" value="Empresa Transportadora de Cargas - ETC"/>
                 <StringItem index="2" value="Transportador Auton&#xf4;mo de Cargas - TAC"/>
               </StringArray>
@@ -743,7 +743,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="28">
-                <StringItem index="0" value="Selecione"/>
+                <StringItem index="0" value=" "/>
                 <StringItem index="1" value="Acre"/>
                 <StringItem index="2" value="Alagoas"/>
                 <StringItem index="3" value="Amap&#xe1;"/>
@@ -850,7 +850,7 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
-                <StringItem index="0" value="Selecione"/>
+                <StringItem index="0" value=" "/>
                 <StringItem index="1" value="Brasil"/>
               </StringArray>
             </Property>
