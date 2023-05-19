@@ -31,10 +31,10 @@ Exportación de informes en PDF de transportadores, vehículos y viajes.cion
 #### Marco de Hibernación:
 1. [https://hibernate.org](https://hibernate.org)
 #### JDBC para servidor SQL:
-2. [https://learn.microsoft.com/pt-br/sql/connect/jdbc/deploying-the-jdbc-driver?view=sql-server-ver16](https://learn.microsoft.com/ pt-br/sql/connect/jdbc/deploying-the-jdbc-driver?view=sql-server-ver16)
+2. [https://learn.microsoft.com/pt-br/sql/connect/jdbc/deploying-the-jdbc-driver?view=sql-server-ver16](https://learn.microsoft.com/pt-br/sql/connect/jdbc/deploying-the-jdbc-driver?view=sql-server-ver16)
 #### Información de la API utilizada:
 3. [https://rotasbrasil.com.br/configuracaoApi/v3](https://rotasbrasil.com.br/configuracaoApi/v3)
-#### Estudio de administración del servidor SQL:
-4. [https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16](https://learn.microsoft. com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
+#### SQL Server Management Studio:
+4. [https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
 #### Tutorial JSON de Jackson:
 5. [https://www.baeldung.com/jackson](https://www.baeldung.com/jackson)
