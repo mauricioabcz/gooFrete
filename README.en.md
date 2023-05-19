@@ -31,10 +31,10 @@ PDF report export of transporters, vehicles and trips.
 #### Framework Hibernate:
 1. [https://hibernate.org](https://hibernate.org)
 #### JDBC for SQLServer:
-2. [https://learn.microsoft.com/pt-br/sql/connect/jdbc/deploying-the-jdbc-driver?view=sql-server-ver16](https://learn.microsoft.com/ pt-br/sql/connect/jdbc/deploying-the-jdbc-driver?view=sql-server-ver16)
+2. [https://learn.microsoft.com/pt-br/sql/connect/jdbc/deploying-the-jdbc-driver?view=sql-server-ver16](https://learn.microsoft.com/pt-br/sql/connect/jdbc/deploying-the-jdbc-driver?view=sql-server-ver16)
 #### API information used:
 3. [https://rotasbrasil.com.br/configuracaoApi/v3](https://rotasbrasil.com.br/configuracaoApi/v3)
 #### SQL Server Management Studio:
-4. [https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16](https://learn.microsoft. com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
+4. [https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver16)
 #### Jackson JSON Tutorial:
 5. [https://www.baeldung.com/jackson](https://www.baeldung.com/jackson)
