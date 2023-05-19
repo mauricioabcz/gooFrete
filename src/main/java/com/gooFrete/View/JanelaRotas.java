@@ -46,6 +46,7 @@ public class JanelaRotas extends javax.swing.JPanel {
     
     public JanelaRotas() {
         initComponents();
+        traduzir();
         setColor(btn_4); 
         ind_4.setOpaque(true);
         resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaCadastros, btn_JanelaSettings}, new JPanel[]{ind_2,ind_1, ind_3, ind_5});
@@ -57,6 +58,39 @@ public class JanelaRotas extends javax.swing.JPanel {
         atualizaTabela();
         
     }
+    
+    public void traduzir(){
+        this.lb_TelaRotasTitle.setText(Janela.traducao.getString("lb_TelaRotasTitle"));
+        this.lb_Home.setText(Janela.traducao.getString("lb_Home"));
+        this.lb_Cadastros.setText(Janela.traducao.getString("lb_Cadastros"));
+        this.lb_Rotas.setText(Janela.traducao.getString("lb_Rotas"));
+        this.lb_Relatorios.setText(Janela.traducao.getString("lb_Relatorios"));
+        this.lb_Settings.setText(Janela.traducao.getString("lb_Settings"));
+        this.lb_Logout.setText(Janela.traducao.getString("lb_Logout"));
+        this.lb_TipoPedagio.setText(Janela.traducao.getString("lb_TipoPedagio"));
+        this.lb_Transportador.setText(Janela.traducao.getString("lb_Transportador"));
+        this.lb_Veiculo.setText(Janela.traducao.getString("lb_Veiculo"));
+        this.lb_AdicionarDestino.setText(Janela.traducao.getString("lb_AdicionarDestino"));
+        this.bt_Limpar.setText(Janela.traducao.getString("bt_Limpar"));
+        this.bt_Att.setText(Janela.traducao.getString("bt_Atualizar"));
+        this.bt_RemoverViagem.setText(Janela.traducao.getString("bt_Remover"));
+        this.bt_RemoverDestino.setText(Janela.traducao.getString("bt_Remover"));
+        this.bt_Calcular.setText(Janela.traducao.getString("bt_Calcular"));
+        this.bt_Sobe.setText(Janela.traducao.getString("bt_Sobe"));
+        this.bt_Desce.setText(Janela.traducao.getString("bt_Desce"));
+        this.bt_AtdicionarDestino.setText(Janela.traducao.getString("bt_AdicionarDestino"));
+        this.bt_Details.setText(Janela.traducao.getString("bt_Detalhes"));
+        this.tabelaViagens.getColumnModel().getColumn(0).setHeaderValue(Janela.traducao.getString("tb_Tipo"));
+        this.tabelaViagens.getColumnModel().getColumn(1).setHeaderValue(Janela.traducao.getString("tb_Viagem"));
+        this.tabelaViagens.getColumnModel().getColumn(2).setHeaderValue(Janela.traducao.getString("tb_CNPJCPF"));
+        this.tabelaViagens.getColumnModel().getColumn(3).setHeaderValue(Janela.traducao.getString("tb_Transportador"));
+        this.tabelaViagens.getColumnModel().getColumn(4).setHeaderValue(Janela.traducao.getString("tb_Distancia"));
+        this.tabelaViagens.getColumnModel().getColumn(5).setHeaderValue(Janela.traducao.getString("tb_Duracao"));
+        this.tabelaDestinos.getColumnModel().getColumn(0).setHeaderValue(Janela.traducao.getString("tb_Ordem"));
+        this.tabelaDestinos.getColumnModel().getColumn(1).setHeaderValue(Janela.traducao.getString("tb_CidadeETC"));
+        
+    }
+    
     public void gotoJanelaHome(){
         Janela.p1 = new JanelaHome();
         JFrame janela = (JFrame) SwingUtilities.getWindowAncestor(Janela.p5);
@@ -91,27 +125,27 @@ public class JanelaRotas extends javax.swing.JPanel {
         side_pane = new javax.swing.JPanel();
         btn_Home = new javax.swing.JPanel();
         ind_1 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
+        lb_Home = new javax.swing.JLabel();
         btn_JanelaRelatorios = new javax.swing.JPanel();
         ind_2 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
+        lb_Relatorios = new javax.swing.JLabel();
         btn_JanelaCadastros = new javax.swing.JPanel();
         ind_3 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
+        lb_Cadastros = new javax.swing.JLabel();
         btn_4 = new javax.swing.JPanel();
         ind_4 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
+        lb_Rotas = new javax.swing.JLabel();
         btn_JanelaSettings = new javax.swing.JPanel();
         ind_5 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        lb_Settings = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tabelaViagens = new javax.swing.JTable();
         bt_Att = new javax.swing.JButton();
         bt_RemoverViagem = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lb_NovoVeiculo = new javax.swing.JLabel();
+        lb_TipoPedagio = new javax.swing.JLabel();
+        lb_Transportador = new javax.swing.JLabel();
         bt_Details = new javax.swing.JButton();
         cb_Transportadores = new javax.swing.JComboBox<>();
         bt_Limpar = new javax.swing.JButton();
@@ -121,17 +155,17 @@ public class JanelaRotas extends javax.swing.JPanel {
         tabelaDestinos = new javax.swing.JTable();
         bt_AtdicionarDestino = new javax.swing.JButton();
         cb_TipoPedagio = new javax.swing.JComboBox<>();
-        jLabel17 = new javax.swing.JLabel();
+        lb_Veiculo = new javax.swing.JLabel();
         cb_Veiculos = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
+        lb_AdicionarDestino = new javax.swing.JLabel();
         tf_Destino = new javax.swing.JTextField();
         bt_RemoverDestino = new javax.swing.JButton();
         bt_Desce = new javax.swing.JButton();
         bt_Sobe = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lb_Logout = new javax.swing.JLabel();
+        lb_TelaRotasTitle = new javax.swing.JLabel();
 
         side_pane.setBackground(new java.awt.Color(23, 35, 51));
         side_pane.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -157,8 +191,8 @@ public class JanelaRotas extends javax.swing.JPanel {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Home");
+        lb_Home.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Home.setText("Home");
 
         javax.swing.GroupLayout btn_HomeLayout = new javax.swing.GroupLayout(btn_Home);
         btn_Home.setLayout(btn_HomeLayout);
@@ -167,7 +201,7 @@ public class JanelaRotas extends javax.swing.JPanel {
             .addGroup(btn_HomeLayout.createSequentialGroup()
                 .addComponent(ind_1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel8)
+                .addComponent(lb_Home)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         btn_HomeLayout.setVerticalGroup(
@@ -177,7 +211,7 @@ public class JanelaRotas extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(btn_HomeLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_Home, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -204,8 +238,8 @@ public class JanelaRotas extends javax.swing.JPanel {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel9.setText("Relatórios");
+        lb_Relatorios.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Relatorios.setText("Relatórios");
 
         javax.swing.GroupLayout btn_JanelaRelatoriosLayout = new javax.swing.GroupLayout(btn_JanelaRelatorios);
         btn_JanelaRelatorios.setLayout(btn_JanelaRelatoriosLayout);
@@ -214,7 +248,7 @@ public class JanelaRotas extends javax.swing.JPanel {
             .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addComponent(ind_2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel9)
+                .addComponent(lb_Relatorios)
                 .addGap(0, 30, Short.MAX_VALUE))
         );
         btn_JanelaRelatoriosLayout.setVerticalGroup(
@@ -224,7 +258,7 @@ public class JanelaRotas extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(btn_JanelaRelatoriosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_Relatorios, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -251,8 +285,8 @@ public class JanelaRotas extends javax.swing.JPanel {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Cadastros");
+        lb_Cadastros.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Cadastros.setText("Cadastros");
 
         javax.swing.GroupLayout btn_JanelaCadastrosLayout = new javax.swing.GroupLayout(btn_JanelaCadastros);
         btn_JanelaCadastros.setLayout(btn_JanelaCadastrosLayout);
@@ -261,7 +295,7 @@ public class JanelaRotas extends javax.swing.JPanel {
             .addGroup(btn_JanelaCadastrosLayout.createSequentialGroup()
                 .addComponent(ind_3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel10)
+                .addComponent(lb_Cadastros)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         btn_JanelaCadastrosLayout.setVerticalGroup(
@@ -271,7 +305,7 @@ public class JanelaRotas extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(btn_JanelaCadastrosLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_Cadastros, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -298,8 +332,8 @@ public class JanelaRotas extends javax.swing.JPanel {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("Rotas");
+        lb_Rotas.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Rotas.setText("Rotas");
 
         javax.swing.GroupLayout btn_4Layout = new javax.swing.GroupLayout(btn_4);
         btn_4.setLayout(btn_4Layout);
@@ -308,7 +342,7 @@ public class JanelaRotas extends javax.swing.JPanel {
             .addGroup(btn_4Layout.createSequentialGroup()
                 .addComponent(ind_4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel11)
+                .addComponent(lb_Rotas)
                 .addGap(0, 53, Short.MAX_VALUE))
         );
         btn_4Layout.setVerticalGroup(
@@ -318,7 +352,7 @@ public class JanelaRotas extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(btn_4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_Rotas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -345,8 +379,8 @@ public class JanelaRotas extends javax.swing.JPanel {
             .addGap(0, 43, Short.MAX_VALUE)
         );
 
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Settings");
+        lb_Settings.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Settings.setText("Settings");
 
         javax.swing.GroupLayout btn_JanelaSettingsLayout = new javax.swing.GroupLayout(btn_JanelaSettings);
         btn_JanelaSettings.setLayout(btn_JanelaSettingsLayout);
@@ -355,7 +389,7 @@ public class JanelaRotas extends javax.swing.JPanel {
             .addGroup(btn_JanelaSettingsLayout.createSequentialGroup()
                 .addComponent(ind_5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
-                .addComponent(jLabel12)
+                .addComponent(lb_Settings)
                 .addGap(0, 40, Short.MAX_VALUE))
         );
         btn_JanelaSettingsLayout.setVerticalGroup(
@@ -365,7 +399,7 @@ public class JanelaRotas extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(btn_JanelaSettingsLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lb_Settings, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -428,12 +462,12 @@ public class JanelaRotas extends javax.swing.JPanel {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("Novo Veículo");
+        lb_NovoVeiculo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lb_NovoVeiculo.setText("Novo Veículo");
 
-        jLabel4.setText("Tipo Pedágio:");
+        lb_TipoPedagio.setText("Tipo Pedágio:");
 
-        jLabel15.setText("Transportador:");
+        lb_Transportador.setText("Transportador:");
 
         bt_Details.setBackground(new java.awt.Color(255, 255, 255));
         bt_Details.setText("Detalhes");
@@ -512,11 +546,11 @@ public class JanelaRotas extends javax.swing.JPanel {
 
         cb_TipoPedagio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione", "Cartão", "Tag" }));
 
-        jLabel17.setText("Veículo:");
+        lb_Veiculo.setText("Veículo:");
 
         cb_Veiculos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
 
-        jLabel5.setText("Adicionar destino:");
+        lb_AdicionarDestino.setText("Adicionar destino:");
 
         bt_RemoverDestino.setBackground(new java.awt.Color(255, 255, 255));
         bt_RemoverDestino.setText("Remover");
@@ -578,25 +612,25 @@ public class JanelaRotas extends javax.swing.JPanel {
                                 .addComponent(bt_Sobe)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(bt_Desce))
-                            .addComponent(jLabel2)
+                            .addComponent(lb_NovoVeiculo)
                             .addComponent(jLabel18)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15)
-                                    .addComponent(jLabel4))
+                                    .addComponent(lb_Transportador)
+                                    .addComponent(lb_TipoPedagio))
                                 .addGap(25, 25, 25)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cb_Transportadores, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(cb_TipoPedagio, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel17)
-                                    .addComponent(jLabel5))
-                                .addGap(12, 12, 12)
+                                    .addComponent(lb_Veiculo)
+                                    .addComponent(lb_AdicionarDestino))
+                                .addGap(6, 6, 6)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tf_Destino)
-                                    .addComponent(cb_Veiculos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                    .addComponent(cb_Veiculos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tf_Destino))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(12, 12, 12))
         );
@@ -607,22 +641,22 @@ public class JanelaRotas extends javax.swing.JPanel {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 499, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(lb_NovoVeiculo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
+                            .addComponent(lb_TipoPedagio)
                             .addComponent(cb_TipoPedagio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
+                            .addComponent(lb_Transportador)
                             .addComponent(cb_Transportadores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17)
+                            .addComponent(lb_Veiculo)
                             .addComponent(cb_Veiculos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
+                            .addComponent(lb_AdicionarDestino)
                             .addComponent(tf_Destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -656,18 +690,18 @@ public class JanelaRotas extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(".\\images\\iconExit.png"));
-        jLabel1.setText("Logout");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        lb_Logout.setForeground(new java.awt.Color(255, 255, 255));
+        lb_Logout.setIcon(new javax.swing.ImageIcon(".\\images\\iconExit.png"));
+        lb_Logout.setText("Logout");
+        lb_Logout.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel1MousePressed(evt);
+                lb_LogoutMousePressed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Rotas > Gerenciar Viagens");
+        lb_TelaRotasTitle.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lb_TelaRotasTitle.setForeground(new java.awt.Color(255, 255, 255));
+        lb_TelaRotasTitle.setText("Rotas > Gerenciar Viagens");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -675,9 +709,9 @@ public class JanelaRotas extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel3)
+                .addComponent(lb_TelaRotasTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(lb_Logout)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addContainerGap())
@@ -692,8 +726,8 @@ public class JanelaRotas extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1))))
+                            .addComponent(lb_TelaRotasTitle)
+                            .addComponent(lb_Logout))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -957,12 +991,12 @@ public class JanelaRotas extends javax.swing.JPanel {
         setColor(btn_JanelaSettings);
         ind_5.setOpaque(true);
         resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_4, btn_JanelaRelatorios}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
-        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
+        ReturnMessagePane.informationPainel(Janela.traducao.getString("alert_EmObras"));
     }//GEN-LAST:event_btn_JanelaSettingsMouseReleased
 
-    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
+    private void lb_LogoutMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_LogoutMousePressed
         System.exit(0);
-    }//GEN-LAST:event_jLabel1MousePressed
+    }//GEN-LAST:event_lb_LogoutMousePressed
 
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
         // TODO add your handling code here:
@@ -1042,7 +1076,7 @@ public class JanelaRotas extends javax.swing.JPanel {
     }//GEN-LAST:event_tabelaViagensMouseClicked
 
     private void bt_DetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_DetailsMouseClicked
-        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
+        ReturnMessagePane.informationPainel(Janela.traducao.getString("alert_EmObras"));
     }//GEN-LAST:event_bt_DetailsMouseClicked
 
     int xx, xy;
@@ -1168,24 +1202,24 @@ public class JanelaRotas extends javax.swing.JPanel {
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_5;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lb_AdicionarDestino;
+    private javax.swing.JLabel lb_Cadastros;
+    private javax.swing.JLabel lb_Home;
+    private javax.swing.JLabel lb_Logout;
+    private javax.swing.JLabel lb_NovoVeiculo;
+    private javax.swing.JLabel lb_Relatorios;
+    private javax.swing.JLabel lb_Rotas;
+    private javax.swing.JLabel lb_Settings;
+    private javax.swing.JLabel lb_TelaRotasTitle;
+    private javax.swing.JLabel lb_TipoPedagio;
+    private javax.swing.JLabel lb_Transportador;
+    private javax.swing.JLabel lb_Veiculo;
     private javax.swing.JPanel side_pane;
     private javax.swing.JTable tabelaDestinos;
     private javax.swing.JTable tabelaViagens;

@@ -64,6 +64,14 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         this.bt_Att.setText(Janela.traducao.getString("bt_Atualizar"));
         this.bt_Remover.setText(Janela.traducao.getString("bt_Remover"));
         this.bt_Details.setText(Janela.traducao.getString("bt_Detalhes"));
+        this.tabelaTransportadores.getColumnModel().getColumn(0).setHeaderValue(Janela.traducao.getString("tb_Transportador"));
+        this.tabelaTransportadores.getColumnModel().getColumn(1).setHeaderValue(Janela.traducao.getString("tb_CNPJCPF"));
+        this.tabelaTransportadores.getColumnModel().getColumn(2).setHeaderValue(Janela.traducao.getString("tb_Tipo"));
+        this.tabelaVeiculos.getColumnModel().getColumn(0).setHeaderValue(Janela.traducao.getString("tb_Tipo"));
+        this.tabelaVeiculos.getColumnModel().getColumn(1).setHeaderValue(Janela.traducao.getString("tb_Modelo"));
+        this.tabelaVeiculos.getColumnModel().getColumn(2).setHeaderValue(Janela.traducao.getString("tb_Marca"));
+        this.tabelaVeiculos.getColumnModel().getColumn(3).setHeaderValue(Janela.traducao.getString("tb_Placa"));
+        this.tabelaVeiculos.getColumnModel().getColumn(4).setHeaderValue(Janela.traducao.getString("tb_Eixos"));
     }
     
     public void gotoJanelaHome(){
@@ -938,7 +946,7 @@ public class JanelaCadastroTransportador extends javax.swing.JPanel {
         setColor(btn_JanelaSettings);
         ind_5.setOpaque(true);
         resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_JanelaRotas, btn_JanelaRelatorios}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
-        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
+        ReturnMessagePane.informationPainel(Janela.traducao.getString("alert_EmObras"));
     }//GEN-LAST:event_btn_JanelaSettingsMouseReleased
 
     private void bt_AttActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_AttActionPerformed

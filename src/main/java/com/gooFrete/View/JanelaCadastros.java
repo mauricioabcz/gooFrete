@@ -497,7 +497,7 @@ public class JanelaCadastros extends javax.swing.JPanel {
         setColor(btn_JanelaSettings);
         ind_5.setOpaque(true);
         resetColor(new JPanel[]{btn_Home,btn_JanelaCadastros,btn_JanelaRotas, btn_JanelaRelatorios}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
-        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
+        ReturnMessagePane.informationPainel(Janela.traducao.getString("alert_EmObras"));
     }//GEN-LAST:event_btn_JanelaSettingsMouseReleased
 
     private void btn_JanelaCadastroTransportadorMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_JanelaCadastroTransportadorMousePressed

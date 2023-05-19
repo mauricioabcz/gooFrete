@@ -589,7 +589,7 @@ public class JanelaHome extends javax.swing.JPanel {
         setColor(btn_5);
         ind_5.setOpaque(true);
         resetColor(new JPanel[]{btn_1,btn_JanelaCadastros,btn_JanelaRotas, btn_JanelaRelatorios}, new JPanel[]{ind_1,ind_3, ind_4, ind_2});
-        ReturnMessagePane.informationPainel("Função em desenvolvimento.");
+        ReturnMessagePane.informationPainel(Janela.traducao.getString("alert_EmObras"));
     }//GEN-LAST:event_btn_5MouseReleased
 
     private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged

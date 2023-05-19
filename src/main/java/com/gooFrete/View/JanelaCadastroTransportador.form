@@ -445,55 +445,44 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="bt_Salvar" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lb_CNPJCPF" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lb_Endereco" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lb_Bairro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lb_Cidade" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lb_Estado" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lb_CEP" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="tf_CNPJCPF" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
-                                      <Component id="tf_Endereco" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
-                                      <Component id="tf_Bairro" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
-                                      <Component id="tf_Cidade" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
-                                      <Component id="tf_CEP" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
-                                      <Component id="cb_Estado" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lb_RazaoSocial" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
-                                  <Component id="tf_Nome" min="-2" pref="417" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="lb_NovoTransportador" min="-2" max="-2" attributes="0"/>
-                              <Component id="lb_VeiculosVinculados" min="-2" max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lb_CNPJCPF" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lb_Endereco" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lb_Bairro" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lb_Cidade" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lb_Estado" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lb_CEP" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="lb_Telefone" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="lb_Pais" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="lb_Tipo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tf_Telefone" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
-                                  <Component id="cb_Pais" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
-                                  <Component id="cb_Tipo" alignment="0" min="-2" pref="417" max="-2" attributes="0"/>
-                              </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="tf_CNPJCPF" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
+                              <Component id="tf_Endereco" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
+                              <Component id="tf_Bairro" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
+                              <Component id="tf_Cidade" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
+                              <Component id="tf_CEP" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
+                              <Component id="cb_Estado" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="lb_RazaoSocial" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                          <Component id="tf_Nome" min="-2" pref="417" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="lb_NovoTransportador" min="-2" max="-2" attributes="0"/>
+                      <Component id="lb_VeiculosVinculados" min="-2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="lb_Telefone" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lb_Pais" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lb_Tipo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="tf_Telefone" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
+                              <Component id="cb_Pais" alignment="1" min="-2" pref="417" max="-2" attributes="0"/>
+                              <Component id="cb_Tipo" alignment="0" min="-2" pref="417" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
