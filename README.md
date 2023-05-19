@@ -9,7 +9,7 @@ O sistema gooFrete tem como finalidade auxiliar no processo de fretes em uma emp
 - Adicionar a dependência AbsoluteLayout-RELEASE65.jar.
 
 ## Como utilizar
-- O programa inicializa na janela home e contém um campo “Teste”, (com o comando System.exit(0);), assim como nesse campo em todas as janelas, localizada no campo superior direito, há uma imagem junto com a escrita “Logout” para fechar as janelas;
+- O programa inicializa na janela home que contém oito campos, cada um com a bandeira do país e o seu respectivo idioma (português, inglês, espanhol, japonês, latim, italiano, francês e alemão), há também um campo em todas as janelas, localizada no campo superior direito, há uma imagem junto com a escrita “Logout” para fechar as janelas, (com o comando System.exit(0););
 - Para cadastrar os transportadores e veículos deve entrar no menu “Cadastros”, este contém duas opções;
 Ao selecionar "Transportador" abre a janela Cadastros > Transportador, nela se deve inserir os dados, razão social, CNPJ/CPF, endereço, bairro, cidade, estado, CEP, país, tipo de transportador, telefone e clicar no botão “Novo”. O botão “Atualizar Cadastro” irá atualizar os dados do transportador, limpar os campos e atualizar a tabela;
 - Ao selecionar “Veículos” abre a janela Cadastros > Veículos, a esquerda há uma tabela com as colunas tipo, modelo, marca, placa e eixos, caso os dados dos campos localizados a direita forem inseridos corretamente a tabela será atualizada ao clicar no botão “Atualizar Cadastro”;
