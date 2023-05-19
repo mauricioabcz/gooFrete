@@ -3,6 +3,7 @@ package com.gooFrete.View;
 import com.gooFrete.Model.ReturnMessagePane;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -18,6 +19,11 @@ public class JanelaCadastros extends javax.swing.JPanel {
     public JanelaCadastros() {
         initComponents();
         traduzir();
+        if (Janela.selectLanguage.equals("ja_JP")) {
+            ajustaFonteJapones();
+        } else {
+            ajustaFonteOutros();
+        }
         setColor(btn_JanelaCadastros); 
         ind_3.setOpaque(true);
         resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaRotas, btn_JanelaSettings}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
@@ -33,6 +39,45 @@ public class JanelaCadastros extends javax.swing.JPanel {
         this.lb_Logout.setText(Janela.traducao.getString("lb_Logout"));
         this.btn_JanelaCadastroTransportador.setText(Janela.traducao.getString("lb_Transportador"));
         this.btn_JanelaCadastroVeiculos.setText(Janela.traducao.getString("lb_Veiculos"));
+    }
+    
+    public void ajustaFonteJapones(){
+        // Define a fonte desejada
+        Font fonte = new Font("MS Gothic", Font.BOLD, 14);
+        // Aplica a fonte às labels
+        this.btn_JanelaCadastroTransportador.setFont(fonte);
+        this.btn_JanelaCadastroVeiculos.setFont(fonte);
+        // Define a fonte desejada
+        Font fonte2 = new Font("MS Gothic", Font.PLAIN, 12);
+        Font fonte3 = new Font("MS Gothic", Font.PLAIN, 18);
+        // Aplica a fonte às labels
+        this.lb_Title.setFont(fonte3);
+        this.lb_Home.setFont(fonte2);
+        this.lb_Cadastros.setFont(fonte2);
+        this.lb_Rotas.setFont(fonte2);
+        this.lb_Relatorios.setFont(fonte2);
+        this.lb_Settings.setFont(fonte2);
+        this.lb_Logout.setFont(fonte2);
+    }
+    
+    public void ajustaFonteOutros(){
+        // Define a fonte desejada
+        Font fonte = new Font("Segoe UI", Font.BOLD, 14);
+        // Aplica a fonte às labels
+        this.btn_JanelaCadastroTransportador.setFont(fonte);
+        this.btn_JanelaCadastroVeiculos.setFont(fonte);
+        // Define a fonte desejada
+        Font fonte2 = new Font("Segoe UI", Font.PLAIN, 12);
+        // Define a fonte desejada
+        Font fonte3 = new Font("Segoe UI", Font.PLAIN, 18);
+        // Aplica a fonte às labels
+        this.lb_Title.setFont(fonte3);
+        this.lb_Home.setFont(fonte2);
+        this.lb_Cadastros.setFont(fonte2);
+        this.lb_Rotas.setFont(fonte2);
+        this.lb_Relatorios.setFont(fonte2);
+        this.lb_Settings.setFont(fonte2);
+        this.lb_Logout.setFont(fonte2);
     }
     
     public void gotoJanelaHome(){

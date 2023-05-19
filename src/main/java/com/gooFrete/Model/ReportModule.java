@@ -1,6 +1,7 @@
 package com.gooFrete.Model;
 
 import com.gooFrete.Controller.CarrierController;
+import com.gooFrete.View.Janela;
 import com.itextpdf.io.font.constants.StandardFonts;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
@@ -70,7 +71,7 @@ public class ReportModule {
         
     public void carrierReport(List<Carrier> listaTransportadores) throws IOException{
         PdfWriter writer = null;
-        this.destinoArquivo = salvaRelatorio("Relatório de Transportadores");
+        this.destinoArquivo = salvaRelatorio(Janela.traducao.getString("rt_ReportTransportadores"));
         //this.destinoArquivo = "./teste.pdf";
         try {
             PdfFont titleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
@@ -87,7 +88,7 @@ public class ReportModule {
             //documento.setMargins(pageMargins.getLeft(), pageMargins.getRight(), pageMargins.getTop(), pageMargins.getBottom());
 
             // Title
-            Text titleText = new Text("Relatório de Transportadores")
+            Text titleText = new Text(Janela.traducao.getString("rt_ReportTransportadores"))
                     .setFont(titleFont)
                     .setFontSize(FONT_SIZE_TITLE);
             documento.add(new Paragraph(titleText).setHorizontalAlignment(HorizontalAlignment.CENTER));
@@ -95,7 +96,7 @@ public class ReportModule {
             // Subtitle
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             String formattedDate = LocalDateTime.now().format(formatter);
-            Text subtitleText = new Text("Extração em " + formattedDate)
+            Text subtitleText = new Text(Janela.traducao.getString("rt_DataGeracao") + " " + formattedDate)
                     .setFont(subtitleFont)
                     .setFontSize(FONT_SIZE_SUBTITLE);
             documento.add(new Paragraph(subtitleText).setHorizontalAlignment(HorizontalAlignment.CENTER));
@@ -120,61 +121,61 @@ public class ReportModule {
             
             //a primeira linha sera o cabecalho (celula1 e 2)
             Cell celula1 = new Cell();
-            celula1.add(new Paragraph("Transportador"));
+            celula1.add(new Paragraph(Janela.traducao.getString("rt_Transportador")));
             celula1.setTextAlignment(TextAlignment.CENTER);
             celula1.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula1);
             
             Cell celula2 = new Cell();
-            celula2.add(new Paragraph("CPF/CNPJ"));
+            celula2.add(new Paragraph(Janela.traducao.getString("rt_CPFCNPJ")));
             celula2.setTextAlignment(TextAlignment.CENTER);
             celula2.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula2);
             
             Cell celula3 = new Cell();
-            celula3.add(new Paragraph("Endereço"));
+            celula3.add(new Paragraph(Janela.traducao.getString("rt_Endereco")));
             celula3.setTextAlignment(TextAlignment.CENTER);
             celula3.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula3);
             
             Cell celula4 = new Cell();
-            celula4.add(new Paragraph("Bairro"));
+            celula4.add(new Paragraph(Janela.traducao.getString("rt_Bairro")));
             celula4.setTextAlignment(TextAlignment.CENTER);
             celula4.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula4);
             
             Cell celula5 = new Cell();
-            celula5.add(new Paragraph("Cidade"));
+            celula5.add(new Paragraph(Janela.traducao.getString("rt_Cidade")));
             celula5.setTextAlignment(TextAlignment.CENTER);
             celula5.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula5);
             
             Cell celula6 = new Cell();
-            celula6.add(new Paragraph("Estado"));
+            celula6.add(new Paragraph(Janela.traducao.getString("rt_Estado")));
             celula6.setTextAlignment(TextAlignment.CENTER);
             celula6.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula6);
             
             Cell celula7 = new Cell();
-            celula7.add(new Paragraph("País"));
+            celula7.add(new Paragraph(Janela.traducao.getString("rt_Pais")));
             celula7.setTextAlignment(TextAlignment.CENTER);
             celula7.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula7);
             
             Cell celula8 = new Cell();
-            celula8.add(new Paragraph("CEP"));
+            celula8.add(new Paragraph(Janela.traducao.getString("rt_CEP")));
             celula8.setTextAlignment(TextAlignment.CENTER);
             celula8.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula8);
             
             Cell celula9 = new Cell();
-            celula9.add(new Paragraph("Telefone"));
+            celula9.add(new Paragraph(Janela.traducao.getString("rt_Telefone")));
             celula9.setTextAlignment(TextAlignment.CENTER);
             celula9.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula9);
             
             Cell celula10 = new Cell();
-            celula10.add(new Paragraph("Tipo"));
+            celula10.add(new Paragraph(Janela.traducao.getString("rt_Tipo")));
             celula10.setTextAlignment(TextAlignment.CENTER);
             celula10.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula10);
@@ -210,7 +211,7 @@ public class ReportModule {
     
     public void travelReport(List<Travel> listaViagens) throws IOException, ParseException{
         PdfWriter writer = null;
-        this.destinoArquivo = salvaRelatorio("Relatório de Viagens");
+        this.destinoArquivo = salvaRelatorio(Janela.traducao.getString("rt_ReportViagens"));
         //this.destinoArquivo = "./teste2.pdf";
         try {
             PdfFont titleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
@@ -227,7 +228,7 @@ public class ReportModule {
             //documento.setMargins(pageMargins.getLeft(), pageMargins.getRight(), pageMargins.getTop(), pageMargins.getBottom());
 
             // Title
-            Text titleText = new Text("Relatório de Viagens")
+            Text titleText = new Text(Janela.traducao.getString("rt_ReportViagens"))
                     .setFont(titleFont)
                     .setFontSize(FONT_SIZE_TITLE);
             documento.add(new Paragraph(titleText).setHorizontalAlignment(HorizontalAlignment.CENTER));
@@ -235,7 +236,7 @@ public class ReportModule {
             // Subtitle
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             String formattedDate = LocalDateTime.now().format(formatter);
-            Text subtitleText = new Text("Extração em " + formattedDate)
+            Text subtitleText = new Text(Janela.traducao.getString("rt_DataGeracao") + " " + formattedDate)
                     .setFont(subtitleFont)
                     .setFontSize(FONT_SIZE_SUBTITLE);
             documento.add(new Paragraph(subtitleText).setHorizontalAlignment(HorizontalAlignment.CENTER));
@@ -260,49 +261,49 @@ public class ReportModule {
             
             //a primeira linha sera o cabecalho (celula1 e 2)
             Cell celula1 = new Cell();
-            celula1.add(new Paragraph("Viagem"));
+            celula1.add(new Paragraph(Janela.traducao.getString("rt_Viagem")));
             celula1.setTextAlignment(TextAlignment.CENTER);
             celula1.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula1);
             
             Cell celula2 = new Cell();
-            celula2.add(new Paragraph("Transportador"));
+            celula2.add(new Paragraph(Janela.traducao.getString("rt_Transportador")));
             celula2.setTextAlignment(TextAlignment.CENTER);
             celula2.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula2);
             
             Cell celula3 = new Cell();
-            celula3.add(new Paragraph("CNPJ/CPF"));
+            celula3.add(new Paragraph(Janela.traducao.getString("rt_CPFCNPJ")));
             celula3.setTextAlignment(TextAlignment.CENTER);
             celula3.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula3);
             
             Cell celula4 = new Cell();
-            celula4.add(new Paragraph("Distância"));
+            celula4.add(new Paragraph(Janela.traducao.getString("rt_Distancia")));
             celula4.setTextAlignment(TextAlignment.CENTER);
             celula4.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula4);
             
             Cell celula5 = new Cell();
-            celula5.add(new Paragraph("Duração"));
+            celula5.add(new Paragraph(Janela.traducao.getString("rt_Duracao")));
             celula5.setTextAlignment(TextAlignment.CENTER);
             celula5.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula5);
             
             Cell celula6 = new Cell();
-            celula6.add(new Paragraph("Valor"));
+            celula6.add(new Paragraph(Janela.traducao.getString("rt_Valor")));
             celula6.setTextAlignment(TextAlignment.CENTER);
             celula6.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula6);
             
             Cell celula7 = new Cell();
-            celula7.add(new Paragraph("Pagamento"));
+            celula7.add(new Paragraph(Janela.traducao.getString("rt_Pagamento")));
             celula7.setTextAlignment(TextAlignment.CENTER);
             celula7.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula7);
             
             Cell celula8 = new Cell();
-            celula8.add(new Paragraph("Data"));
+            celula8.add(new Paragraph(Janela.traducao.getString("rt_Data")));
             celula8.setTextAlignment(TextAlignment.CENTER);
             celula8.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula8);
@@ -339,7 +340,7 @@ public class ReportModule {
         this.connectionString = databaseConfig.getConnectionString();
         
         PdfWriter writer = null;
-        this.destinoArquivo = salvaRelatorio("Relatório de Veículos");
+        this.destinoArquivo = salvaRelatorio(Janela.traducao.getString("rt_ReportVeiculos"));
         //this.destinoArquivo = "./teste3.pdf";
         try {
             PdfFont titleFont = PdfFontFactory.createFont(StandardFonts.HELVETICA_BOLD);
@@ -356,7 +357,7 @@ public class ReportModule {
             //documento.setMargins(pageMargins.getLeft(), pageMargins.getRight(), pageMargins.getTop(), pageMargins.getBottom());
 
             // Title
-            Text titleText = new Text("Relatório de Veículos")
+            Text titleText = new Text(Janela.traducao.getString("rt_ReportVeiculos"))
                     .setFont(titleFont)
                     .setFontSize(FONT_SIZE_TITLE);
             documento.add(new Paragraph(titleText).setHorizontalAlignment(HorizontalAlignment.CENTER));
@@ -364,7 +365,7 @@ public class ReportModule {
             // Subtitle
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
             String formattedDate = LocalDateTime.now().format(formatter);
-            Text subtitleText = new Text("Extração em " + formattedDate)
+            Text subtitleText = new Text(Janela.traducao.getString("rt_DataGeracao") + " " + formattedDate)
                     .setFont(subtitleFont)
                     .setFontSize(FONT_SIZE_SUBTITLE);
             documento.add(new Paragraph(subtitleText).setHorizontalAlignment(HorizontalAlignment.CENTER));
@@ -389,49 +390,49 @@ public class ReportModule {
             
             //a primeira linha sera o cabecalho (celula1 e 2)
             Cell celula1 = new Cell();
-            celula1.add(new Paragraph("Transportador"));
+            celula1.add(new Paragraph(Janela.traducao.getString("rt_Transportador")));
             celula1.setTextAlignment(TextAlignment.CENTER);
             celula1.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula1);
             
             Cell celula2 = new Cell();
-            celula2.add(new Paragraph("CNPJ/CPF"));
+            celula2.add(new Paragraph(Janela.traducao.getString("rt_CPFCNPJ")));
             celula2.setTextAlignment(TextAlignment.CENTER);
             celula2.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula2);
             
             Cell celula3 = new Cell();
-            celula3.add(new Paragraph("Tipo"));
+            celula3.add(new Paragraph(Janela.traducao.getString("rt_Tipo")));
             celula3.setTextAlignment(TextAlignment.CENTER);
             celula3.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula3);
             
             Cell celula4 = new Cell();
-            celula4.add(new Paragraph("Modelo"));
+            celula4.add(new Paragraph(Janela.traducao.getString("rt_Modelo")));
             celula4.setTextAlignment(TextAlignment.CENTER);
             celula4.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula4);
             
             Cell celula5 = new Cell();
-            celula5.add(new Paragraph("Marca"));
+            celula5.add(new Paragraph(Janela.traducao.getString("tb_Marca")));
             celula5.setTextAlignment(TextAlignment.CENTER);
             celula5.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula5);
             
             Cell celula6 = new Cell();
-            celula6.add(new Paragraph("Eixos"));
+            celula6.add(new Paragraph(Janela.traducao.getString("rt_Eixos")));
             celula6.setTextAlignment(TextAlignment.CENTER);
             celula6.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula6);
             
             Cell celula7 = new Cell();
-            celula7.add(new Paragraph("Placa"));
+            celula7.add(new Paragraph(Janela.traducao.getString("rt_Placa")));
             celula7.setTextAlignment(TextAlignment.CENTER);
             celula7.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula7);
             
             Cell celula8 = new Cell();
-            celula8.add(new Paragraph("Tipo"));
+            celula8.add(new Paragraph(Janela.traducao.getString("rt_Tipo")));
             celula8.setTextAlignment(TextAlignment.CENTER);
             celula8.setBackgroundColor(ColorConstants.GRAY);
             tabela.addCell(celula8);
@@ -448,7 +449,7 @@ public class ReportModule {
             String selectSql = "select a.CarrierName, a.CarrierCNPJCPF, b.Type, b.Modelo, b.Marca, b.Eixos, b.LicensePlate, a.Type from carrier.Carrier a inner join carrier.Equipment b on a.Id = b.CarrierId";
             statement = connection.createStatement();
             resultSet = statement.executeQuery(selectSql);
-
+            System.out.println(resultSet.toString());
             // Create results from select statement
             while (resultSet.next()) {
                 tabela.addCell(new Cell().add(new Paragraph(resultSet.getString(1))));

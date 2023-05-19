@@ -10,6 +10,7 @@ import com.gooFrete.Model.Travel;
 import com.gooFrete.Model.Viagem;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ItemEvent;
 import java.io.File;
 import java.io.IOException;
@@ -47,6 +48,11 @@ public class JanelaRotas extends javax.swing.JPanel {
     public JanelaRotas() {
         initComponents();
         traduzir();
+        if (Janela.selectLanguage.equals("ja_JP")) {
+            ajustaFonteJapones();
+        } else {
+            ajustaFonteOutros();
+        }
         setColor(btn_4); 
         ind_4.setOpaque(true);
         resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaCadastros, btn_JanelaSettings}, new JPanel[]{ind_2,ind_1, ind_3, ind_5});
@@ -80,6 +86,8 @@ public class JanelaRotas extends javax.swing.JPanel {
         this.bt_Desce.setText(Janela.traducao.getString("bt_Desce"));
         this.bt_AtdicionarDestino.setText(Janela.traducao.getString("bt_AdicionarDestino"));
         this.bt_Details.setText(Janela.traducao.getString("bt_Detalhes"));
+        this.lb_NovoVeiculo.setText(Janela.traducao.getString("lb_NovoVeiculo"));
+        this.lb_DestinosSelecionados.setText(Janela.traducao.getString("bt_DestinosSelecionados"));
         this.tabelaViagens.getColumnModel().getColumn(0).setHeaderValue(Janela.traducao.getString("tb_Tipo"));
         this.tabelaViagens.getColumnModel().getColumn(1).setHeaderValue(Janela.traducao.getString("tb_Viagem"));
         this.tabelaViagens.getColumnModel().getColumn(2).setHeaderValue(Janela.traducao.getString("tb_CNPJCPF"));
@@ -89,6 +97,40 @@ public class JanelaRotas extends javax.swing.JPanel {
         this.tabelaDestinos.getColumnModel().getColumn(0).setHeaderValue(Janela.traducao.getString("tb_Ordem"));
         this.tabelaDestinos.getColumnModel().getColumn(1).setHeaderValue(Janela.traducao.getString("tb_CidadeETC"));
         
+    }
+    
+    public void ajustaFonteJapones(){
+        // Define a fonte desejada
+        Font fonte4 = new Font("MS Gothic", Font.PLAIN, 14);
+        Font fonte2 = new Font("MS Gothic", Font.PLAIN, 12);
+        Font fonte3 = new Font("MS Gothic", Font.PLAIN, 18);
+        // Aplica a fonte às labels
+        this.lb_TelaRotasTitle.setFont(fonte3);
+        this.lb_NovoVeiculo.setFont(fonte4);
+        this.lb_DestinosSelecionados.setFont(fonte4);
+        this.lb_Home.setFont(fonte2);
+        this.lb_Cadastros.setFont(fonte2);
+        this.lb_Rotas.setFont(fonte2);
+        this.lb_Relatorios.setFont(fonte2);
+        this.lb_Settings.setFont(fonte2);
+        this.lb_Logout.setFont(fonte2);
+    }
+    
+    public void ajustaFonteOutros(){
+        // Define a fonte desejada
+        Font fonte4 = new Font("Segoe UI", Font.PLAIN, 14);
+        Font fonte2 = new Font("Segoe UI", Font.PLAIN, 12);
+        Font fonte3 = new Font("Segoe UI", Font.PLAIN, 18);
+        // Aplica a fonte às labels
+        this.lb_TelaRotasTitle.setFont(fonte3);
+        this.lb_NovoVeiculo.setFont(fonte4);
+        this.lb_DestinosSelecionados.setFont(fonte4);
+        this.lb_Home.setFont(fonte2);
+        this.lb_Cadastros.setFont(fonte2);
+        this.lb_Rotas.setFont(fonte2);
+        this.lb_Relatorios.setFont(fonte2);
+        this.lb_Settings.setFont(fonte2);
+        this.lb_Logout.setFont(fonte2);
     }
     
     public void gotoJanelaHome(){
@@ -150,7 +192,7 @@ public class JanelaRotas extends javax.swing.JPanel {
         cb_Transportadores = new javax.swing.JComboBox<>();
         bt_Limpar = new javax.swing.JButton();
         bt_Calcular = new javax.swing.JButton();
-        jLabel18 = new javax.swing.JLabel();
+        lb_DestinosSelecionados = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabelaDestinos = new javax.swing.JTable();
         bt_AtdicionarDestino = new javax.swing.JButton();
@@ -506,8 +548,8 @@ public class JanelaRotas extends javax.swing.JPanel {
             }
         });
 
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel18.setText("Destinos Selecionados");
+        lb_DestinosSelecionados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lb_DestinosSelecionados.setText("Destinos Selecionados");
 
         tabelaDestinos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -613,7 +655,7 @@ public class JanelaRotas extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(bt_Desce))
                             .addComponent(lb_NovoVeiculo)
-                            .addComponent(jLabel18)
+                            .addComponent(lb_DestinosSelecionados)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -664,7 +706,7 @@ public class JanelaRotas extends javax.swing.JPanel {
                             .addComponent(bt_AtdicionarDestino)
                             .addComponent(bt_Limpar))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel18)
+                        .addComponent(lb_DestinosSelecionados)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1202,7 +1244,6 @@ public class JanelaRotas extends javax.swing.JPanel {
     private javax.swing.JPanel ind_3;
     private javax.swing.JPanel ind_4;
     private javax.swing.JPanel ind_5;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
@@ -1210,6 +1251,7 @@ public class JanelaRotas extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel lb_AdicionarDestino;
     private javax.swing.JLabel lb_Cadastros;
+    private javax.swing.JLabel lb_DestinosSelecionados;
     private javax.swing.JLabel lb_Home;
     private javax.swing.JLabel lb_Logout;
     private javax.swing.JLabel lb_NovoVeiculo;

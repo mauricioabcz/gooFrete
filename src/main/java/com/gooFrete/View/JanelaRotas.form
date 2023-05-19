@@ -451,7 +451,7 @@
                                   <Component id="bt_Desce" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="lb_NovoVeiculo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lb_DestinosSelecionados" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane2" alignment="0" pref="503" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -518,7 +518,7 @@
                               <Component id="bt_Limpar" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
+                          <Component id="lb_DestinosSelecionados" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
                       </Group>
@@ -686,7 +686,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="bt_CalcularActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel18">
+        <Component class="javax.swing.JLabel" name="lb_DestinosSelecionados">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="14" style="0"/>

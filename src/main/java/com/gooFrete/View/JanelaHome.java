@@ -3,6 +3,7 @@ package com.gooFrete.View;
 import com.gooFrete.Model.ReturnMessagePane;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.io.File;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -18,6 +19,11 @@ public class JanelaHome extends javax.swing.JPanel {
     public JanelaHome() {
         initComponents();
         this.traduzir();
+        if (Janela.selectLanguage.equals("ja_JP")) {
+            ajustaFonteJapones();
+        } else {
+            ajustaFonteOutros();
+        }
         setColor(btn_1); 
         ind_1.setOpaque(true);
         resetColor(new JPanel[]{btn_JanelaRelatorios,btn_JanelaCadastros,btn_JanelaRotas}, new JPanel[]{ind_2,ind_3, ind_4});
@@ -39,6 +45,55 @@ public class JanelaHome extends javax.swing.JPanel {
         this.lb_GE.setText(Janela.traducao.getString("lb_Germany"));
         this.lb_JP.setText(Janela.traducao.getString("lb_Japan"));
         this.lb_IT.setText(Janela.traducao.getString("lb_Italian"));
+    }
+    
+    public void ajustaFonteJapones(){
+        // Define a fonte desejada
+        Font fonte = new Font("MS Gothic", Font.BOLD, 14);
+        // Aplica a fonte às labels
+        this.lb_PT.setFont(fonte);
+        this.lb_US.setFont(fonte);
+        this.lb_LT.setFont(fonte);
+        this.lb_ES.setFont(fonte);
+        this.lb_FR.setFont(fonte);
+        this.lb_GE.setFont(fonte);
+        this.lb_JP.setFont(fonte);
+        this.lb_IT.setFont(fonte);
+        // Define a fonte desejada
+        Font fonte2 = new Font("MS Gothic", Font.PLAIN, 12);
+        // Aplica a fonte às labels
+        this.lb_Home.setFont(fonte2);
+        this.lb_Cadastros.setFont(fonte2);
+        this.lb_Rotas.setFont(fonte2);
+        this.lb_Relatorios.setFont(fonte2);
+        this.lb_Settings.setFont(fonte2);
+        this.lb_Logout.setFont(fonte2);
+    }
+    
+    public void ajustaFonteOutros(){
+        // Define a fonte desejada
+        Font fonte = new Font("Segoe UI", Font.BOLD, 14);
+        // Aplica a fonte às labels
+        this.lb_PT.setFont(fonte);
+        this.lb_US.setFont(fonte);
+        this.lb_LT.setFont(fonte);
+        this.lb_ES.setFont(fonte);
+        this.lb_FR.setFont(fonte);
+        this.lb_GE.setFont(fonte);
+        this.lb_JP.setFont(fonte);
+        this.lb_IT.setFont(fonte);
+        // Define a fonte desejada
+        Font fonte2 = new Font("Segoe UI", Font.PLAIN, 12);
+        // Define a fonte desejada
+        Font fonte3 = new Font("Segoe UI", Font.PLAIN, 18);
+        // Aplica a fonte às labels
+        this.lb_SoftwareName.setFont(fonte3);
+        this.lb_Home.setFont(fonte2);
+        this.lb_Cadastros.setFont(fonte2);
+        this.lb_Rotas.setFont(fonte2);
+        this.lb_Relatorios.setFont(fonte2);
+        this.lb_Settings.setFont(fonte2);
+        this.lb_Logout.setFont(fonte2);
     }
     
     public void trocaLingua(String targetLanguage, String targetCountry){
@@ -614,34 +669,42 @@ public class JanelaHome extends javax.swing.JPanel {
     }//GEN-LAST:event_lb_LogoutMousePressed
 
     private void lb_PTMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_PTMousePressed
+        ajustaFonteOutros();
         trocaLingua("pt", "BR");
     }//GEN-LAST:event_lb_PTMousePressed
 
     private void lb_USMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_USMousePressed
+         ajustaFonteOutros();
         trocaLingua("en", "US");
     }//GEN-LAST:event_lb_USMousePressed
 
     private void lb_ESMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_ESMousePressed
+         ajustaFonteOutros();
         trocaLingua("es", "ES");
     }//GEN-LAST:event_lb_ESMousePressed
 
     private void lb_JPMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_JPMousePressed
+        ajustaFonteJapones();
         trocaLingua("ja", "JP");
     }//GEN-LAST:event_lb_JPMousePressed
 
     private void lb_LTMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_LTMousePressed
+         ajustaFonteOutros();
         trocaLingua("la", "VA");
     }//GEN-LAST:event_lb_LTMousePressed
 
     private void lb_ITMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_ITMousePressed
+         ajustaFonteOutros();
         trocaLingua("it", "IT");
     }//GEN-LAST:event_lb_ITMousePressed
 
     private void lb_FRMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_FRMousePressed
+        ajustaFonteOutros();
         trocaLingua("fr", "FR");
     }//GEN-LAST:event_lb_FRMousePressed
 
     private void lb_GEMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_GEMousePressed
+        ajustaFonteOutros();
         trocaLingua("de", "DE");
     }//GEN-LAST:event_lb_GEMousePressed
 

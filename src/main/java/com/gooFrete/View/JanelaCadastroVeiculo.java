@@ -7,6 +7,7 @@ import com.gooFrete.Model.Equipment;
 import com.gooFrete.Model.ReturnMessagePane;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.io.File;
 import java.text.NumberFormat;
 import java.util.List;
@@ -31,6 +32,11 @@ public class JanelaCadastroVeiculo extends javax.swing.JPanel {
     public JanelaCadastroVeiculo() {
         initComponents();
         traduzir();
+        if (Janela.selectLanguage.equals("ja_JP")) {
+            ajustaFonteJapones();
+        } else {
+            ajustaFonteOutros();
+        }
         setColor(btn_JanelaCadastros); 
         ind_3.setOpaque(true);
         resetColor(new JPanel[]{btn_JanelaRelatorios,btn_Home,btn_JanelaRotas, btn_JanelaSettings}, new JPanel[]{ind_2,ind_1, ind_4, ind_5});
@@ -61,6 +67,8 @@ public class JanelaCadastroVeiculo extends javax.swing.JPanel {
         this.bt_Att.setText(Janela.traducao.getString("bt_Atualizar"));
         this.bt_Remover.setText(Janela.traducao.getString("bt_Remover"));
         this.bt_Details.setText(Janela.traducao.getString("bt_Detalhes"));
+        this.lb_Transportador.setText(Janela.traducao.getString("cb_Transportador"));
+        this.lb_TransportadoresVInculadosTitle.setText(Janela.traducao.getString("lb_VeiculosVinculados"));
         this.tabelaTransportadores.getColumnModel().getColumn(0).setHeaderValue(Janela.traducao.getString("tb_Transportador"));
         this.tabelaTransportadores.getColumnModel().getColumn(1).setHeaderValue(Janela.traducao.getString("tb_CNPJCPF"));
         this.tabelaTransportadores.getColumnModel().getColumn(2).setHeaderValue(Janela.traducao.getString("tb_Tipo"));
@@ -69,6 +77,40 @@ public class JanelaCadastroVeiculo extends javax.swing.JPanel {
         this.tabelaVeiculos.getColumnModel().getColumn(2).setHeaderValue(Janela.traducao.getString("tb_Marca"));
         this.tabelaVeiculos.getColumnModel().getColumn(3).setHeaderValue(Janela.traducao.getString("tb_Placa"));
         this.tabelaVeiculos.getColumnModel().getColumn(4).setHeaderValue(Janela.traducao.getString("tb_Eixos"));
+    }
+    
+    public void ajustaFonteJapones(){
+        // Define a fonte desejada
+        Font fonte4 = new Font("MS Gothic", Font.PLAIN, 14);
+        Font fonte2 = new Font("MS Gothic", Font.PLAIN, 12);
+        Font fonte3 = new Font("MS Gothic", Font.PLAIN, 18);
+        // Aplica a fonte às labels
+        this.lb_TelaVeiculoTitle.setFont(fonte3);
+        this.lb_NovoVeiculo.setFont(fonte4);
+        this.lb_TransportadoresVInculadosTitle.setFont(fonte4);
+        this.lb_Home.setFont(fonte2);
+        this.lb_Cadastros.setFont(fonte2);
+        this.lb_Rotas.setFont(fonte2);
+        this.lb_Relatorios.setFont(fonte2);
+        this.lb_Settings.setFont(fonte2);
+        this.lb_Logout.setFont(fonte2);
+    }
+    
+    public void ajustaFonteOutros(){
+        // Define a fonte desejada
+        Font fonte4 = new Font("Segoe UI", Font.PLAIN, 14);
+        Font fonte2 = new Font("Segoe UI", Font.PLAIN, 12);
+        Font fonte3 = new Font("Segoe UI", Font.PLAIN, 18);
+        // Aplica a fonte às labels
+        this.lb_TelaVeiculoTitle.setFont(fonte3);
+        this.lb_NovoVeiculo.setFont(fonte4);
+        this.lb_TransportadoresVInculadosTitle.setFont(fonte4);
+        this.lb_Home.setFont(fonte2);
+        this.lb_Cadastros.setFont(fonte2);
+        this.lb_Rotas.setFont(fonte2);
+        this.lb_Relatorios.setFont(fonte2);
+        this.lb_Settings.setFont(fonte2);
+        this.lb_Logout.setFont(fonte2);
     }
     
     public void gotoJanelaHome(){

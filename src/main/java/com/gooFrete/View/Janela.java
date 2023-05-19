@@ -20,7 +20,8 @@ public class Janela extends javax.swing.JFrame {
     static JanelaCadastroVeiculo p4;
     static JanelaRotas p5;
     static JanelaRelatorios p6;
-    static ResourceBundle traducao;
+    public static ResourceBundle traducao;
+    public static String selectLanguage;
     
     public Janela() {
         initComponents();
@@ -34,6 +35,7 @@ public class Janela extends javax.swing.JFrame {
     }
 
     public static void loadLanguage(String targetLanguage, String targetCountry){
+        selectLanguage = targetLanguage + "_" + targetCountry;
         Internationalization traduzir = new Internationalization();
         Janela.traducao = traduzir.internacionaliza(targetLanguage, targetCountry);
     }
