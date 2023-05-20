@@ -1,4 +1,7 @@
 #  gooFrete
+<img src="images/brasil.png" alt="Bandeira dos Estados Unidos" width="30" height="30">[Versión Portugués](README.md) 
+<img src="images/eua.png" alt="Bandeira dos Estados Unidos" width="30" height="30">[Versión Inglés](README.en.md) 
+
 ## Introducción
 El sistema gooFrete tiene como objetivo ayudar en el proceso de carga en una empresa, con datos de transportistas, vehículos y viajes a realizar.
 
