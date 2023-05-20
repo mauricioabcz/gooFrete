@@ -1,4 +1,7 @@
 #  gooFrete
+<img src="images/eua.png" alt="Bandeira dos Estados Unidos" width="30" height="30">[English version](README.en.md) 
+<img src="images/espanha.png" alt="Bandeira dos Estados Unidos" width="30" height="30">[Spanish version](README.es.md) 
+
 ## Introdução
 O sistema gooFrete tem como finalidade auxiliar no processo de fretes em uma empresa, com os dados de transportadores, veículos e viagens a serem realizadas.
 
