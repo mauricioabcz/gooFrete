@@ -1,6 +1,6 @@
 #  gooFrete
-<img src="images/brasil.png" alt="Bandeira dos Estados Unidos" width="30" height="30">[Portuguese version](README.md) 
-<img src="images/espanha.png" alt="Bandeira dos Estados Unidos" width="30" height="30">[Spanish version](README.en.md) 
+<img src="images/brasil.png" alt="Bandeira dos Estados Unidos" width="30" height="30">[Portuguese Version](README.md) 
+<img src="images/espanha.png" alt="Bandeira dos Estados Unidos" width="30" height="30">[Spanish Version](README.es.md) 
 
 ## Introduction
 The purpose of the gooFrete system is to assist in the freight process in a company, with data on carriers, vehicles and trips to be made.
